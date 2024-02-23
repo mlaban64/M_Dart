@@ -1,0 +1,47 @@
+with Core_Types; use Core_Types;
+with Samplers;              use Samplers;
+
+--<summary>The Materials.Reflective package contains all Abstract Data Types for generic material handling</summary>
+--<description>The Materials package contains all Abstract Data Types for generic material handling.
+--</description>
+--<group>Lambertians</group>
+
+package Materials.Reflective is
+
+   ------------------
+   --  ADT Reflective
+   ------------------
+   type Reflective is new Material with private;
+
+   type Reflective_Ptr is access all Reflective;
+   --<summary>The access type to all Reflective materials</summary>
+
+   function Construct_Reflective (Name : in String; Diff_Spec, Spec_Spec : RGB_Spectrum; Kd, Ks : Small_Float) return Material_Ptr;
+   --<summary>Constructs a Reflective material</summary>
+   --<description>Constructs a Reflective material</description>
+   --<parameter name="Name">The name of the material</parameter>
+   --<parameter name="Diff_Spec">The diffuse reflection spectrum of the material</parameter>
+   --<parameter name="Spec_Spec">The specular reflection spectrum of the material</parameter>
+   --<parameter name="Kd">The diffuse reflection coefficient of the material</parameter>
+   --<parameter name="Ks">The specular reflection coefficient of the material</parameter>
+   --<exception>None at this moment</exception>
+
+   function BDRF (Mat : in Reflective; In_Ray : in Ray; Hp : HitPoint) return RGB_Spectrum;
+   --<summary>Computes the BDRF value for a material at a hitpoint for an incoming ray</summary>
+   --<description>Computes the BDRF value for a material at a hitpoint for an incoming ray</description>
+   --<parameter name="Mat">A material of the Material Class Wide Type</parameter>
+   --<parameter name="In_Ray">The incoming ray for this hitpoint</parameter>
+   --<parameter name="Hp">The hitpoint</parameter>
+   --<exception>None at this moment</exception>
+
+private
+
+   type Reflective is new Material with record
+      Diffuse_Reflection_Spectrum  : RGB_Spectrum;
+      Specular_Reflection_Spectrum : RGB_Spectrum;
+      Kd, Ks                       : Small_Float;
+      --  Diffuse and specular reflection coefficient. In general: Kd + Ks = 1
+      Specular_Sampler_Ptr : Sampler_Ptr := null;
+   end record;
+
+end Materials.Reflective;

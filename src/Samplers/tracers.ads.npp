@@ -1,0 +1,26 @@
+with Linear_Math; use Linear_Math;
+with Colors;      use Colors;
+
+--<summary>The Tracers package contains the main ray tracer functions</summary>
+--<description>The Tracers package contains the main ray tracer functions</description>
+--<group>Materials</group>
+
+package Tracers is
+
+   --------------------
+   --  Tracer Functions
+   --------------------
+
+   function Trace_Ray (R : in Ray; Level : Positive) return RGB_Spectrum;
+   --<summary>Traces a ray through The_World and returns the light spectrum</summary>
+   --<description>Traces a ray through the scene and returns the light spectrum</description>
+   --<parameter name="Ray">The ray to cast</parameter>
+   --<parameter name="Level">The recursion level</parameter>
+   --<exception>None at this moment</exception>
+
+private
+
+   MAX_RECURSION_LEVEL : Positive := 10;
+   --  Maximum recursion level for a path of rays
+
+end Tracers;

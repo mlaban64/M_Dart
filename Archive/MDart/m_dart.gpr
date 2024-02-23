@@ -1,0 +1,28 @@
+project M_Dart is
+
+   for Languages use ("Ada", "C");
+   for Source_Dirs use (".", "X11Windows", "StdTypes", "Math3D", "MDart", "StdFunctions", "Colors", "Shaders", "Materials", "Objects");
+   for Main use ("m_dart.adb");
+
+   package Ide is
+   end Ide;
+
+   package Compiler is
+      for Default_Switches ("ada") use ("-gnaty3cbehiklnxuSOpr", "-gnatVa", "-gnatw.e", "-g", "-gnatf");
+   end Compiler;
+
+   package Pretty_Printer is
+      for Default_Switches ("ada") use ("-M99");
+   end Pretty_Printer;
+
+   package Builder is
+      for Default_Switches ("ada") use ("-s");
+   end Builder;
+
+   package Linker is
+      for Linker_Options use ("-lX11");
+      for Default_Switches ("ada") use ("-lX11");
+   end Linker;
+
+end M_Dart;
+

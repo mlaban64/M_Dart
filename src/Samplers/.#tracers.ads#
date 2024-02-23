@@ -1,0 +1,49 @@
+with Linear_Math; use Linear_Math;
+with Colors;      use Colors;
+with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
+
+--<summary>The Tracers package contains the main sampler & ray tracer functions</summary>
+--<description>The Tracers package contains the main sampler & ray tracer functions. Samplers are used to distribute
+--rays according to some sampling distribution. Specific samplers are defined in sub-packages</description>
+--<group>Shading</group>
+
+package Samplers is
+
+   --------------
+   -- ADT Sampler
+   --------------
+
+   type Sampler is tagged private;
+   --<summary>ADT of the root type of all Sampler objects</summary>
+
+   type Sampler_Ptr is access all Sampler'Class;
+   --<summary>The access type to all Sampler'Class objects</summary
+
+   procedure Put (Smp : in Sampler'Class; Msg : in String := "Object ");
+   --<summary>Prints a Sampler's statistics</summary>
+   --<description>Prints a Sampler's statistics</description>
+   --<parameter name="Smp">A Sampler of the Sampler Class Wide Type</parameter>
+   --<exception>None at this moment</exception>
+
+   procedure Initialize (Smp : in out Sampler);
+   --<summary>Initializes a Sampler/summary>
+   --<description>Initializes a Sampler</description>
+   --<parameter name="Smp">The sampler to initialize</parameter>
+   --<exception>None at this moment</exception>
+
+   function Get_Next_Sample (Smp : in out Sampler) return Ray;
+   --<summary>Get the next Ray for this sampler/summary>
+   --<description>Get the next Ray for this sampler</description>
+   --<parameter name="Smp">The sampler to get the next ray from</parameter>
+   --<exception>None at this moment</exception>
+
+private
+
+   type Sampler is tagged record
+      Name : Unbounded_String := To_Unbounded_String ("NOT DEFINED");
+      --  The Name of the Sampler;
+      No_Of_Samples : Natural := 1;
+      --  The number of samples defined for this Sampler;
+   end record;
+
+end Samplers;

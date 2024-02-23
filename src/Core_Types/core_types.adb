@@ -1,0 +1,46 @@
+with Ada.Integer_Text_IO;                use Ada.Integer_Text_IO;
+with Ada.Long_Integer_Text_IO;           use Ada.Long_Integer_Text_IO;
+with Ada.Long_Long_Integer_Text_IO;      use Ada.Long_Long_Integer_Text_IO;
+-- with Ada.Long_Long_Long_Integer_Text_IO; use Ada.Long_Long_Long_Integer_Text_IO;
+with Ada.Float_Text_IO;                  use Ada.Float_Text_IO;
+with Ada.Long_Float_Text_IO;             use Ada.Long_Float_Text_IO;
+with Ada.Long_Long_Float_Text_IO;        use Ada.Long_Long_Float_Text_IO;
+
+package body Core_Types is
+
+   procedure Put (N : in Small_Integer) is
+   begin
+      Put (Integer (N));
+   end Put;
+
+   procedure Put (N : in Normal_Integer) is
+   begin
+      Put (Integer (N));
+   end Put;
+
+   procedure Put (N : in Large_Integer) is
+   begin
+      Put (Long_Integer (N));
+   end Put;
+
+   procedure Put (N : in Huge_Integer) is
+   begin
+      Put (Long_Long_Integer (N));
+   end Put;
+
+   procedure Put (N : in Small_Float) is
+   begin
+      Put (Float (N));
+   end Put;
+
+   procedure Put (N : in Normal_Float) is
+   begin
+      Put (Long_Float (N));
+   end Put;
+
+   procedure Put (N : in Large_Float) is
+   begin
+      Put (Long_Long_Float (N));
+   end Put;
+
+end Core_Types;

@@ -1,0 +1,74 @@
+with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
+with Core_Types;            use Core_Types;
+with Spectra;               use Spectra;
+
+--<summary>The GraphiX package provides basic graphics capabilities to plot into an X11 window. It also provides simple image saving
+--routines and a pixel buffer structure to allow rendering without a graphical user interface</summary>
+--<description>The GraphiX package is the Ada binging & extension package using gfxlib.c & gfxlib.h, which contain some basic
+--X11-bases window routines. In addition, a structure is defined to store an Image in memory and save it as a PPM-3 file.
+--This structure is independant of the X11 Window handling and could be used to set pixels independently</description>
+--<group>Utilities</group>
+package Tone_Maps is
+
+   type Tone_Map (X_Max, Y_Max : Integer) is private;
+   --<summary>Tone_Map represents a frame buffer to store images as radiance & luminance values</summary>
+
+   Main_Tone_Map : access Tone_Map;
+   --  the main tone map buffer pointer
+
+   procedure Create_Tone_Map (XRes, YRes : in Integer);
+   --<summary>Create the Main_Tone_Map with a specific resolution</summary>
+   --<description>Create the Main_Tone_Map with a specific resolution</description>
+   --<parameter name="XRes">The width of the window to be created</parameter>
+   --<parameter name="YRes">The height of the window to be created</parameter>
+   --<exception>None at this moment</exception>
+
+   function Refactor_Radiance (Radiance : in RGB_Spectrum) return RGB_Spectrum;
+   --<summary>Divides a Spectrum by the Luminance Factors per color</summary>
+   --<description>Divides a Spectrum by the Luminance Factors per color</description>
+   --<parameter name="Radiance">The spectrum to divide</parameter>
+   --<exception>None at this moment</exception>
+
+   procedure Set_Pixel (X, Y : in Integer; Radiance : in RGB_Spectrum);
+   --<summary>Sets a pixel to a radiance, and compute the luminance and store it as well</summary>
+   --<description>Sets a pixel to a radiance, and compute the luminance and store it as well</description>
+   --<parameter name="X">The X coordinate of the pixel to be set</parameter>
+   --<parameter name="Y">The Y coordinate of the pixel to be set</parameter>
+   --<parameter name="Radiance">The RGB_Spectrum of the color to set the pixel with</parameter>
+   --<exception>None at this moment</exception>
+
+   procedure Map_Tones_To_Image;
+   --<summary>Maps the Tone Map image to the screen and image buffer</summary>
+   --<description>Maps the Tone Map image to the screen and image buffer</description>
+   --<exception>None at this moment</exception>
+
+private
+
+   RED_FACTOR   : constant Small_Float := 0.299;
+   GREEN_FACTOR : constant Small_Float := 0.587;
+   BLUE_FACTOR  : constant Small_Float := 0.114;
+
+   type Tone_Pixel is record
+      Radiance  : RGB_Spectrum;
+      Luminance : Small_Float := 0.0;
+   end record;
+
+   type Tone_Buffer is array (Integer range <>, Integer range <>) of Tone_Pixel;
+   --  <summary>Tone_Buffer is a generic array to instantiate a tone buffer</summary>
+
+   type Tone_Map (X_Max, Y_Max : Integer) is record
+      ToneBuffer : Tone_Buffer (0 .. X_Max, 0 .. Y_Max);
+      XRes, YRes : Integer;
+      Imin, Imax : Small_Float;
+      --  Min & Max luminance values for the image
+      Xmin, Ymin : Integer;
+      --  Coordinate belonging to the min luminance
+      Xmax, Ymax : Integer;
+      --  Coordinate belonging to the max luminance
+      Rmax, Gmax, Bmax : Small_Float;
+      --  Overall max R, G and B value
+      Rmin, Gmin, Bmin : Small_Float;
+      --  Overall min R, G and B value
+   end record;
+
+end Tone_Maps;

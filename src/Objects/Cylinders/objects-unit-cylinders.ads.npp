@@ -1,0 +1,35 @@
+--<summary>The Unit_Cylinders package contains the Abstract Data Type for ray tracing of a Unit Cylinder</summary>
+--<description>The Unit_Cylinders package contains the Abstract Data Type for ray tracing of a Unit Cylinder.
+--Unit cylinders are cylinders with a radius of 1 and centre at the origin. Unit cylinders can be transformed using affine
+--transformation. Rays will be transformed to the unit cylinder object coordinate system via the inverse object transformation.
+--</description>
+--<group>Objects</group>
+package Objects.Unit_Cylinders is
+
+   ------------------
+   -- ADT Unit_Cylinder
+   ------------------
+
+   type Unit_Cylinder is tagged private;
+   --<summary>ADT for the unit sphere</summary>
+
+   function Construct_Unit_Cylinder (Name : in String) return Object_Ptr;
+   --<summary>Creates a Unit_Cylinder object</summary>
+   --<description>Function that creates a Unit_Cylinder object</description>
+   --<parameter name="Name">The Name of the Unit_Cylinder</parameter>
+   --<exception>None at this moment</exception>
+
+   procedure Intersect (Cylinder : in Unit_Cylinder; R : in Ray; Hp_List : in out HitPoint_List; Obj_Ptr: in Object_Ptr);
+   --<summary>intersects a Unit_Cylinder with a Ray</summary>
+   --<description>Procedure to intersect a unit sphere with a ray. It adds the hitpoints to the hitpoint list</description>
+   --<parameter name="Cylinder">A Unit_Cylinder</parameter>
+   --<parameter name="R">A Ray that is intersected with the object</parameter>
+   --<parameter name="Hp_List">The HitPoint List to which any hitpoints are added</parameter>
+   --<parameter name="Obj_Ptr">To allow the hitpoint to have a pointer to the object being hit</parameter>
+   --<exception>None at this moment</exception>
+
+private
+   type Unit_Cylinder is new Object with null record;
+   --<summary>Unit_Cylinder is a child of the Class-wide type Object</summary>
+
+end Objects.Unit_Cylinders;

@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project >
+    <file_marker column=" 4" line=" 30" >
+      <vfs_project>/home/mlaban/Dev/M_Dart/m_dart.gpr</vfs_project>
+      <vfs_file>/home/mlaban/Dev/M_Dart/src/m_dart.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 34" line=" 792" >
+      <vfs_project>/home/mlaban/Dev/M_Dart/m_dart.gpr</vfs_project>
+      <vfs_file>/home/mlaban/Dev/M_Dart/src/Illustrations/illustrations.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 55" line=" 787" >
+      <vfs_project>/home/mlaban/Dev/M_Dart/m_dart.gpr</vfs_project>
+      <vfs_file>/home/mlaban/Dev/M_Dart/src/Illustrations/illustrations.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/mlaban/Dev/M_Dart/m_dart.gpr</vfs_project>
+      <vfs_file>/home/mlaban/Dev/M_Dart/src/Tone_Maps/tone_maps.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 95" line=" 19" >
+      <vfs_project>/home/mlaban/Dev/M_Dart/m_dart.gpr</vfs_project>
+      <vfs_file>/home/mlaban/Dev/M_Dart/src/Tone_Maps/tone_maps.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 4" line=" 60" >
+      <vfs_project>/home/mlaban/Dev/M_Dart/m_dart.gpr</vfs_project>
+      <vfs_file>/home/mlaban/Dev/M_Dart/src/Tone_Maps/tone_maps.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 30" line=" 15" >
+      <vfs_project>/home/mlaban/Dev/M_Dart/m_dart.gpr</vfs_project>
+      <vfs_file>/home/mlaban/Dev/M_Dart/src/Tone_Maps/tone_maps.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 13" line=" 25" >
+      <vfs_project>/home/mlaban/Dev/M_Dart/m_dart.gpr</vfs_project>
+      <vfs_file>/home/mlaban/Dev/M_Dart/src/Tone_Maps/tone_maps.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 13" line=" 15" >
+      <vfs_project>/home/mlaban/Dev/M_Dart/m_dart.gpr</vfs_project>
+      <vfs_file>/home/mlaban/Dev/M_Dart/src/Tone_Maps/tone_maps.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 43" line=" 100" >
+      <vfs_project>/home/mlaban/Dev/M_Dart/m_dart.gpr</vfs_project>
+      <vfs_file>/home/mlaban/Dev/M_Dart/src/Tone_Maps/tone_maps.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 13" line=" 106" >
+      <vfs_project>/home/mlaban/Dev/M_Dart/m_dart.gpr</vfs_project>
+      <vfs_file>/home/mlaban/Dev/M_Dart/src/Spectra/spectra.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/mlaban/Dev/M_Dart/m_dart.gpr</vfs_project>
+      <vfs_file>/home/mlaban/Dev/M_Dart/src/Tone_Maps/tone_maps.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 19" line=" 805" >
+      <vfs_project>/home/mlaban/Dev/M_Dart/m_dart.gpr</vfs_project>
+      <vfs_file>/home/mlaban/Dev/M_Dart/src/Illustrations/illustrations.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 14" line=" 129" >
+      <vfs_project>/home/mlaban/Dev/M_Dart/m_dart.gpr</vfs_project>
+      <vfs_file>/home/mlaban/Dev/M_Dart/src/Scenes/scenes.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 30" line=" 25" >
+      <vfs_project>/home/mlaban/Dev/M_Dart/m_dart.gpr</vfs_project>
+      <vfs_file>/home/mlaban/Dev/M_Dart/src/Tone_Maps/tone_maps.ads</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>

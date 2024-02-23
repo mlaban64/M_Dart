@@ -1,0 +1,45 @@
+--<summary>The Materials.Lambertian package contains all Abstract Data Types for Lambertian material handling</summary>
+--<description>The Materials.Lambertian package contains all Abstract Data Types for Lambertian material handling</description>
+--<group>Materials</group>
+package Materials.Lambertian is
+
+   ------------------
+   --  ADT Lambertian
+   ------------------
+   type Lambertian is new Material with private;
+
+   type Lambertian_Ptr is access all Lambertian;
+   --<summary>The access type to all Lambertian materials</summary>
+
+   function Construct_Lambertian
+     (Name                : in String;
+      Amb_Spec, Diff_Spec : in RGB_Spectrum;
+      Ka, Kd              : in Small_Float := 1.0) return Material_Ptr;
+   --<summary>Constructs a Lambertian material</summary>
+   --<description>Constructs a Lambertian material</description>
+   --<parameter name="Name">The name of the material</parameter>
+   --<parameter name="Amb_Spec">The ambient reflection spectrum of the material</parameter>
+   --<parameter name="Diff_Spec">The diffuse reflection spectrum of the material</parameter>
+   --<parameter name="Ka">The ambient reflection coefficient</parameter>
+   --<parameter name="Kd">The diffuse reflection coefficient</parameter>
+   --<exception>None at this moment</exception>
+
+   function BDRF (Mat : in Lambertian; In_Ray : in Ray; Hp : in HitPoint; Weight : in Small_Float) return RGB_Spectrum;
+   --<summary>Computes the BDRF value for a material at a hitpoint for an incoming ray</summary>
+   --<description>Computes the BDRF value for a material at a hitpoint for an incoming ray</description>
+   --<parameter name="Mat">A material of the Material Class Wide Type</parameter>
+   --<parameter name="In_Ray">The incoming ray for this hitpoint</parameter>
+   --<parameter name="Hp">The hitpoint</parameter>
+   --<parameter name="Weight">The weight for this ray, used to trim the recursion</parameter>
+   --<exception>None at this moment</exception>
+
+private
+
+   type Lambertian is new Material with record
+      Ambient_Reflection_Spectrum : RGB_Spectrum;
+      Diffuse_Reflection_Spectrum : RGB_Spectrum;
+      K_amb                       : Small_Float := 1.0;
+      K_diff                      : Small_Float := 1.0;
+   end record;
+
+end Materials.Lambertian;

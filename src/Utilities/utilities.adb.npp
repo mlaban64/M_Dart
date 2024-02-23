@@ -1,0 +1,81 @@
+with Ada.Text_IO;  use Ada.Text_IO;
+with Ada.Calendar; use Ada.Calendar;
+with Ada.Calendar.Formatting;
+
+package body Utilities is
+   startTime : Ada.Calendar.Time;
+   endTime   : Ada.Calendar.Time;
+   runTime   : Duration;
+
+   procedure Opening_Message is
+   begin
+      startTime := Clock;
+      New_Line;
+      Put_Line ("M-Dart, version " & M_Dart_Version);
+      New_Line;
+      Put ("Rendering started at: ");
+      Put_Line (Ada.Calendar.Formatting.Image (startTime, True, 60));
+      New_Line;
+   end Opening_Message;
+
+   procedure Closing_Message is
+   begin
+      endTime := Clock;
+      runTime := endTime - startTime;
+      Put ("Rendering runtime: ");
+      Put (Ada.Calendar.Formatting.Image (runTime, True));
+      Put_Line (" (hh:mm:ss.hs)");
+      New_Line;
+      --  Print the statistics
+      Put ("Number of primary rays traced: ");
+      Put (Number_Of_Primary_Rays);
+      New_Line;
+      Put ("Number of reflected rays traced: ");
+      Put (Number_Of_Reflected_Rays);
+      New_Line;
+      Put ("Number of transmitted rays traced: ");
+      Put (Number_Of_Transmitted_Rays);
+      New_Line;
+      Put ("Number of shadow rays traced: ");
+      Put (Number_Of_Shadow_Rays);
+      New_Line;
+      Put ("Number of unit sphere intersections: ");
+      Put (Number_Of_Unit_Sphere_Intersections);
+      New_Line;
+      Put ("Number of unit sphere hits: ");
+      Put (Number_Of_Unit_Sphere_Hits);
+      New_Line;
+      Put ("Number of unit cylinder intersections: ");
+      Put (Number_Of_Unit_Cylinder_Intersections);
+      New_Line;
+      Put ("Number of unit cylinder hits: ");
+      Put (Number_Of_Unit_Cylinder_Hits);
+      New_Line;
+      Put ("Number of unit cone intersections: ");
+      Put (Number_Of_Unit_Cone_Intersections);
+      New_Line;
+      Put ("Number of unit cone hits: ");
+      Put (Number_Of_Unit_Cone_Hits);
+      New_Line;
+      Put ("Number of unit cube intersections: ");
+      Put (Number_Of_Unit_Cube_Intersections);
+      New_Line;
+      Put ("Number of unit cube hits: ");
+      Put (Number_Of_Unit_Cube_Hits);
+      New_Line;
+      Put ("Number of CSG object evaluations: ");
+      Put (Number_Of_CSG_Object_Evaluations);
+      New_Line;
+      Put ("Maximum number of shadepoints per ray: ");
+      Put (Max_Number_Of_Shadepoints);
+      New_Line;
+   end Closing_Message;
+
+   procedure Debug_Message (Msg : in String; Level: in Integer := 0) is
+   begin
+      if Level <=  DEBUG_LEVEL then
+         Put_Line (Msg);
+         end if;
+   end Debug_Message;
+
+end Utilities;

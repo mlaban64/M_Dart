@@ -1,0 +1,236 @@
+with Core_Types;            use Core_Types;
+with Linear_Math;           use Linear_Math;
+with Spectra;               use Spectra;
+with Samplers;              use Samplers;
+with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
+
+--<summary>The Cameras package contains the Abstract Data Types for simulation of cameras</summary>
+--<description>The Cameras package contains the Abstract Data Types for simulation of cameras</description>
+--<group>Cameras</group>
+package Cameras is
+
+   ------------------
+   -- ADT Camera
+   ------------------
+
+   type Camera is tagged private;
+   --<summary>ADT of the root type of all Camera objects</summary>
+
+   type Camera_Ptr is access all Camera'Class;
+   --<summary>The access type to all Camera'Class objects</summary>
+
+   type Pixel_Samples is private;
+   --<summary>The type to hold pixel samples</summary>
+
+   function Construct_Basic_Camera
+     (Position        : in Point_3D;
+      Look_At         : in Point_3D;
+      Up              : in Vector_3D;
+      X_Res, Y_Res    : in Positive;
+      Width           : in Large_Float;
+      Screen_Distance : in Large_Float) return Camera_Ptr;
+   --<summary>Returns a basic Camera object</summary>
+   --<description>function to setup a pinhole camera</description>
+   --<parameter name="Position">The position of the camera</parameter>
+   --<parameter name="Look_At">The point where the camera looks at</parameter>
+   --<parameter name="Up">The up vector, defining the roll position of the camera</parameter>
+   --<parameter name="X_Res">The horizontal screen resolution</parameter>
+   --<parameter name="Y_Res">The vertical screen resolution</parameter>
+   --<parameter name="Width">The width of the screen in World length</parameter>
+   --<parameter name="Screen_Distance">The distance of the view plane from the camera point</parameter>
+   --<exception>None at this moment</exception>
+
+   procedure Put (Cam : in Camera'Class; Msg : in String := "Camera = ");
+   --<summary>Prints a Camera</summary>
+   --<description>Prints a Camera to the screen in a readable format, prefixed by an optional message</description>
+   --<parameter name="Cam">The pinhole camera to be printed</parameter>
+   --<parameter name="Msg">The message to be printed</parameter>
+   --<exception>None at this moment</exception>
+
+   procedure Set_Viewing_Params (Cam_Ptr : in Camera_Ptr; Position, Look_At : in Point_3D; Up : in Vector_3D);
+   --<summary>Sets the viewing parameters for this camera</summary>
+   --<description>Sets the viewing parameters for this camera</description>
+   --<parameter name="Cam_Ptr">Pointer to the camera to set the view parameters for</parameter>
+   --<parameter name="Position">The camera position in World coordinates</parameter>
+   --<parameter name="Look_At">The point the camera is looking at in World coordinates</parameter>
+   --<parameter name="Up">The Up vector, to define the roll of the camera</parameter>
+   --<exception>None at this moment</exception>
+
+   procedure Set_Screen_Params
+     (Cam_Ptr      : in Camera_Ptr;
+      X_Res, Y_Res : in Positive;
+      Width        : in Large_Float;
+      Distance     : in Large_Float);
+   --<summary>Sets the screen parameters for this camera</summary>
+   --<description>Sets the screen parameters for this camera</description>
+   --<parameter name="Cam_Ptr">Pointer to the camera to set the view parameters for</parameter>
+   --<parameter name="X_Res">The X-resolution of the screen</parameter>
+   --<parameter name="Y_Res">The Y-resolution of the screen</parameter>
+   --<parameter name="Width">The width of the screen in World length</parameter>
+   --<parameter name="Distance">The distance of the screen to the camera position in World length</parameter>
+   --<exception>None at this moment</exception>
+
+   function Get_Delta_X (Cam : in Camera) return Large_Float;
+   function Get_Delta_Y (Cam : in Camera) return Large_Float;
+   function Get_X_Res (Cam : in Camera) return Positive;
+   function Get_Y_Res (Cam : in Camera) return Positive;
+   function Get_Hor_Screen_Vec (Cam : in Camera) return Vector_3D;
+   function Get_Ver_Screen_Vec (Cam : in Camera) return Vector_3D;
+   function Get_LL_Screen_Corner (Cam : in Camera) return Point_3D;
+   function Get_Position (Cam : in Camera) return Point_3D;
+
+   procedure Set_Pixel_Sampler (Cam : in out Camera; Smp_Ptr : in Sampler_Ptr);
+   --<summary>Sets the Pixel_Sampler of a Camera</summary>
+   --<description>Sets the Pixel_Sampler of a Camera</description>
+   --<parameter name="Cam">A Camera</parameter>
+   --<parameter name="Smp_Ptr">A pointer to a sampler</parameter>
+   --<exception>None at this moment</exception>
+
+   function Get_Pixel_Sampler (Cam : in out Camera) return Sampler_Ptr;
+   --<summary>Gets the Pixel_Sampler of a Camera</summary>
+   --<description>Gets the Pixel_Sampler of a Camera</description>
+   --<parameter name="Cam">A Camera</parameter>
+   --<exception>None at this moment</exception>
+
+   function Get_Ray_For_Next_Pixel_Sample (Cam : in Camera; X, Y : in Natural) return Ray;
+   --<summary>Computes a single ray through the center of a pixel</summary>
+   --<description>Computes a single ray through the center of a pixel</description>
+   --<parameter name="Cam">The camera that takes the picture</parameter>
+   --<parameter name="X">The X-coordinate of the pixel</parameter>
+   --<parameter name="Y">The Y-coordinate of the pixel</parameter>
+   --<exception>None at this moment</exception>
+
+   procedure Set_Pixel_Sample (Cam : in out Camera'Class; Nr : in Integer; Radiance : in RGB_Spectrum; Position : Point_2D);
+   --<summary>Sets the radiance of a specific sample</summary>
+   --<description>Sets the radiance of a specific sample</description>
+   --<parameter name="Cam">The camera</parameter>
+   --<parameter name="Nr">The sample number</parameter>
+   --<parameter name="Radiance">The RGB value of the sample</parameter>
+   --<parameter name="Position">The position of the sample inside the pixel</parameter>
+   --<exception>None at this moment</exception>
+
+   function Sample_Pixel (Cam : in out Camera'Class; X, Y : in Natural) return RGB_Spectrum;
+   --<summary>Computes the average radiance through a pixel</summary>
+   --<description>Computes the average radiance through a pixel</description>
+   --<parameter name="Cam">The camera that takes the picture</parameter>
+   --<parameter name="X">The X-coordinate of the pixel</parameter>
+   --<parameter name="Y">The Y-coordinate of the pixel</parameter>
+   --<exception>None at this moment</exception>
+
+   ------------------
+   -- ADT Filter
+   ------------------
+
+   type Filter is tagged private;
+   --<summary>ADT of the root type of all Filter objects</summary>
+
+   type Filter_Ptr is access all Filter'Class;
+   --<summary>The access type to all Filter'Class objects</summary>
+
+   type Box_Filter is tagged private;
+   --<summary>ADT of a Box_Filter</summary>
+
+   type MultiStage_Filter is tagged private;
+   --<summary>ADT of a MultiStage_Filter</summary>
+
+   type Poisson_Filter is tagged private;
+   --<summary>ADT of a Poisson_Filter</summary>
+
+   procedure Put (Flter : in Filter'Class; Msg : in String := "Filter = ");
+
+   function Construct_Box_Filter return Filter_Ptr;
+
+   function Construct_MultiStage_Filter return Filter_Ptr;
+
+   function Construct_Poisson_Filter return Filter_Ptr;
+
+   procedure Set_Filter (Cam : in out Camera; Flt_Ptr : in Filter_Ptr);
+   --<summary>Sets the Filter of a Camera</summary>
+   --<description>Sets the Filter of a Camera</description>
+   --<parameter name="Cam">A Camera</parameter>
+   --<parameter name="Flt_Ptr">A pointer to a filter</parameter>
+   --<exception>None at this moment</exception>
+
+   function Get_Filter (Cam : in Camera) return Filter_Ptr;
+   --<summary>Gets the Filter of a Camera</summary>
+   --<description>Gets the Filter of a Camera</description>
+   --<parameter name="Cam">A Camera</parameter>
+   --<exception>None at this moment</exception>
+
+   function Filter_Samples (Flter : in Filter; Samples : Pixel_Samples; NumSamples : Positive) return RGB_Spectrum;
+   --<summary>Filters the samples for a pixel with a Filter</summary>
+   --<description>Filters the samples for a pixel with a Filter</description>
+   --<parameter name="Flter">A Filter</parameter>
+   --<parameter name="Samples">The samples to filter</parameter>
+   --<parameter name="NumSamples">The number of samples to filter> This may vary in case of adaptive sampling</parameter>
+   --<exception>None at this moment</exception>
+
+   function Filter_Samples (Flter : in Box_Filter; Samples : Pixel_Samples; NumSamples : Positive) return RGB_Spectrum;
+   --<summary>Filters the samples for a pixel with a Box Filter</summary>
+   --<description>Filters the samples for a pixel with a Box Filter</description>
+   --<parameter name="Flter">A Box Filter</parameter>
+   --<parameter name="Samples">The samples to filter</parameter>
+   --<parameter name="NumSamples">The number of samples to filter> This may vary in case of adaptive sampling</parameter>
+   --<exception>None at this moment</exception>
+
+   function Filter_Samples (Flter : in MultiStage_Filter; Samples : Pixel_Samples; NumSamples : Positive) return RGB_Spectrum;
+   --<summary>Filters the samples for a pixel with a MultiStage Filter</summary>
+   --<description>Filters the samples for a pixel with a MultiStage Filter</description>
+   --<parameter name="Flter">A MultiStage Filter</parameter>
+   --<parameter name="Samples">The samples to filter</parameter>
+   --<parameter name="NumSamples">The number of samples to filter> This may vary in case of adaptive sampling</parameter>
+   --<exception>None at this moment</exception>
+
+   function Filter_Samples (Flter : in Poisson_Filter; Samples : Pixel_Samples; NumSamples : Positive) return RGB_Spectrum;
+   --<summary>Filters the samples for a pixel with a Poisson Filter</summary>
+   --<description>Filters the samples for a pixel with a Poisson Filter</description>
+   --<parameter name="Flter">A Poisson Filter</parameter>
+   --<parameter name="Samples">The samples to filter</parameter>
+   --<parameter name="NumSamples">The number of samples to filter> This may vary in case of adaptive sampling</parameter>
+   --<exception>None at this moment</exception>
+
+private
+
+   type Pixel_Sample is record
+      Radiance : RGB_Spectrum;
+      Position : Point_2D;
+   end record;
+
+   type Pixel_Samples is array (1 .. MAX_NO_OF_SAMPLES) of Pixel_Sample;
+   --<summary>Data type to hold a series of RGB samples that make up a pixel</summary>
+
+   type Filter is tagged record
+      Name : Unbounded_String := To_Unbounded_String ("NOT DEFINED");
+      --  The Name of the Material
+   end record;
+
+   type Box_Filter is new Filter with null record;
+
+   type MultiStage_Filter is new Filter with null record;
+
+   type Poisson_Filter is new Filter with null record;
+
+   type Camera is tagged record
+      U, V, W : Vector_3D;
+      --  The orthonormal basis
+      Position, Look_At : Point_3D;
+      Up                : Vector_3D;
+      --  The viewing parameters
+      X_Res, Y_Res : Positive;
+      --  The screen resolution. Pixels are assumed square
+      Screen_Distance : Large_Float;
+      --  Distance of the screen plane
+      H_Screen_Vec     : Vector_3D;
+      V_Screen_Vec     : Vector_3D;
+      LL_Screen_Corner : Point_3D;
+      --  The screen window vectors in World coordinates
+      Delta_X, Delta_Y : Large_Float;
+      --  The delta bewteen two pixel centerpoints
+      Pixel_Sampler : Sampler_Ptr;
+      --  The sampler to sample a pixel with
+      Samples : Pixel_Samples;
+      --  Holds the samples for a pixel
+      Flt_Ptr : Filter_Ptr;
+   end record;
+
+end Cameras;

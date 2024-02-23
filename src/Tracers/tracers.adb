@@ -1,0 +1,329 @@
+with ShadePoints;            use ShadePoints;
+with HitPoints;              use HitPoints;
+with Utilities;              use Utilities;
+with Scenes;                 use Scenes;
+with Objects;                use Objects;
+with Ada.Text_IO;            use Ada.Text_IO;
+with Ada.Integer_Text_IO;    use Ada.Integer_Text_IO;
+with Small_Float_Functions;  use Small_Float_Functions;
+with Normal_Float_Functions; use Normal_Float_Functions;
+with Large_Float_Functions;  use Large_Float_Functions;
+
+package body Tracers is
+
+   function Trace_Ray (R : in Ray; Weight : in Small_Float := 1.0) return RGB_Spectrum is
+      Exitant_Radiance       : RGB_Spectrum;
+      Mat_Ptr                : Material_Ptr;
+      Obj_Ptr                : Object_Ptr;
+      Sp_List                : ShadePoint_List;
+      Sp_Ptr, Vis_Sp_Ptr     : ShadePoint_Ptr;
+      Obj_List, CSG_Obj_List : Object_List;
+      RecLevel               : Natural;
+      Dummy                  : Boolean;
+   begin
+      RecLevel := Get_Recursion_Level;
+      Debug_Message ("=== ENTERING Trace_Ray with Recursion Level" & RecLevel'Image, 9);
+
+      --  Entering a new trace, so increasing the recursion level
+      Increase_Recursion_Level;
+      --  If recursion too deep, exit with background color
+      if Get_Recursion_Level > Get_Max_Recursion_Level then
+         Debug_Message ("*** WARNING: Maximum Recursion reached in Trace_Ray.", 2);
+         Decrease_Recursion_Level;
+         return BLACK_RGB_Spec;
+      end if;
+
+      --  Cast the ray through the objects
+      Exitant_Radiance := Get_Background_Color;
+      Obj_List         := Get_Object_List;
+      CSG_Obj_List     := Get_CSG_Object_List;
+      Sp_List          := Intersect_Objects_With_Ray (R, Obj_List, CSG_Obj_List);
+
+      --  Do we have shadepoints to render?
+      if Get_No_Of_ShadePoints (Sp_List) > 0 then
+         --  Yes, so start traversing the list of shadepoints
+         Sp_Ptr     := Get_First_ShadePoint (Sp_List);
+         Vis_Sp_Ptr := null;
+
+         --  loop through the shadepoints until a visible one is found. There may be shadepoints, but none could be visible. In that
+         --  case, Vis_Sp_Ptr remains a null pointer
+         while Sp_Ptr /= null and Vis_Sp_Ptr = null loop
+            --  First, check if the current shadepoint is part of a CSG object or not
+            Obj_Ptr := Get_Object (Sp_Ptr);
+            if Obj_Ptr.Is_CSG_Member then
+               --  A CSG member, so evaluate the tree
+               if Evaluate_CSG (Obj_Ptr.all) then
+                  --  We have a hit, so set the visible shadepoint
+                  Vis_Sp_Ptr := Sp_Ptr;
+               else
+                  --  No visible hit, so move to the next shadepoint
+                  Sp_Ptr := Get_Next_ShadePoint (Sp_List);
+               end if;
+            else
+               --  Not a CSG member, so we have a visible hit
+               Vis_Sp_Ptr := Sp_Ptr;
+            end if;
+         end loop;
+
+         --  Render the visible shadepoint
+         if Vis_Sp_Ptr /= null then
+            --  Go outside the last object
+            if Obj_Ptr.Is_CSG_Member then
+               Dummy := Evaluate_CSG (Obj_Ptr.all);
+            end if;
+            --  Get the object material. Obj_Ptr should still point to the object that is visible
+            Mat_Ptr := Obj_Ptr.Get_Object_Material;
+            --  Compute the world coordinates of the HitPoint for this ShadePoint
+            Compute_Hitpoint_World (Vis_Sp_Ptr);
+            --  If the object has no material, return black
+            if Mat_Ptr = null then
+               Debug_Message ("*** WARNING: Object has no material in Trace_Ray.", 1);
+               Exitant_Radiance := BLACK_RGB_Spec;
+            else
+               Exitant_Radiance := Mat_Ptr.BDRF (R, Get_HitPoint (Vis_Sp_Ptr), Weight);
+            end if;
+            --  Restore it back...this should be done as part of the backtracking, to save an extra evaluation...
+            if Obj_Ptr.Is_CSG_Member then
+               Dummy := Evaluate_CSG (Obj_Ptr.all);
+            end if;
+         end if;
+
+         --  Restore the CSG Tree evaluation by backtracking the Sp_List If the Sp_Ptr = null, we have to trace back from the last
+         --  one
+         if Sp_Ptr = null then
+            Sp_Ptr := Get_Last_ShadePoint (Sp_List);
+         end if;
+
+         while Sp_Ptr /= null loop
+            Obj_Ptr := Get_Object (Sp_Ptr);
+            if Obj_Ptr.Is_CSG_Member then
+               Dummy := Evaluate_CSG (Obj_Ptr.all);
+            end if;
+            Sp_Ptr := Get_Previous_ShadePoint (Sp_List);
+         end loop;
+
+         --  Clean up memory
+         Free_ShadePoint_List (Sp_List);
+      end if;
+
+      --  Leaving this recursion, so decreasing
+      Debug_Message ("=== Exitant_Radiance in Trace_Ray is:", 9);
+      Debug_Spectrum (Exitant_Radiance, 9);
+      Debug_Message ("=== LEAVING Trace_Ray", 9);
+      Decrease_Recursion_Level;
+      return Exitant_Radiance;
+   end Trace_Ray;
+
+   function Trace_Transmitted_Ray (R : in Ray; Weight : in Small_Float := 1.0) return RGB_Spectrum is
+      Exitant_Radiance       : RGB_Spectrum;
+      Mat_Ptr                : Material_Ptr;
+      Obj_Ptr                : Object_Ptr;
+      Sp_List                : ShadePoint_List;
+      Sp_Ptr, Vis_Sp_Ptr     : ShadePoint_Ptr;
+      Obj_List, CSG_Obj_List : Object_List;
+      Dummy                  : Boolean;
+      Hp                     : HitPoint;
+      RecLevel               : Natural;
+   begin
+      RecLevel := Get_Recursion_Level;
+      Debug_Message ("=== ENTERING Trace_Transmitted_Ray with Recursion Level" & RecLevel'Image, 9);
+      --  Check weight to see if tracing this ray makes sense...
+      if Weight < Get_Minimum_Weight then
+         Debug_Message ("*** WARNING: Recursion trimmed in Trace_Transmitted_Ray due to weight: " & Weight'Image, 3);
+         return BLACK_RGB_Spec;
+      end if;
+
+      --  Entering a new trace, so increasing the recursion level
+      Increase_Recursion_Level;
+      --  If recursion too deep, exit with background color
+      if Get_Recursion_Level > Get_Max_Recursion_Level then
+         Debug_Message ("*** WARNING: Maximum Recursion reached in Trace_Transmitted_Ray.", 2);
+         Decrease_Recursion_Level;
+         return BLACK_RGB_Spec;
+      end if;
+
+      --  Cast the ray through the objects
+      Exitant_Radiance := Get_Background_Color;
+      Obj_List         := Get_Object_List;
+      CSG_Obj_List     := Get_CSG_Object_List;
+      Sp_List          := Intersect_Objects_With_Ray (R, Obj_List, CSG_Obj_List);
+
+      --  Do we have shadepoints to render?
+      if Get_No_Of_ShadePoints (Sp_List) > 0 then
+         --  Yes, so start traversing the list of shadepoints
+         Sp_Ptr     := Get_First_ShadePoint (Sp_List);
+         Vis_Sp_Ptr := null;
+
+         --  loop through the shadepoints until a visible one is found. There may be shadepoints, but none could be visible. In that
+         --  case, Vis_Sp_Ptr remains a null pointer
+         while Sp_Ptr /= null and Vis_Sp_Ptr = null loop
+            --  First, check if the current shadepoint is part of a CSG object or not
+            Obj_Ptr := Get_Object (Sp_Ptr);
+            if Obj_Ptr.Is_CSG_Member then
+               --  A CSG member, so evaluate the tree
+               if Evaluate_CSG (Obj_Ptr.all) then
+                  --  We have a hit, so set the visible shadepoint
+                  Vis_Sp_Ptr := Sp_Ptr;
+               else
+                  --  No visible hit, so move to the next shadepoint
+                  Sp_Ptr := Get_Next_ShadePoint (Sp_List);
+               end if;
+            else
+               --  Not a CSG member, so we have a visible hit
+               Vis_Sp_Ptr := Sp_Ptr;
+            end if;
+         end loop;
+
+         --  Render the visible shadepoint
+         if Vis_Sp_Ptr /= null then
+            --  Go outside the last object
+            if Obj_Ptr.Is_CSG_Member then
+               Dummy := Evaluate_CSG (Obj_Ptr.all);
+            end if;
+            --  Get the object material. Obj_Ptr should still point to the object that is visible
+            Mat_Ptr := Obj_Ptr.Get_Object_Material;
+            --  Compute the world coordinates of the HitPoint for this ShadePoint, using the extra flip
+            Compute_Hitpoint_World (Vis_Sp_Ptr, True);
+            Hp := Get_HitPoint (Vis_Sp_Ptr);
+            --  If the object has no material, return black
+            if Mat_Ptr = null then
+               Debug_Message ("*** WARNING: Object has no material in Trace_Transmitted_Ray.", 1);
+               Exitant_Radiance := BLACK_RGB_Spec;
+            else
+               Exitant_Radiance := Mat_Ptr.BDTF (R, Hp, Weight);
+            end if;
+            --  Restore it back...this should be done as part of the backtracking, to save an extra evaluation...
+            if Obj_Ptr.Is_CSG_Member then
+               Dummy := Evaluate_CSG (Obj_Ptr.all);
+            end if;
+         end if;
+
+         --  Restore the CSG Tree evaluation by backtracking the Sp_List If the Sp_Ptr = null, we have to trace back from the last
+         --  one
+         if Sp_Ptr = null then
+            Sp_Ptr := Get_Last_ShadePoint (Sp_List);
+         end if;
+
+         while Sp_Ptr /= null loop
+            Obj_Ptr := Get_Object (Sp_Ptr);
+            if Obj_Ptr.Is_CSG_Member then
+               Dummy := Evaluate_CSG (Obj_Ptr.all);
+            end if;
+            Sp_Ptr := Get_Previous_ShadePoint (Sp_List);
+         end loop;
+
+         --  Clean up memory
+         Free_ShadePoint_List (Sp_List);
+      end if;
+
+      --  Leaving this recursion, so decreasing
+      Debug_Message ("=== Exitant_Radiance in Trace_Transmitted_Ray is:", 9);
+      Debug_Spectrum (Exitant_Radiance, 9);
+      Debug_Message ("=== LEAVING Trace_Transmitted_Ray", 9);
+      Decrease_Recursion_Level;
+      return Exitant_Radiance;
+   end Trace_Transmitted_Ray;
+
+   function Trace_Shadow_Ray (R : in Ray) return Large_Float is
+      Obj_Ptr                : Object_Ptr;
+      Sp_List                : ShadePoint_List;
+      Sp_Ptr, Vis_Sp_Ptr     : ShadePoint_Ptr;
+      Obj_List, CSG_Obj_List : Object_List;
+      Dummy                  : Boolean;
+      Lambda                 : Large_Float := -1.0;
+   begin
+
+      Number_Of_Shadow_Rays := Number_Of_Shadow_Rays + 1;
+
+      --  Cast the ray through the objects
+      Obj_List     := Get_Object_List;
+      CSG_Obj_List := Get_CSG_Object_List;
+      Sp_List      := Hit_Objects_With_Ray (R, Obj_List, CSG_Obj_List);
+
+      --  Do we have shadepoints to render?
+      if Get_No_Of_ShadePoints (Sp_List) > 0 then
+
+         Sp_Ptr     := Get_First_ShadePoint (Sp_List);
+         Vis_Sp_Ptr := null;
+
+         --  loop through the shadepoints until a visible one is found. There may be shadepoints, but none could be visible In that
+         --  case, Vis_Sp_Ptr remains a null pointer
+         while Sp_Ptr /= null and Vis_Sp_Ptr = null loop
+            --  First, check if the current shadepoint is part of a CSG object or not
+            Obj_Ptr := Get_Object (Sp_Ptr);
+            if Obj_Ptr.Is_CSG_Member then
+               --  A CSG member, so evaluate the tree
+               if Evaluate_CSG (Obj_Ptr.all) then
+                  --  We have a hit, so set the visible shadepoint
+                  Vis_Sp_Ptr := Sp_Ptr;
+               else
+                  --  No visible hit, so move to the next shadepoint
+                  Sp_Ptr := Get_Next_ShadePoint (Sp_List);
+               end if;
+            else
+               --  Not a CSG member, so we have a visible hit
+               Vis_Sp_Ptr := Sp_Ptr;
+            end if;
+         end loop;
+
+         --  Get the distance of the visible shadepoint
+         if Vis_Sp_Ptr /= null then
+            Lambda := Get_Lambda (Get_HitPoint (Vis_Sp_Ptr));
+         end if;
+
+         --  Restore the CSG Tree evaluation by backtracking the Sp_List If the Sp_Ptr = null, we have to trace back from the last
+         --  one
+         if Sp_Ptr = null then
+            Sp_Ptr := Get_Last_ShadePoint (Sp_List);
+         end if;
+         while Sp_Ptr /= null loop
+            Obj_Ptr := Get_Object (Sp_Ptr);
+            if Obj_Ptr.Is_CSG_Member then
+               Dummy := Evaluate_CSG (Obj_Ptr.all);
+            end if;
+            Sp_Ptr := Get_Previous_ShadePoint (Sp_List);
+         end loop;
+
+         --  Clean up memory
+         Free_ShadePoint_List (Sp_List);
+      end if;
+
+      return Lambda;
+   end Trace_Shadow_Ray;
+
+   procedure Trace_Init_Ray (Init_Ray : in Ray) is
+      Obj_Ptr                : Object_Ptr;
+      Sp_List                : ShadePoint_List;
+      Sp_Ptr                 : ShadePoint_Ptr;
+      Obj_List, CSG_Obj_List : Object_List;
+      Dummy                  : Boolean;
+   begin
+      --  Cast the ray through the objects
+      Obj_List     := Get_Object_List;
+      CSG_Obj_List := Get_CSG_Object_List;
+      Sp_List      := Intersect_Objects_With_Ray (Init_Ray, Obj_List, CSG_Obj_List);
+
+      --  Do we have shadepoints to render?
+      if Get_No_Of_ShadePoints (Sp_List) > 0 then
+         --  Yes, so start traversing the list of shadepoints
+         Sp_Ptr := Get_First_ShadePoint (Sp_List);
+
+         --  loop through all the shadepoints
+         while Sp_Ptr /= null loop
+            --  First, check if the current shadepoint is part of a CSG object or not
+            Obj_Ptr := Get_Object (Sp_Ptr);
+            if Obj_Ptr.Is_CSG_Member then
+               --  A CSG member, so evaluate the tree
+               Dummy := Evaluate_CSG (Obj_Ptr.all);
+               --  move to the next shadepoint
+               Sp_Ptr := Get_Next_ShadePoint (Sp_List);
+            end if;
+         end loop;
+
+         --  Clean up memory
+         Free_ShadePoint_List (Sp_List);
+      end if;
+
+   end Trace_Init_Ray;
+
+end Tracers;

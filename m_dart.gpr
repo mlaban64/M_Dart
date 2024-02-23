@@ -1,0 +1,35 @@
+with "/home/mlaban/Dev/M_GraphiX/m_graphix.gpr";
+
+project M_Dart is
+
+   for Source_Dirs use ("src/Objects/Triangles", "src/**");
+   for Object_Dir use "obj";
+   for Main use ("m_dart.adb");
+   for Languages use ("Ada");
+
+   package Builder is
+      for Switches ("ada") use ("-s");
+   end Builder;
+
+   package Linker is
+      for Switches ("ada") use ("-g", "-lm", "-lX11", "-fPIC", "-fPIE");
+   end Linker;
+
+   package Compiler is
+      for Switches ("ada") use ("-O3");
+   end Compiler;
+
+   package Ide is
+      for Documentation_Dir use "doc";
+   end Ide;
+
+   package Documentation is
+      for Documentation_Dir use "doc";
+   end Documentation;
+
+   package Pretty_Printer is
+      for Default_Switches ("ada") use ("-M131");
+   end Pretty_Printer;
+
+end M_Dart;
+

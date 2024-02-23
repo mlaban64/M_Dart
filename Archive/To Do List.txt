@@ -1,0 +1,5 @@
+- Sphere3D Intersection does not support rays starting inside the sphere
+- Cube3D Intersection not tested yet when rays starting inside the cube
+- Cylinder3D Intersection not tested yet when rays starting inside the cube
+- Cylinder3D Intersection speed up: If Yo > 1 and Yd > 0 then no hit; same for < -1
+	This might apply to other Intersection routines as well

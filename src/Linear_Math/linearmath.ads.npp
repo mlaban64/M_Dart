@@ -1,0 +1,545 @@
+with CoreTypes; use CoreTypes;
+
+--<summary>The LinearMath package contains all Abstract Data Types for 2D & 3D Vector operations</summary>
+--<description>The LinearMath package contains all Abstract Data Types for 2D & 3D Vector operations</description>
+--<group>Core</group>
+package LinearMath is
+
+   -------------------------------------------------------------------------------
+   --  The Main Abstract Data Types are declared here to avoid forward referencing
+   -------------------------------------------------------------------------------
+
+   type Point2D is private;
+   --<summary>ADT for a point in 2D</summary>
+
+   type Point3D is private;
+   --<summary>ADT for a point in 3D</summary>
+
+   type Vector3D is private;
+   --<summary>ADT for a vector in 3D</summary>
+
+   type Normal3D is private;
+   --<summary>ADT for a normal vector in 3D</summary>
+
+   type Matrix3D is private;
+   --<summary>ADT for a matrix in 3D</summary>
+   --<description>Since the last row is always (0 0 0 1), it is not stored. By default, a Matrix3D is the unity matrix.
+   --For a Matrix3D, the following structure is implemented.</description>
+   --<code>
+   --  (X1 X2 X3 Tx)
+   --  (Y1 Y2 Y3 Ty)
+   --  (Z1 Z2 Z3 Tz)
+   --  ( 0  0  0  1)
+   --</code>
+
+   type Ray3D is private;
+   --<summary>ADT for a ray in 3D</summary>
+
+   ------------------------------------------------------
+   --  THE 2D TYPES ARE BASED UPON AN {X, Y, 1} STRUCTURE
+   ------------------------------------------------------
+   ---------------
+   --  Point2D ADT
+   ---------------
+
+   function ConstructPoint (X, Y : in Large_Float) return Point2D;
+   --<summary>Constructs a Point2D</summary>
+   --<description>Constructs a Point2D with the coordinates passed in. The origin is the default coordinate</description>
+   --<parameter name="X">The X-coordinate of the point</parameter>
+   --<parameter name="Y">The Y-coordinate of the point</parameter>
+   --<exception>None at this moment</exception>
+
+   procedure Put (P : in Point2D; Msg : in String := "Point2D = ");
+   --<summary>Prints a Point2D</summary>
+   --<description>Prints a Point2D to the screen in a readable format, prefixed by an optional message</description>
+   --<parameter name="P">The point to be printed</parameter>
+   --<parameter name="Msg">The message to be printed</parameter>
+   --<exception>None at this moment</exception>
+
+   function GetX (P : in Point2D) return Large_Float;
+   --<summary>Returns the X-coordinate of a Point2D</summary>
+   --<description>Returns the X-coordinate of a Point2D</description>
+   --<parameter name="P">The point to return the X-coordinate from</parameter>
+   --<exception>None at this moment</exception>
+
+   function GetY (P : in Point2D) return Large_Float;
+   --<summary>Returns the Y-coordinate of a Point2D</summary>
+   --<description>Returns the Y-coordinate of a Point2D</description>
+   --<parameter name="P">The point to return the Y-coordinate from</parameter>
+   --<exception>None at this moment</exception>
+
+   ---------------------------------------------------------
+   --  THE 3D TYPES ARE BASED UPON AN {X, Y, Z, 1} STRUCTURE
+   ---------------------------------------------------------
+
+   ---------------
+   --  Point3D ADT
+   ---------------
+
+   function ConstructPoint (X, Y, Z : in Large_Float) return Point3D;
+   --<summary>Constructs a Point3D</summary>
+   --<description>Constructs a Point3D with the coordinates passed in. The origin is the default coordinate</description>
+   --<parameter name="X">The X-coordinate of the point</parameter>
+   --<parameter name="Y">The Y-coordinate of the point</parameter>
+   --<parameter name="Z">The Y-coordinate of the point</parameter>
+   --<exception>None at this moment</exception>
+
+   procedure Put (P : in Point3D; Msg : in String := "Point3D = ");
+   --<summary>Prints a Point3D</summary>
+   --<description>Prints a Point3D to the screen in a readable format, prefixed by an optional message</description>
+   --<parameter name="P">The point to be printed</parameter>
+   --<parameter name="Msg">The message to be printed</parameter>
+   --<exception>None at this moment</exception>
+
+   function GetX (P : in Point3D) return Large_Float;
+   --<summary>Returns the X-coordinate of a Point3D</summary>
+   --<description>Returns the X-coordinate of a Point3D</description>
+   --<parameter name="P">The point to return the X-coordinate from</parameter>
+   --<exception>None at this moment</exception>
+
+   function GetY (P : in Point3D) return Large_Float;
+   --<summary>Returns the Y-coordinate of a Point3D</summary>
+   --<description>Returns the Y-coordinate of a Point3D</description>
+   --<parameter name="P">The point to return the Y-coordinate from</parameter>
+   --<exception>None at this moment</exception>
+
+   function GetZ (P : in Point3D) return Large_Float;
+   --<summary>Returns the Z-coordinate of a Point3D</summary>
+   --<description>Returns the Z-coordinate of a Point3D</description>
+   --<parameter name="P">The point to return the Z-coordinate from</parameter>
+   --<exception>None at this moment</exception>
+
+   function "+" (P : in Point3D; V : in Vector3D) return Point3D;
+   --<summary>Displaces a Point3D by a Vector3D</summary>
+   --<description>function to displace a Point3D by adding a Vector3D</description>
+   --<parameter name="P">The point to displace</parameter>
+   --<parameter name="V">The vector to displace the point with</parameter>
+   --<exception>None at this moment</exception>
+
+   function "-" (P : in Point3D; V : in Vector3D) return Point3D;
+   --<summary>Displaces a Point3D by a Vector3D</summary>
+   --<description>function to displace a Point3D by subtracting a Vector3D</description>
+   --<parameter name="P">The point to displace</parameter>
+   --<parameter name="V">The vector to displace the point with</parameter>
+   --<exception>None at this moment</exception>
+
+   function "*" (P : in Point3D; S : in Large_Float) return Point3D;
+   --<summary>Multiplies a Point3D by a Scalar</summary>
+   --<description>function to multiply a Point3D by a Scalar</description>
+   --<parameter name="P">The point to displace</parameter>
+   --<parameter name="S">The factor to multiply the point with</parameter>
+   --<exception>None at this moment</exception>
+
+   function "*" (S : in Large_Float; P : in Point3D) return Point3D;
+   --<summary>Multiplies a Point3D by a Scalar</summary>
+   --<description>function to multiply a Point3D by a Scalar</description>
+   --<parameter name="S">The factor to multiply the point with</parameter>
+   --<parameter name="P">The point to displace</parameter>
+   --<exception>None at this moment</exception>
+
+   function "*" (M : in Matrix3D; P : in Point3D) return Point3D;
+   --<summary>Transforms a Point3D with a Matrix3D</summary>
+   --<description>function to compute a transformed point with a matrix as in P' := M * P</description>
+   --<parameter name="M">The matrix</parameter>
+   --<parameter name="P">The point</parameter>
+   --<exception>None at this moment</exception>
+
+   function Distance (P1, P2 : in Point3D) return Large_Float;
+   --<summary>Returns the distance between two Point3D variables</summary>
+   --<description>function to compute the distance between two Point3D variables</description>
+   --<parameter name="P1">The first point</parameter>
+   --<parameter name="P2">The second point</parameter>
+   --<exception>None at this moment</exception>
+
+   function DistanceSquared (P1, P2 : in Point3D) return Large_Float;
+   --<summary>Returns the squared distance between two Point3D variables</summary>
+   --<description>function to compute the squared distance between two Point3D variables</description>
+   --<parameter name="P1">The first point</parameter>
+   --<parameter name="P2">The second point</parameter>
+   --<exception>None at this moment</exception>
+
+   function DistanceToOrg (P : in Point3D) return Large_Float;
+   --<summary>Returns the distance between a Point3D and the Origin</summary>
+   --<description>function to compute the distance between a Point3D and the Origin</description>
+   --<parameter name="P">The point</parameter>
+   --<exception>None at this moment</exception>
+
+   function DistanceToOrgSquared (P : in Point3D) return Large_Float;
+   --<summary>Returns the squared distance between a Point3D and the Origin</summary>
+   --<description>function to compute the squared distance between a Point3D and the Origin</description>
+   --<parameter name="P">The point</parameter>
+   --<exception>None at this moment</exception>
+
+   function PointOnRay (R : in Ray3D; Lambda: in Large_Float) return Point3D;
+   --<summary>Returns a point on a ray, as P := Org + Lambda * Dir</summary>
+   --<description>function to compute a point on a ray, as P := Org + Lambda * Dir</description>
+   --<parameter name="R">The ray to calculate the point on</parameter>
+   --<parameter name="Lambda">The parameter to compute the point from</parameter>
+   --<exception>None at this moment</exception>
+
+   function PointOnRay (Org : in Point3D; Dir: in Vector3D; Lambda: in Large_Float) return Point3D;
+   --<summary>Returns a point on a ray, as P := Org + Lambda * Dir</summary>
+   --<description>function to compute a point on a ray, as P := Org + Lambda * Dir</description>
+   --<parameter name="Org">The origin of the ray to calculate the point on</parameter>
+   --<parameter name="Dir">The direction of the ray to calculate the point on</parameter>
+   --<parameter name="Lambda">The parameter to compute the point from</parameter>
+   --<exception>None at this moment</exception>
+
+   ----------------
+   --  Vector3D ADT
+   ----------------
+
+   function ConstructVector (X, Y, Z : in Large_Float) return Vector3D;
+   --<summary>Constructs a Vector3D</summary>
+   --<description>Constructs a Vector3D with the coordinates passed in. The origin is the default coordinate</description>
+   --<parameter name="X">The X-coordinate of the point</parameter>
+   --<parameter name="Y">The Y-coordinate of the point</parameter>
+   --<parameter name="Z">The Y-coordinate of the point</parameter>
+   --<exception>None at this moment</exception>
+
+   procedure Put (V : in Vector3D; Msg : in String := "Vector3D = ");
+   --<summary>Prints a Vector3D</summary>
+   --<description>Prints a Vector3D to the screen in a readable format, prefixed by an optional message</description>
+   --<parameter name="V">The vector to be printed</parameter>
+   --<parameter name="Msg">The message to be printed</parameter>
+   --<exception>None at this moment</exception>
+
+   function GetX (V : in Vector3D) return Large_Float;
+   --<summary>Returns the X-coordinate of a Vector3D</summary>
+   --<description>Returns the X-coordinate of a Vector3D</description>
+   --<parameter name="V">The point to return the X-coordinate from</parameter>
+   --<exception>None at this moment</exception>
+
+   function GetY (V : in Vector3D) return Large_Float;
+   --<summary>Returns the Y-coordinate of a Vector3D</summary>
+   --<description>Returns the Y-coordinate of a Vector3D</description>
+   --<parameter name="V">The point to return the Y-coordinate from</parameter>
+   --<exception>None at this moment</exception>
+
+   function GetZ (V : in Vector3D) return Large_Float;
+   --<summary>Returns the Z-coordinate of a Vector3D</summary>
+   --<description>Returns the Z-coordinate of a Vector3D</description>
+   --<parameter name="V">The point to return the Z-coordinate from</parameter>
+   --<exception>None at this moment</exception>
+
+   function "-" (V : in Vector3D) return Vector3D;
+   --<summary>Negates a Vector3D</summary>
+   --<description>function to compute the negative (inverse) version of a Vector3D</description>
+   --<parameter name="V">The vector to negate</parameter>
+   --<exception>None at this moment</exception>
+
+   function "+" (V1 : in Vector3D; V2 : in Vector3D) return Vector3D;
+   --<summary>Adds two Vector3D variables</summary>
+   --<description>function to add two Vector3D variables</description>
+   --<parameter name="V1">The first vector</parameter>
+   --<parameter name="V2">The second vector</parameter>
+   --<exception>None at this moment</exception>
+
+   function "-" (V1 : in Vector3D; V2 : in Vector3D) return Vector3D;
+   --<summary>Subtracts two Vector3D variables</summary>
+   --<description>function to subtract two Vector3D variables</description>
+   --<parameter name="V1">The first vector</parameter>
+   --<parameter name="V2">The second vector, subtracted from the first vector</parameter>
+   --<exception>None at this moment</exception>
+
+   function "*" (V : in Vector3D; S : in Large_Float) return Vector3D;
+   --<summary>Multiplies a Vector3D by a Scalar</summary>
+   --<description>function to multiply a Vector3D by a Scalar</description>
+   --<parameter name="V">The vector to mulitply</parameter>
+   --<parameter name="S">The factor to multiply the vector with</parameter>
+   --<exception>None at this moment</exception>
+
+   function "*" (S : in Large_Float; V : in Vector3D) return Vector3D;
+   --<summary>Multiplies a Vector3D by a Scalar</summary>
+   --<description>function to multiply a Vector3D by a Scalar</description>
+   --<parameter name="S">The factor to multiply the vector with</parameter>
+   --<parameter name="V">The vector to mulitply</parameter>
+   --<exception>None at this moment</exception>
+
+   function "/" (V : in Vector3D; S : in Large_Float) return Vector3D;
+   --<summary>Divides a Vector3D by a Scalar</summary>
+   --<description>function to divide a Vector3D by a Scalar</description>
+   --<parameter name="V">The vector to divide</parameter>
+   --<parameter name="S">The factor to multiply the vector with</parameter>
+   --<exception>None at this moment</exception>
+
+   function "/" (S : in Large_Float; V : in Vector3D) return Vector3D;
+   --<summary>Divides a Vector3D by a Scalar</summary>
+   --<description>function to divide a Vector3D by a Scalar</description>
+   --<parameter name="S">The factor to divide the vector with</parameter>
+   --<parameter name="V">The vector to displace</parameter>
+   --<exception>None at this moment</exception>
+
+   function "*" (V1 : in Vector3D; V2 : in Vector3D) return Large_Float;
+   --<summary>Computes the dot-product of two Vector3D variables</summary>
+   --<description>function to compute the dot-product of two Vector3D variables</description>
+   --<parameter name="V1">The first vector</parameter>
+   --<parameter name="V2">The second vector</parameter>
+   --<exception>None at this moment</exception>
+
+   function "*" (M : in Matrix3D; V : in Vector3D) return Vector3D;
+   --<summary>Transforms a Vector3D with a Matrix3D</summary>
+   --<description>function to compute a transformed vector with a matrix as in V' := M * V, excluding the Translation,
+   --as vectors to not translate, as opposed to points</description>
+   --<parameter name="M">The matrix</parameter>
+   --<parameter name="V">The vector</parameter>
+   --<exception>None at this moment</exception>
+
+   function "**" (V1 : in Vector3D; V2 : in Vector3D) return Vector3D;
+   --<summary>Computes the cross-product of two Vector3D variables</summary>
+   --<description>function to compute the cross-product of two Vector3D variables</description>
+   --<parameter name="V1">The first vector</parameter>
+   --<parameter name="V2">The second vector</parameter>
+   --<exception>None at this moment</exception>
+
+   function Length (V : in Vector3D) return Large_Float;
+   --<summary>Returns the length of a Vector3D</summary>
+   --<description>function to compute the length of a Vector3D</description>
+   --<parameter name="V">The vector</parameter>
+   --<exception>None at this moment</exception>
+
+   function LengthSquared (V : in Vector3D) return Large_Float;
+   --<summary>Returns the squared length of a Vector3D</summary>
+   --<description>function to compute the squared length of a Vector3D</description>
+   --<parameter name="V">The vector</parameter>
+   --<exception>None at this moment</exception>
+
+   function Normalize (V : in Vector3D) return Vector3D;
+   --<summary>Computes the normalized version of a Vector3D</summary>
+   --<description>function to compute the normalized version of a Vector3D</description>
+   --<parameter name="V">The vector to normalize</parameter>
+   --<exception>None at this moment</exception>
+
+   function ToVector3D (N : in Normal3D) return Vector3D;
+   --<summary>Converts a Normal3D into a Vector3D</summary>
+   --<description>function to convert a Normal3D into a Vector3D</description>
+   --<parameter name="N">The normal to convert</parameter>
+   --<exception>None at this moment</exception>
+
+   ----------------
+   --  Normal3D ADT
+   ----------------
+
+   function ConstructNormal (X, Y, Z : in Large_Float) return Normal3D;
+   --<summary>Constructs a Normal3D</summary>
+   --<description>Constructs a Normal3D with the coordinates passed in. The origin is the default coordinate</description>
+   --<parameter name="X">The X-coordinate of the point</parameter>
+   --<parameter name="Y">The Y-coordinate of the point</parameter>
+   --<parameter name="Z">The Y-coordinate of the point</parameter>
+   --<exception>None at this moment</exception>
+
+   procedure Put (N : in Normal3D; Msg : in String := "Normal3D = ");
+   --<summary>Prints a Normal3D</summary>
+   --<description>Prints a Normal3D to the screen in a readable format, prefixed by an optional message</description>
+   --<parameter name="N">The normal to be printed</parameter>
+   --<parameter name="Msg">The message to be printed</parameter>
+   --<exception>None at this moment</exception>
+
+   function GetX (N : in Normal3D) return Large_Float;
+   --<summary>Returns the X-coordinate of a Normal3D</summary>
+   --<description>Returns the X-coordinate of a Normal3D</description>
+   --<parameter name="N">The normal to return the X-coordinate from</parameter>
+   --<exception>None at this moment</exception>
+
+   function GetY (N : in Normal3D) return Large_Float;
+   --<summary>Returns the Y-coordinate of a Normal3D</summary>
+   --<description>Returns the Y-coordinate of a Normal3D</description>
+   --<parameter name="N">The normal to return the Y-coordinate from</parameter>
+   --<exception>None at this moment</exception>
+
+   function GetZ (N : in Normal3D) return Large_Float;
+   --<summary>Returns the Z-coordinate of a Normal3D</summary>
+   --<description>Returns the Z-coordinate of a Normal3D</description>
+   --<parameter name="N">The normal to return the Z-coordinate from</parameter>
+   --<exception>None at this moment</exception>
+
+   function "-" (N : in Normal3D) return Normal3D;
+   --<summary>Negates a Normal3D</summary>
+   --<description>function to compute the negative (inverse) version of a Normal3D</description>
+   --<parameter name="N">The normal to negate</parameter>
+   --<exception>None at this moment</exception>
+
+   function "+" (N1 : in Normal3D; N2 : in Normal3D) return Normal3D;
+   --<summary>Adds two Normal3D variables</summary>
+   --<description>function to add two Normal3D variables</description>
+   --<parameter name="N1">The first normal</parameter>
+   --<parameter name="N2">The second normal</parameter>
+   --<exception>None at this moment</exception>
+
+   function "-" (N1 : in Normal3D; N2 : in Normal3D) return Normal3D;
+   --<summary>Subtracts two Normal3D variables</summary>
+   --<description>function to subtract two Normal3D variables</description>
+   --<parameter name="N1">The first normal</parameter>
+   --<parameter name="N2">The second normal, subtracted from the first normal</parameter>
+   --<exception>None at this moment</exception>
+
+   function "*" (N1 : in Normal3D; N2 : in Normal3D) return Large_Float;
+   --<summary>Computes the dot-product of two Normal3D variables</summary>
+   --<description>function to compute the dot-product of two Normal3D variables</description>
+   --<parameter name="N1">The first normal</parameter>
+   --<parameter name="N2">The second normal</parameter>
+   --<exception>None at this moment</exception>
+
+   function "*" (M : in Matrix3D; N : in Normal3D) return Normal3D;
+   --<summary>Transforms a Normal3D with a Matrix3D</summary>
+   --<description>function to compute a transformed normal with a matrix as in N' := M * N, excluding the Translation,
+   --as vectors to not translate, as opposed to points</description>
+   --<parameter name="M">The matrix</parameter>
+   --<parameter name="N">The vector</parameter>
+   --<exception>None at this moment</exception>
+
+   function "**" (N1 : in Normal3D; N2 : in Normal3D) return Normal3D;
+   --<summary>Computes the cross-product of two Normal3D variables</summary>
+   --<description>function to compute the cross-product of two Normal3D variables</description>
+   --<parameter name="N1">The first normal</parameter>
+   --<parameter name="N2">The second normal</parameter>
+   --<exception>None at this moment</exception>
+
+   function Normalize (N : in Normal3D) return Normal3D;
+   --<summary>Computes the normalized version of a Normal3D</summary>
+   --<description>function to compute the normalized version of a Normal3D</description>
+   --<parameter name="N">The normal to normalize</parameter>
+   --<exception>None at this moment</exception>
+
+   function ToNormal3D (V : in Vector3D) return Normal3D;
+   --<summary>Converts a Vector3D into a Normal3D</summary>
+   --<description>function to convert a Vector3D into a Normal3D</description>
+   --<parameter name="V">The vector to convert</parameter>
+   --<exception>None at this moment</exception>
+
+   ----------------
+   --  Matrix3D ADT
+   ----------------
+
+   procedure Put (M : in Matrix3D; Msg : in String := "Matrix3D = ");
+   --<summary>Prints a Matrix3D</summary>
+   --<description>Prints a Matrix3D to the screen in a readable format, prefixed by an optional message</description>
+   --<parameter name="M">The matrix to be printed</parameter>
+   --<parameter name="Msg">The message to be printed</parameter>
+   --<exception>None at this moment</exception>
+
+   function ConstructTranslation (Tx, Ty, Tz : in Large_Float) return Matrix3D;
+   --<summary>Constructs a Translation Matrix3D</summary>
+   --<description>Constructs a Translation Matrix3D</description>
+   --<parameter name="Tx">The X-amount to translate with</parameter>
+   --<parameter name="Ty">The Y-amount to translate with</parameter>
+   --<parameter name="Tz">The Z-amount to translate with</parameter>
+   --<exception>None at this moment</exception>
+
+   function ConstructScale (Sx, Sy, Sz : in Large_Float) return Matrix3D;
+   --<summary>Constructs a Scaling Matrix3D</summary>
+   --<description>Constructs a Scaling Matrix3D</description>
+   --<parameter name="Sx">The amount to scale with along the X-axis</parameter>
+   --<parameter name="Sy">The amount to scale with along the Y-axis</parameter>
+   --<parameter name="Sz">The amount to scale with along the Z-axis</parameter>
+   --<exception>None at this moment</exception>
+
+   function ConstructShear (Hxy, Hxz, Hyx, Hyz, Hzx, Hzy : in Large_Float) return Matrix3D;
+   --<summary>Constructs a Shearing Matrix3D</summary>
+   --<description>Constructs a Shearing Matrix3D</description>
+   --<parameter name="Hxy">The amount to shear with along the XY-plane</parameter>
+   --<parameter name="Hxz">The amount to shear with along the XZ-plane</parameter>
+   --<parameter name="Hyx">The amount to shear with along the YX-plane</parameter>
+   --<parameter name="Hyz">The amount to shear with along the YZ-plane</parameter>
+   --<parameter name="Hzx">The amount to shear with along the ZX-plane</parameter>
+   --<parameter name="Hzy">The amount to shear with along the ZY-plane</parameter>
+   --<exception>None at this moment</exception>
+
+   function ConstructRotateX (Angle : in Large_Float) return Matrix3D;
+   --<summary>Constructs a rotation Matrix3D around the X-axis</summary>
+   --<description>Constructs a rotation Matrix3D around the X-axis</description>
+   --<parameter name="Angle">The amount to rotate along the X-axis</parameter>
+   --<exception>None at this moment</exception>
+
+   function ConstructRotateY (Angle : in Large_Float) return Matrix3D;
+   --<summary>Constructs a rotation Matrix3D around the Y-axis</summary>
+   --<description>Constructs a rotation Matrix3D around the Y-axis</description>
+   --<parameter name="Angle">The amount to rotate along the Y-axis</parameter>
+   --<exception>None at this moment</exception>
+
+   function ConstructRotateZ (Angle : in Large_Float) return Matrix3D;
+   --<summary>Constructs a rotation Matrix3D around the Z-axis</summary>
+   --<description>Constructs a rotation Matrix3D around the Z-axis</description>
+   --<parameter name="Angle">The amount to rotate along the Z-axis</parameter>
+   --<exception>None at this moment</exception>
+
+   function "*" (M1, M2 : in Matrix3D) return Matrix3D;
+   --<summary>Compute the product of two matrices as in M := M1 * M2</summary>
+   --<description>Compute the product of two matrices as in M := M1 * M2.
+   --Mathematically it means that M1 is applied after M2: M(p) = M1(M2(p))</description>
+   --<parameter name="M1">The first matrix</parameter>
+   --<parameter name="M2">The second matrix</parameter>
+   --<exception>None at this moment</exception>
+
+   function Inverse (M : in Matrix3D) return Matrix3D;
+   --<summary>Computes the inverse of a Matrix3D</summary>
+   --<description>Computes the inverse of a Matrix3D</description>
+   --<parameter name="M">The matrix to inverse</parameter>
+   --<exception>None at this moment</exception>
+
+   -------------
+   --  Ray3D ADT
+   -------------
+
+   function ConstructRay (Org : in Point3D; Dir : in Vector3D) return Ray3D;
+   --<summary>Constructs a Ray3D</summary>
+   --<description>Constructs a Ray3D with origin Org and direction Dir</description>
+   --<parameter name="Org">Origin of the ray</parameter>
+   --<parameter name="Dir">Direction of the ray</parameter>
+   --<exception>None at this moment</exception>
+
+   procedure Put (R : in Ray3D; Msg : in String := "Ray3D = ");
+   --<summary>Prints a Ray3D</summary>
+   --<description>Prints a Ray3D to the screen in a readable format, prefixed by an optional message</description>
+   --<parameter name="R">The ray to be printed</parameter>
+   --<parameter name="Msg">The message to be printed</parameter>
+   --<exception>None at this moment</exception>
+
+   function GetOrigin (R : in Ray3D) return Point3D;
+   --<summary>Returns the origin of a Ray3D</summary>
+   --<description>Returns the origin of a Ray3D</description>
+   --<parameter name="R">The ray to return the origin of</parameter>
+   --<exception>None at this moment</exception>
+
+   function GetDirection (R : in Ray3D) return Vector3D;
+   --<summary>Returns the direction of a Ray3D</summary>
+   --<description>Returns the direction  of a Ray3D</description>
+   --<parameter name="R">The ray to return the direction of</parameter>
+   --<exception>None at this moment</exception>
+
+private
+
+   type Point2D is record
+      X : Large_Float := 0.0;
+      Y : Large_Float := 0.0;
+   end record;
+
+   type Point3D is record
+      X : Large_Float := 0.0;
+      Y : Large_Float := 0.0;
+      Z : Large_Float := 0.0;
+   end record;
+
+   type Vector3D is record
+      X : Large_Float := 0.0;
+      Y : Large_Float := 0.0;
+      Z : Large_Float := 0.0;
+   end record;
+
+   type Normal3D is record
+      X : Large_Float := 0.0;
+      Y : Large_Float := 0.0;
+      Z : Large_Float := 1.0;
+   end record;
+
+   type Matrix3D is record
+      X2, X3, Tx, Y1, Y3, Ty, Z1, Z2, Tz : Large_Float := 0.0;
+      X1, Y2, Z3                         : Large_Float := 1.0;
+   end record;
+
+   type Ray3D is record
+      Org : Point3D;
+      Dir : Vector3D;
+   end record;
+
+end LinearMath;

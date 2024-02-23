@@ -1,0 +1,41 @@
+3 weeks from starting the blog, I finally got something done...here's what happnened so far...
+
+To kick off the project, I had to settle on 4 issues first. In no particular order, these were:
+
+1. Name the project
+It is always good to name your project, even a personal, single project. 
+As other projects may appear on the horizon (I need a largel life span, I am afraid...), I can separate everything...
+So guess what? For my master thesis at Delft University in 1989, I wrote a distributed ray tracer, and called it DART, as in "Distributed Accelerated Ray Tracer".
+I guess this name is a good start, and I have picked the project name to be M-Dart, where M is the first letter of my name...
+
+2. Decide the project approach
+I was going to use the word "Project Management", but that is silly...I am the only person working on the project, so what's to manage? 
+And since there is no commitment in time, quality and costs, I don't need anything heavy. But what do I need then?
+
+	- to be able to set tangible goals and break it down in overseeable chunks
+	- to roughly keep track of progress and hours spent and planned
+	- a place to prioritize to-do items, future ideas and issues to tackle, so I don't forget them
+	
+Because of my participation in various projects using Scrum methodology, I decided to do something in the spirit of Scrum and Agile0: 
+	- Maintain a Product Backlog (PBL) with Items I need to do
+	- Plan  PBL Items in a Sprint (but I am very flexible in the size & time for a sprint)
+	- Let each Sprint deliver something tangeable, if possible
+	- Execute the Sprint and review at the end
+	- Write something on the Blog about the sprint results so far
+
+3. Decide the Programming Language
+Now this was a tricky one...I have a great deal of experience with C and a bit with other languages, like Pascal, Fortran, Visual Studio (primarily VB) and some others...yes, I'm old scholl, I guess...
+But I really wanted to use a neat OO language, which would also help me in getting back on track in case I cannot work on the project for some time.
+C would be out of the question, since it does not support OO. C++ seems to be mainstream OO language for ray tracing, but I don't like it...too much freedom and error-prne, due to its foundation in C...
+As I have followed lectures on Ada'83, I decided to investigate this a bit more. After doing quite a bit of reading up, I landed on Ada 2005 as my language of choice...
+
+4. Decide the programming environment
+This was an easy one...Since GNAT comes with a full Ada 2005 compiler and a nice IDE, called GPS, I decided to go for this one.
+GNAT and GPS is available under a GPL license from http://libre.adacore.com/libre/ and a professional version can be purchased at http://www.adacore.com
+As I am old school, I decided to build a Linux environment and install GNAT 2009 in there. The Linux version is pretty arbitrary, but I decided to use OpenSUSE 11.1. 
+Not for any particular reason though...
+
+So my 1st sprint was actually making all the above happen...I now have a development environment up & running and I can start doing something useful!
+
+Keep you posted,
+Marinko

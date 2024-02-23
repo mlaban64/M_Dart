@@ -1,0 +1,77 @@
+with Core_Types;             use Core_Types;
+with Lights;                 use Lights;
+with Scenes;                 use Scenes;
+with Utilities;              use Utilities;
+with Ada.Text_IO;            use Ada.Text_IO;
+with Small_Float_Functions;  use Small_Float_Functions;
+with Normal_Float_Functions; use Normal_Float_Functions;
+with Large_Float_Functions;  use Large_Float_Functions;
+
+package body Materials.Lambertians is
+
+   ------------------
+   --  ADT Lambertian
+   ------------------
+
+   function Construct_Lambertian (Name : in String; Spec : RGB_Spectrum) return Material_Ptr is
+      Mat : Lambertian_Ptr;
+   begin
+      Mat                             := new Lambertian;
+      Mat.Name                        := To_Unbounded_String (Name);
+      Mat.Diffuse_Reflection_Spectrum := Spec;
+      return Material_Ptr (Mat);
+   end Construct_Lambertian;
+
+   overriding function BDRF (Mat : in Lambertian; In_Ray : in Ray; Hp : in HitPoint) return RGB_Spectrum is
+      Tot_Spec, Light_Spec : RGB_Spectrum;
+      Lt_Ptr               : Light_Ptr;
+      Lt_List              : Light_List;
+      Surf_Normal          : Normal_3D;
+      Light_Sample_Dir     : Normal_3D;
+      Cos_Phi              : Small_Float;
+      No_Of_Samples        : Positive;
+      Divide_By_Samples    : Small_Float;
+      Len                  : Large_Float;
+   begin
+      --  Initialize
+      Lt_List     := Get_Light_List;
+      Surf_Normal := Get_WorldNv (Hp);
+
+      --  Compute the direct illumination contribution Loop through each light
+      Lt_Ptr := Get_First_Light (Lt_List);
+      while Lt_Ptr /= null loop
+
+         --  Since the interaction between a light source and a material is highly depending on the material, and less of the light
+         --  source, multi-sampling of the light source is done via the material, so overhere
+         No_Of_Samples     := Lt_Ptr.Get_Light_Sampler.Get_No_Of_Samples;
+         Divide_By_Samples := 1.0 / Small_Float (No_Of_Samples);
+
+         for i in 1 .. No_Of_Samples loop
+
+            --  Lambertian computation: Compute the angle between the surface normal and the normal pointing to the light
+            Light_Sample_Dir := Lt_Ptr.Get_Normal_For_Next_Light_Sample (Hp);
+            Cos_Phi          := Small_Float (Light_Sample_Dir * Surf_Normal);
+
+            --  Checking Cos_Phi for debugging purposes. It could be removed after ample testing has passed
+            if Cos_Phi > 1.0 or Cos_Phi < -1.0 then
+               Debug_Message ("ERROR in Lambertians.BDRF: Cos Phi out of range. Likely, one of the vectors is not normalized.");
+               Put (Light_Sample_Dir);
+               Put (Surf_Normal);
+            end if;
+
+            --  compute the incident radiance for this hitpoint for this sample direction to the light source. If Cos_Phi < 0, don't
+            --  add luminance, because you're self-shadowing
+            if Cos_Phi > 0.0 then
+               Light_Spec := Lt_Ptr.Incident_Radiance (Hp, Light_Sample_Dir) * Cos_Phi;
+               Tot_Spec   := Tot_Spec + Divide_By_Samples * (Light_Spec * Mat.Diffuse_Reflection_Spectrum);
+            end if;
+
+         end loop;
+
+         --  Next light
+         Lt_Ptr := Get_Next_Light (Lt_List);
+      end loop;
+      return Tot_Spec;
+   end BDRF;
+
+end Materials.Lambertians;

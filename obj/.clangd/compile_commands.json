@@ -1,0 +1,1 @@
+[{"directory":"/home/mlaban/Dev/M_Dart/","command":"/home/mlaban/bin/gcc/bin/gcc -I../M_GraphiX/src -O3 -fPIC -fPIE ../M_GraphiX/src/gfxlib.c","file":"../M_GraphiX/src/gfxlib.c"}]

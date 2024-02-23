@@ -1,0 +1,40 @@
+with Ada.Integer_Text_IO;
+with Ada.Long_Integer_Text_IO;
+with Ada.Long_Long_Integer_Text_IO;
+with Ada.Float_Text_IO;
+with Ada.Long_Float_Text_IO;
+with Ada.Long_Long_Float_Text_IO;
+
+package body CoreTypes is
+
+   procedure Put (N : in Small_Integer) is
+   begin
+      Ada.Integer_Text_IO.Put (Integer (N));
+   end Put;
+
+   procedure Put (N : in Normal_Integer) is
+   begin
+      Ada.Integer_Text_IO.Put (Integer (N));
+   end Put;
+
+   procedure Put (N : in Large_Integer) is
+   begin
+      Ada.Long_Integer_Text_IO.Put (Long_Integer (N));
+   end Put;
+
+   procedure Put (N : in Small_Float) is
+   begin
+      Ada.Float_Text_IO.Put (Float (N));
+   end Put;
+
+   procedure Put (N : in Normal_Float) is
+   begin
+      Ada.Long_Float_Text_IO.Put (Long_Float (N));
+   end Put;
+
+   procedure Put (N : in Large_Float) is
+   begin
+      Ada.Long_Float_Text_IO.Put (Long_Float (N));
+   end Put;
+
+end CoreTypes;

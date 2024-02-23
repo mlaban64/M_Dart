@@ -1,0 +1,652 @@
+with Ada.Text_IO;            use Ada.Text_IO;
+with Small_Float_Functions;  use Small_Float_Functions;
+with Normal_Float_Functions; use Normal_Float_Functions;
+with Large_Float_Functions;  use Large_Float_Functions;
+
+package body Linear_Math is
+
+   ----------------
+   --  Point_2D ADT
+   ----------------
+
+   function Construct_Point (X, Y : in Large_Float) return Point_2D is
+   begin
+      return P : Point_2D do
+         P.X := X;
+         P.Y := Y;
+      end return;
+   end Construct_Point;
+
+   procedure Put (P : in Point_2D; Msg : String := "Point_2D = ") is
+   begin
+      Put (Msg);
+      New_Line;
+      Put ("   {");
+      Put (P.X);
+      Put (" ,");
+      Put (P.Y);
+      Put (" }");
+      New_Line;
+   end Put;
+
+   function Get_X (P : in Point_2D) return Large_Float is (P.X);
+
+   function Get_Y (P : in Point_2D) return Large_Float is (P.Y);
+
+   ----------------
+   --  Point_3D ADT
+   ----------------
+
+   function Construct_Point (X, Y, Z : in Large_Float) return Point_3D is
+   begin
+      return P : Point_3D do
+         P.X := X;
+         P.Y := Y;
+         P.Z := Z;
+      end return;
+   end Construct_Point;
+
+   procedure Put (P : in Point_3D; Msg : String := "Point_3D = ") is
+   begin
+      Put (Msg);
+      New_Line;
+      Put ("   {");
+      Put (P.X);
+      Put (" ,");
+      Put (P.Y);
+      Put (" ,");
+      Put (P.Z);
+      Put (" }");
+      New_Line;
+   end Put;
+
+   function Get_X (P : in Point_3D) return Large_Float is (P.X);
+
+   function Get_Y (P : in Point_3D) return Large_Float is (P.Y);
+
+   function Get_Z (P : in Point_3D) return Large_Float is (P.Z);
+
+   function "+" (P : in Point_3D; V : in Vector_3D) return Point_3D is
+   begin
+      return Pn : Point_3D do
+         Pn.X := P.X + V.X;
+         Pn.Y := P.Y + V.Y;
+         Pn.Z := P.Z + V.Z;
+      end return;
+   end "+";
+
+   function "-" (P : in Point_3D; V : in Vector_3D) return Point_3D is
+   begin
+      return Pn : Point_3D do
+         Pn.X := P.X - V.X;
+         Pn.Y := P.Y - V.Y;
+         Pn.Z := P.Z - V.Z;
+      end return;
+   end "-";
+
+   function "*" (M : in Matrix_3D; P : in Point_3D) return Point_3D is
+   begin
+      return Pt : Point_3D do
+         Pt.X := M.X1 * P.X + M.X2 * P.Y + M.X3 * P.Z + M.Tx;
+         Pt.Y := M.Y1 * P.X + M.Y2 * P.Y + M.Y3 * P.Z + M.Ty;
+         Pt.Z := M.Z1 * P.X + M.Z2 * P.Y + M.Z3 * P.Z + M.Tz;
+      end return;
+   end "*";
+
+   function Distance (P1, P2 : in Point_3D) return Large_Float is
+      X, Y, Z : Large_Float;
+   begin
+      X := P1.X - P2.X;
+      Y := P1.Y - P2.Y;
+      Z := P1.Z - P2.Z;
+      return Sqrt (X * X + Y * Y + Z * Z);
+   end Distance;
+
+   function Distance_Squared (P1, P2 : in Point_3D) return Large_Float is
+      X, Y, Z : Large_Float;
+   begin
+      X := P1.X - P2.X;
+      Y := P1.Y - P2.Y;
+      Z := P1.Z - P2.Z;
+      return X * X + Y * Y + Z * Z;
+   end Distance_Squared;
+
+   function Distance_To_Org (P : in Point_3D) return Large_Float is (Sqrt (P.X * P.X + P.Y * P.Y + P.Z * P.Z));
+
+   function Distance_To_Org_Squared (P : in Point_3D) return Large_Float is (P.X * P.X + P.Y * P.Y + P.Z * P.Z);
+
+   function Point_On_Ray (R : in Ray; Lambda : in Large_Float) return Point_3D is (R.Org + Lambda * R.Dir);
+
+   function Point_On_Ray (Org : in Point_3D; Dir : in Vector_3D; Lambda : in Large_Float) return Point_3D is (Org + Lambda * Dir);
+
+   function To_Point_3D (V : in Vector_3D) return Point_3D is
+   begin
+      return P : Point_3D do
+         P.X := V.X;
+         P.Y := V.Y;
+         P.Z := V.Z;
+      end return;
+   end To_Point_3D;
+
+   -----------------
+   --  Vector_3D ADT
+   -----------------
+
+   function Construct_Vector (X, Y, Z : in Large_Float) return Vector_3D is
+   begin
+      return V : Vector_3D do
+         V.X := X;
+         V.Y := Y;
+         V.Z := Z;
+      end return;
+   end Construct_Vector;
+
+   procedure Put (V : in Vector_3D; Msg : String := "Vector_3D = ") is
+   begin
+      Put (Msg);
+      New_Line;
+      Put ("   {");
+      Put (V.X);
+      Put (" ,");
+      Put (V.Y);
+      Put (" ,");
+      Put (V.Z);
+      Put (" }");
+      New_Line;
+   end Put;
+
+   function Get_X (V : in Vector_3D) return Large_Float is (V.X);
+
+   function Get_Y (V : in Vector_3D) return Large_Float is (V.Y);
+
+   function Get_Z (V : in Vector_3D) return Large_Float is (V.Z);
+
+   function "-" (V : in Vector_3D) return Vector_3D is
+   begin
+      return Vn : Vector_3D do
+         Vn.X := -V.X;
+         Vn.Y := -V.Y;
+         Vn.Z := -V.Z;
+      end return;
+   end "-";
+
+   function "+" (V1 : in Vector_3D; V2 : in Vector_3D) return Vector_3D is
+   begin
+      return V : Vector_3D do
+         V.X := V1.X + V2.X;
+         V.Y := V1.Y + V2.Y;
+         V.Z := V1.Z + V2.Z;
+      end return;
+   end "+";
+
+   function "-" (V1 : in Vector_3D; V2 : in Vector_3D) return Vector_3D is
+   begin
+      return V : Vector_3D do
+         V.X := V1.X - V2.X;
+         V.Y := V1.Y - V2.Y;
+         V.Z := V1.Z - V2.Z;
+      end return;
+   end "-";
+
+   function "-" (P1, P2 : in Point_3D) return Vector_3D is
+   begin
+      return V : Vector_3D do
+         V.X := P1.X - P2.X;
+         V.Y := P1.Y - P2.Y;
+         V.Z := P1.Z - P2.Z;
+      end return;
+   end "-";
+
+   function "*" (V : in Vector_3D; S : in Large_Float) return Vector_3D is
+   begin
+      return Vm : Vector_3D do
+         Vm.X := V.X * S;
+         Vm.Y := V.Y * S;
+         Vm.Z := V.Z * S;
+      end return;
+   end "*";
+
+   function "*" (S : in Large_Float; V : in Vector_3D) return Vector_3D is
+   begin
+      return Vm : Vector_3D do
+         Vm.X := V.X * S;
+         Vm.Y := V.Y * S;
+         Vm.Z := V.Z * S;
+      end return;
+   end "*";
+
+   function "*" (V1 : in Vector_3D; V2 : in Vector_3D) return Large_Float is (V1.X * V2.X + V1.Y * V2.Y + V1.Z * V2.Z);
+
+   function "*" (M : in Matrix_3D; V : in Vector_3D) return Vector_3D is
+   begin
+      return Vt : Vector_3D do
+         Vt.X := M.X1 * V.X + M.X2 * V.Y + M.X3 * V.Z;
+         Vt.Y := M.Y1 * V.X + M.Y2 * V.Y + M.Y3 * V.Z;
+         Vt.Z := M.Z1 * V.X + M.Z2 * V.Y + M.Z3 * V.Z;
+      end return;
+   end "*";
+
+   function "**" (V1 : in Vector_3D; V2 : in Vector_3D) return Vector_3D is
+   begin
+      return V : Vector_3D do
+         V.X := V1.Y * V2.Z - V1.Z * V2.Y;
+         V.Y := V1.Z * V2.X - V1.X * V2.Z;
+         V.Z := V1.X * V2.Y - V1.Y * V2.X;
+      end return;
+   end "**";
+
+   function Length (V : in Vector_3D) return Large_Float is (Sqrt (V.X * V.X + V.Y * V.Y + V.Z * V.Z));
+
+   function Length_Squared (V : in Vector_3D) return Large_Float is (V.X * V.X + V.Y * V.Y + V.Z * V.Z);
+
+   function Normalize (V : in Vector_3D) return Vector_3D is
+      Inv_Len : Large_Float;
+   begin
+      Inv_Len := 1.0 / Sqrt (V.X * V.X + V.Y * V.Y + V.Z * V.Z);
+      return Vn : Vector_3D do
+         Vn.X := V.X * Inv_Len;
+         Vn.Y := V.Y * Inv_Len;
+         Vn.Z := V.Z * Inv_Len;
+      end return;
+   end Normalize;
+
+   function To_Vector_3D (N : in Normal_3D) return Vector_3D is
+   begin
+      return V : Vector_3D do
+         V.X := N.X;
+         V.Y := N.Y;
+         V.Z := N.Z;
+      end return;
+   end To_Vector_3D;
+
+   function To_Vector_3D (P : in Point_3D) return Vector_3D is
+   begin
+      return V : Vector_3D do
+         V.X := P.X;
+         V.Y := P.Y;
+         V.Z := P.Z;
+      end return;
+   end To_Vector_3D;
+
+   -----------------
+   --  Normal_3D ADT
+   -----------------
+
+   function Construct_Normal (X, Y, Z : in Large_Float) return Normal_3D is
+   begin
+      return N : Normal_3D do
+         N.X := X;
+         N.Y := Y;
+         N.Z := Z;
+         N   := Normalize (N);
+      end return;
+   end Construct_Normal;
+
+   procedure Put (N : in Normal_3D; Msg : String := "Normal_3D = ") is
+   begin
+      Put (Msg);
+      New_Line;
+      Put ("   {");
+      Put (N.X);
+      Put (" ,");
+      Put (N.Y);
+      Put (" ,");
+      Put (N.Z);
+      Put (" }");
+      New_Line;
+   end Put;
+
+   function Get_X (N : in Normal_3D) return Large_Float is (N.X);
+
+   function Get_Y (N : in Normal_3D) return Large_Float is (N.Y);
+
+   function Get_Z (N : in Normal_3D) return Large_Float is (N.Z);
+
+   function "-" (N : in Normal_3D) return Normal_3D is
+   begin
+      return Nn : Normal_3D do
+         Nn.X := -N.X;
+         Nn.Y := -N.Y;
+         Nn.Z := -N.Z;
+      end return;
+   end "-";
+
+   function "+" (N1 : in Normal_3D; N2 : in Normal_3D) return Normal_3D is
+      Inv_Len : Large_Float;
+      N       : Normal_3D;
+   begin
+      N.X     := N1.X + N2.X;
+      N.Y     := N1.Y + N2.Y;
+      N.Z     := N1.Z + N2.Z;
+      Inv_Len := 1.0 / Sqrt (N.X * N.X + N.Y * N.Y + N.Z * N.Z);
+      N.X     := N.X * Inv_Len;
+      N.Y     := N.Y * Inv_Len;
+      N.Z     := N.Z * Inv_Len;
+      return N;
+   end "+";
+
+   function "-" (N1 : in Normal_3D; N2 : in Normal_3D) return Normal_3D is
+      Inv_Len : Large_Float;
+      N       : Normal_3D;
+   begin
+      N.X     := N1.X - N2.X;
+      N.Y     := N1.Y - N2.Y;
+      N.Z     := N1.Z - N2.Z;
+      Inv_Len := 1.0 / Sqrt (N.X * N.X + N.Y * N.Y + N.Z * N.Z);
+      N.X     := N.X * Inv_Len;
+      N.Y     := N.Y * Inv_Len;
+      N.Z     := N.Z * Inv_Len;
+      return N;
+   end "-";
+
+   function "*" (N1 : in Normal_3D; N2 : in Normal_3D) return Large_Float is (N1.X * N2.X + N1.Y * N2.Y + N1.Z * N2.Z);
+
+   function "*" (M : in Matrix_3D; N : in Normal_3D) return Normal_3D is
+      Inv_Len : Large_Float;
+      Nt      : Normal_3D;
+   begin
+      Nt.X    := M.X1 * N.X + M.Y1 * N.Y + M.Z1 * N.Z;
+      Nt.Y    := M.X2 * N.X + M.Y2 * N.Y + M.Z2 * N.Z;
+      Nt.Z    := M.X3 * N.X + M.Y3 * N.Y + M.Z3 * N.Z;
+      Inv_Len := 1.0 / Sqrt (Nt.X * Nt.X + Nt.Y * Nt.Y + Nt.Z * Nt.Z);
+      Nt.X    := Nt.X * Inv_Len;
+      Nt.Y    := Nt.Y * Inv_Len;
+      Nt.Z    := Nt.Z * Inv_Len;
+      return Nt;
+   end "*";
+
+   function "**" (N1 : in Normal_3D; N2 : in Normal_3D) return Normal_3D is
+   begin
+      return N : Normal_3D do
+         N.X := N1.Y * N2.Z - N1.Z * N2.Y;
+         N.Y := N1.Z * N2.X - N1.X * N2.Z;
+         N.Z := N1.X * N2.Y - N1.Y * N2.X;
+      end return;
+   end "**";
+
+   function Normalize (N : in Normal_3D) return Normal_3D is
+      Inv_Len : Large_Float;
+   begin
+      Inv_Len := 1.0 / Sqrt (N.X * N.X + N.Y * N.Y + N.Z * N.Z);
+      return Nn : Normal_3D do
+         Nn.X := N.X * Inv_Len;
+         Nn.Y := N.Y * Inv_Len;
+         Nn.Z := N.Z * Inv_Len;
+      end return;
+   end Normalize;
+
+   function To_Normal_3D (V : in Vector_3D) return Normal_3D is
+   begin
+      return N : Normal_3D do
+         N.X := V.X;
+         N.Y := V.Y;
+         N.Z := V.Z;
+      end return;
+   end To_Normal_3D;
+
+   function To_Normal_3D (P : in Point_3D) return Normal_3D is
+   begin
+      return N : Normal_3D do
+         N.X := P.X;
+         N.Y := P.Y;
+         N.Z := P.Z;
+      end return;
+   end To_Normal_3D;
+
+   -----------------
+   --  Matrix_3D ADT
+   -----------------
+
+   procedure Put (M : in Matrix_3D; Msg : String := "Matrix_3D = ") is
+   begin
+      Put (Msg);
+      New_Line;
+      Put ("   {");
+      Put (M.X1);
+      Put (" ,");
+      Put (M.X2);
+      Put (" ,");
+      Put (M.X3);
+      Put (" ,");
+      Put (M.Tx);
+      Put (" }");
+      New_Line;
+      Put ("   {");
+      Put (M.Y1);
+      Put (" ,");
+      Put (M.Y2);
+      Put (" ,");
+      Put (M.Y3);
+      Put (" ,");
+      Put (M.Ty);
+      Put (" }");
+      New_Line;
+      Put ("   {");
+      Put (M.Z1);
+      Put (" ,");
+      Put (M.Z2);
+      Put (" ,");
+      Put (M.Z3);
+      Put (" ,");
+      Put (M.Tz);
+      Put (" }");
+      New_Line;
+      Put ("   {");
+      Put (Large_Float (0.0));
+      Put (" ,");
+      Put (Large_Float (0.0));
+      Put (" ,");
+      Put (Large_Float (0.0));
+      Put (" ,");
+      Put (Large_Float (1.0));
+      Put (" }");
+      New_Line;
+   end Put;
+
+   function Construct_Translation (Tx, Ty, Tz : in Large_Float) return Matrix_3D is
+   begin
+      return M : Matrix_3D do
+         M.Tx := Tx;
+         M.Ty := Ty;
+         M.Tz := Tz;
+      end return;
+   end Construct_Translation;
+
+   function Construct_Translation (To : in Point_3D) return Matrix_3D is
+   begin
+      return M : Matrix_3D do
+         M.Tx := To.X;
+         M.Ty := To.Y;
+         M.Tz := To.Z;
+      end return;
+   end Construct_Translation;
+
+
+   function Construct_Translation (To : in Vector_3D) return Matrix_3D is
+   begin
+      return M : Matrix_3D do
+         M.Tx := To.X;
+         M.Ty := To.Y;
+         M.Tz := To.Z;
+      end return;
+   end Construct_Translation;
+
+   function Construct_Scale (Sx, Sy, Sz : in Large_Float) return Matrix_3D is
+   begin
+      return M : Matrix_3D do
+         M.X1 := Sx;
+         M.Y2 := Sy;
+         M.Z3 := Sz;
+      end return;
+   end Construct_Scale;
+
+   function Construct_Shear (Hxy, Hxz, Hyx, Hyz, Hzx, Hzy : in Large_Float) return Matrix_3D is
+   begin
+      return M : Matrix_3D do
+         M.X2 := Hyx;
+         M.X3 := Hzx;
+         M.Y1 := Hxy;
+         M.Y3 := Hzy;
+         M.Z1 := Hxz;
+         M.Z2 := Hyz;
+      end return;
+   end Construct_Shear;
+
+   function Construct_Rotate_X (Angle : in Large_Float) return Matrix_3D is
+      Sa, Ca : Large_Float;
+   begin
+      Sa := Sin (Angle);
+      Ca := Cos (Angle);
+      return M : Matrix_3D do
+         M.Y2 := Ca;
+         M.Y3 := -Sa;
+         M.Z2 := Sa;
+         M.Z3 := Ca;
+      end return;
+   end Construct_Rotate_X;
+
+   function Construct_Rotate_Y (Angle : in Large_Float) return Matrix_3D is
+      Sa, Ca : Large_Float;
+   begin
+      Sa := Sin (Angle);
+      Ca := Cos (Angle);
+      return M : Matrix_3D do
+         M.X1 := Ca;
+         M.X3 := Sa;
+         M.Z1 := -Sa;
+         M.Z3 := Ca;
+      end return;
+   end Construct_Rotate_Y;
+
+   function Construct_Rotate_Z (Angle : in Large_Float) return Matrix_3D is
+      Sa, Ca : Large_Float;
+   begin
+      Sa := Sin (Angle);
+      Ca := Cos (Angle);
+      return M : Matrix_3D do
+         M.X1 := Ca;
+         M.X2 := -Sa;
+         M.Y1 := Sa;
+         M.Y2 := Ca;
+      end return;
+   end Construct_Rotate_Z;
+
+   function "*" (M1, M2 : in Matrix_3D) return Matrix_3D is
+   begin
+      return M : Matrix_3D do
+         M.X1 := M1.X1 * M2.X1 + M1.X2 * M2.Y1 + M1.X3 * M2.Z1;
+         M.X2 := M1.X1 * M2.X2 + M1.X2 * M2.Y2 + M1.X3 * M2.Z2;
+         M.X3 := M1.X1 * M2.X3 + M1.X2 * M2.Y3 + M1.X3 * M2.Z3;
+         M.Tx := M1.X1 * M2.Tx + M1.X2 * M2.Ty + M1.X3 * M2.Tz + M1.Tx;
+
+         M.Y1 := M1.Y1 * M2.X1 + M1.Y2 * M2.Y1 + M1.Y3 * M2.Z1;
+         M.Y2 := M1.Y1 * M2.X2 + M1.Y2 * M2.Y2 + M1.Y3 * M2.Z2;
+         M.Y3 := M1.Y1 * M2.X3 + M1.Y2 * M2.Y3 + M1.Y3 * M2.Z3;
+         M.Ty := M1.Y1 * M2.Tx + M1.Y2 * M2.Ty + M1.Y3 * M2.Tz + M1.Ty;
+
+         M.Z1 := M1.Z1 * M2.X1 + M1.Z2 * M2.Y1 + M1.Z3 * M2.Z1;
+         M.Z2 := M1.Z1 * M2.X2 + M1.Z2 * M2.Y2 + M1.Z3 * M2.Z2;
+         M.Z3 := M1.Z1 * M2.X3 + M1.Z2 * M2.Y3 + M1.Z3 * M2.Z3;
+         M.Tz := M1.Z1 * M2.Tx + M1.Z2 * M2.Ty + M1.Z3 * M2.Tz + M1.Tz;
+      end return;
+   end "*";
+
+   function Inverse (M : in Matrix_3D) return Matrix_3D is
+      Det : Large_Float;
+   begin
+      Det :=
+        M.X1 * M.Y2 * M.Z3 + M.X2 * M.Y3 * M.Z1 + M.X3 * M.Y1 * M.Z2 - M.X1 * M.Y3 * M.Z2 - M.X2 * M.Y1 * M.Z3 - M.X3 * M.Y2 * M.Z1;
+      return Inv : Matrix_3D do
+         Inv.X1 := (M.Y2 * M.Z3 - M.Y3 * M.Z2) / Det;
+         Inv.X2 := (M.X3 * M.Z2 - M.X2 * M.Z3) / Det;
+         Inv.X3 := (M.X2 * M.Y3 - M.X3 * M.Y2) / Det;
+         Inv.Y1 := (M.Y3 * M.Z1 - M.Y1 * M.Z3) / Det;
+         Inv.Y2 := (M.X1 * M.Z3 - M.X3 * M.Z1) / Det;
+         Inv.Y3 := (M.X3 * M.Y1 - M.X1 * M.Y3) / Det;
+         Inv.Z1 := (M.Y1 * M.Z2 - M.Y2 * M.Z1) / Det;
+         Inv.Z2 := (M.X2 * M.Z1 - M.X1 * M.Z2) / Det;
+         Inv.Z3 := (M.X1 * M.Y2 - M.X2 * M.Y1) / Det;
+         Inv.Tx :=
+           (M.X2 * M.Ty * M.Z3 +
+            M.X3 * M.Y2 * M.Tz +
+            M.Tx * M.Y3 * M.Z2 -
+            M.X2 * M.Y3 * M.Tz -
+            M.X3 * M.Ty * M.Z2 -
+            M.Tx * M.Y2 * M.Z3) /
+           Det;
+         Inv.Ty :=
+           (M.X1 * M.Y3 * M.Tz +
+            M.X3 * M.Ty * M.Z1 +
+            M.Tx * M.Y1 * M.Z3 -
+            M.X1 * M.Ty * M.Z3 -
+            M.X3 * M.Y1 * M.Tz -
+            M.Tx * M.Y3 * M.Z1) /
+           Det;
+         Inv.Tz :=
+           (M.X1 * M.Ty * M.Z2 +
+            M.X2 * M.Y1 * M.Tz +
+            M.Tx * M.Y2 * M.Z1 -
+            M.X1 * M.Y2 * M.Tz -
+            M.X2 * M.Ty * M.Z1 -
+            M.Tx * M.Y1 * M.Z2) /
+           Det;
+      end return;
+
+   end Inverse;
+
+   -----------
+   --  Ray ADT
+   -----------
+
+   function Construct_Ray (Org : in Point_3D; Dir : in Vector_3D) return Ray is
+   begin
+      return R : Ray do
+         R.Org := Org;
+         R.Dir := Dir;
+      end return;
+   end Construct_Ray;
+
+   procedure Put (R : in Ray; Msg : in String := "Ray = ") is
+   begin
+      Put (Msg);
+      New_Line;
+      Put (R.Org, "  Org = ");
+      Put (R.Dir, "  Dir = ");
+   end Put;
+
+   function Get_Origin (R : in Ray) return Point_3D is (R.Org);
+
+   function Get_Direction (R : in Ray) return Vector_3D is (R.Dir);
+
+   function "*" (M : in Matrix_3D; R : in Ray) return Ray is
+      Trn_Ray : Ray;
+   begin
+      Trn_Ray.Org := M * R.Org;
+      Trn_Ray.Dir := M * R.Dir;
+      return Trn_Ray;
+   end "*";
+
+   function Get_Lambda_For_Point (R : in Ray; P : in Point_3D) return Large_Float is
+      Lambda     : Large_Float := 0.0;
+      Ov, Dv, Pv : Large_Float;
+   begin
+      Dv := R.Dir.X;
+      Ov := R.Org.X;
+      Pv := P.X;
+      --  Get the largest component of the directiom, so our Lambda is accurate as possible
+      if abs (Dv) < abs (R.Dir.Y) or Dv = 0.0 then
+         Dv := R.Dir.Y;
+         Ov := R.Org.Y;
+         Pv := P.Y;
+      end if;
+      if abs (Dv) < abs (R.Dir.Z) or Dv = 0.0 then
+         Dv := R.Dir.Z;
+         Ov := R.Org.Z;
+         Pv := P.Z;
+      end if;
+
+      Lambda := (Pv - Ov) / Dv;
+      return Lambda;
+   end Get_Lambda_For_Point;
+
+end Linear_Math;

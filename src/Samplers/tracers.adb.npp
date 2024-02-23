@@ -1,0 +1,53 @@
+with Core_Types;             use Core_Types;
+with Objects;                use Objects;
+with HitPoints; use HitPoints;
+with ShadePoints; use ShadePoints;
+with Materials; use Materials;
+with Scenes; use Scenes;
+with Utilities;              use Utilities;
+with Small_Float_Functions;  use Small_Float_Functions;
+with Normal_Float_Functions; use Normal_Float_Functions;
+with Large_Float_Functions;  use Large_Float_Functions;
+
+package body Tracers is
+   --------------------
+   --  Tracer Functions
+   --------------------
+
+   function Trace_Ray (R : in Ray; Level : Positive) return RGB_Spectrum is
+      Exitant_Radiance : RGB_Spectrum;
+      Obj_List         : Object_List;
+      Mat_Ptr          : Material_Ptr;
+      Obj_Ptr          : Object_Ptr;
+      Sp_List          : ShadePoint_List;
+      Sp_Ptr: ShadePoint_Ptr;
+   begin
+      --  If recursion too deep, exit with background color
+      if Level > MAX_RECURSION_LEVEL then
+         return Get_Background_Color;
+      end if;
+
+      Obj_List := Get_Object_List;
+      --  Cast the ray
+      Sp_List := Intersect_Objects_With_Ray (R, Obj_List);
+
+      --  If we have hitpoints, render the first one, which is the visible one (for now...)
+      if Get_No_Of_ShadePoints (Sp_List) > 0 then
+         Sp_Ptr  := Get_First_ShadePoint (Sp_List);
+         Obj_Ptr := Get_Object (Sp_Ptr);
+         Mat_Ptr := Obj_Ptr.Get_Object_Material;
+
+         --  If the objects has no material, return black
+         if Mat_Ptr = null then
+            return BLACK_RGB_Spec;
+         else
+            Exitant_Radiance := Mat_Ptr.BDRF (R, Get_HitPoint(Sp_Ptr));
+         end if;
+      else
+         return Get_Background_Color;
+      end if;
+
+      return Exitant_Radiance;
+   end Trace_Ray;
+
+end Tracers;
