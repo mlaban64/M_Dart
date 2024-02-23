@@ -39,236 +39,6 @@ GNATdoc.Documentation = {
     {
       "entities": [
         {
-          "label": "MAX_HP_STACK",
-          "qualifier": "",
-          "line": 119,
-          "column": 4,
-          "src": "srcs/hitpoints.ads.html",
-          "summary": [
-          ],
-          "description": [
-            {
-              "kind": "code",
-              "children": [
-                {
-                  "kind": "line",
-                  "number": 119,
-                  "children": [
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": "MAX_HP_STACK"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": ":"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "keyword",
-                      "text": "constant"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": "Natural"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": ":="
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "number",
-                      "text": "1000"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": ";"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "kind": "paragraph",
-              "children": [
-                {
-                  "kind": "span",
-                  "text": "Max depth of the hitpoint stack. 1000 is pretty arbitrary but seems high enough\n"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "label": "Constants and variables"
-    },
-    {
-      "entities": [
-        {
-          "label": "HitPoint_Array",
-          "qualifier": "",
-          "line": 122,
-          "column": 9,
-          "src": "srcs/hitpoints.ads.html",
-          "summary": [
-          ],
-          "description": [
-            {
-              "kind": "code",
-              "children": [
-                {
-                  "kind": "line",
-                  "number": 122,
-                  "children": [
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": "   "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "keyword",
-                      "text": "type"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": "HitPoint_Array",
-                      "href": "docs/hitpoints___spec.html#L122C9"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "keyword",
-                      "text": "is"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "keyword",
-                      "text": "array"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": "("
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "number",
-                      "text": "1"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": ".."
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": "MAX_HP_STACK"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": ")"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "keyword",
-                      "text": "of"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": "HitPoint",
-                      "href": "docs/hitpoints___spec.html#L104C9"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": ";"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "label": "Simple types"
-    },
-    {
-      "entities": [
-        {
           "label": "HitPoint",
           "qualifier": "",
           "line": 17,
@@ -434,74 +204,6 @@ GNATdoc.Documentation = {
                       "text": ";"
                     }
                   ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "label": "Hp_Stack",
-          "qualifier": "",
-          "line": 130,
-          "column": 4,
-          "src": "srcs/hitpoints.ads.html",
-          "summary": [
-          ],
-          "description": [
-            {
-              "kind": "code",
-              "children": [
-                {
-                  "kind": "line",
-                  "number": 130,
-                  "children": [
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": "   "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": "Hp_Stack",
-                      "href": "docs/hitpoints___spec.html#L130C4"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": ":"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": "HitPoint_Stack",
-                      "href": "docs/hitpoints___spec.html#L124C9"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": ";"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "kind": "paragraph",
-              "children": [
-                {
-                  "kind": "span",
-                  "text": "The global Hitpoint Stack\n"
                 }
               ]
             }
@@ -835,6 +537,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -1009,6 +715,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -1183,6 +893,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -1357,6 +1071,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -1531,6 +1249,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -1705,6 +1427,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -1805,6 +1531,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {

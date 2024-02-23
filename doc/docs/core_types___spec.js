@@ -50,7 +50,7 @@ GNATdoc.Documentation = {
                     {
                       "kind": "span",
                       "cssClass": "text",
-                      "text": "        "
+                      "text": "     "
                     },
                     {
                       "kind": "span",
@@ -152,7 +152,7 @@ GNATdoc.Documentation = {
                     {
                       "kind": "span",
                       "cssClass": "text",
-                      "text": "    "
+                      "text": " "
                     },
                     {
                       "kind": "span",
@@ -254,7 +254,7 @@ GNATdoc.Documentation = {
                     {
                       "kind": "span",
                       "cssClass": "text",
-                      "text": "    "
+                      "text": " "
                     },
                     {
                       "kind": "span",
@@ -299,7 +299,7 @@ GNATdoc.Documentation = {
                     {
                       "kind": "span",
                       "cssClass": "number",
-                      "text": "0.000000001"
+                      "text": "0.000_000_001"
                     },
                     {
                       "kind": "span",
@@ -336,7 +336,7 @@ GNATdoc.Documentation = {
                     {
                       "kind": "span",
                       "cssClass": "text",
-                      "text": "         "
+                      "text": "      "
                     },
                     {
                       "kind": "span",
@@ -427,7 +427,7 @@ GNATdoc.Documentation = {
                     {
                       "kind": "span",
                       "cssClass": "text",
-                      "text": "    "
+                      "text": " "
                     },
                     {
                       "kind": "span",
@@ -529,7 +529,7 @@ GNATdoc.Documentation = {
                     {
                       "kind": "span",
                       "cssClass": "text",
-                      "text": "    "
+                      "text": " "
                     },
                     {
                       "kind": "span",
@@ -631,7 +631,7 @@ GNATdoc.Documentation = {
                     {
                       "kind": "span",
                       "cssClass": "text",
-                      "text": "    "
+                      "text": " "
                     },
                     {
                       "kind": "span",
@@ -733,7 +733,7 @@ GNATdoc.Documentation = {
                     {
                       "kind": "span",
                       "cssClass": "text",
-                      "text": "     "
+                      "text": "  "
                     },
                     {
                       "kind": "span",
@@ -828,7 +828,7 @@ GNATdoc.Documentation = {
               "children": [
                 {
                   "kind": "span",
-                  "text": "Large_Integer is a 128-bit signed integer\n"
+                  "text": "Huge_Integer is a 128-bit signed integer\n"
                 }
               ]
             }

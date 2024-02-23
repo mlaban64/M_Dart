@@ -7,7 +7,7 @@ GNATdoc.Documentation = {
       "children": [
         {
           "kind": "span",
-          "text": "The Materials.Transparent package contains all Abstract Data Types for handling of reflective materials\n"
+          "text": "The Materials.Transparent package contains all Abstract Data Types for handling of transparent materials\n"
         }
       ]
     }
@@ -18,7 +18,7 @@ GNATdoc.Documentation = {
       "children": [
         {
           "kind": "span",
-          "text": "The Materials.Transparent package contains all Abstract Data Types for handling of reflective materials.\n"
+          "text": "The Materials.Transparent package contains all Abstract Data Types for handling of transparent materials.\n"
         }
       ]
     }
@@ -1049,6 +1049,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -1429,6 +1433,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -1804,6 +1812,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {

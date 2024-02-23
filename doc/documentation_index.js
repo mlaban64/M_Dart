@@ -88,21 +88,6 @@ GNATdoc.DocumentationIndex = [
         "file": "docs/objects___spec.html"
       },
       {
-        "label": "Objects.Unit_Cones",
-        "qualifier": "",
-        "file": "docs/objects__unit_cones___spec.html"
-      },
-      {
-        "label": "Objects.Unit_Cubes",
-        "qualifier": "",
-        "file": "docs/objects__unit_cubes___spec.html"
-      },
-      {
-        "label": "Objects.Unit_Cylinders",
-        "qualifier": "",
-        "file": "docs/objects__unit_cylinders___spec.html"
-      },
-      {
         "label": "Objects.Unit_Spheres",
         "qualifier": "",
         "file": "docs/objects__unit_spheres___spec.html"
@@ -126,11 +111,6 @@ GNATdoc.DocumentationIndex = [
         "label": "Spectra",
         "qualifier": "",
         "file": "docs/spectra___spec.html"
-      },
-      {
-        "label": "Tracers",
-        "qualifier": "",
-        "file": "docs/tracers___spec.html"
       }
     ]
   },
@@ -146,11 +126,6 @@ GNATdoc.DocumentationIndex = [
         "label": "Core_Tests",
         "qualifier": "",
         "file": "docs/core_tests___spec.html"
-      },
-      {
-        "label": "GraphiX",
-        "qualifier": "",
-        "file": "docs/graphix___spec.html"
       },
       {
         "label": "Illustrations",
@@ -193,6 +168,11 @@ GNATdoc.DocumentationIndex = [
     "label": "Objects.Compounds",
     "qualifier": "",
     "file": "docs/objects__compounds___spec.html"
+  },
+  {
+    "label": "Objects.Triangles",
+    "qualifier": "",
+    "file": "docs/objects__triangles___spec.html"
   },
   {
     "label": "Samplers",

@@ -1050,13 +1050,13 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "identifier",
-          "text": "Number_Of_Shadow_Rays",
+          "text": "Number_Of_Triangle_Intersections",
           "href": "docs/utilities___spec.html#L30C4"
         },
         {
           "kind": "span",
           "cssClass": "text",
-          "text": "                 "
+          "text": "      "
         },
         {
           "kind": "span",
@@ -1113,13 +1113,13 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "identifier",
-          "text": "Number_Of_Unit_Sphere_Hits",
+          "text": "Number_Of_Shadow_Rays",
           "href": "docs/utilities___spec.html#L31C4"
         },
         {
           "kind": "span",
           "cssClass": "text",
-          "text": "            "
+          "text": "                 "
         },
         {
           "kind": "span",
@@ -1176,13 +1176,13 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "identifier",
-          "text": "Number_Of_Unit_Cylinder_Hits",
+          "text": "Number_Of_Unit_Sphere_Hits",
           "href": "docs/utilities___spec.html#L32C4"
         },
         {
           "kind": "span",
           "cssClass": "text",
-          "text": "          "
+          "text": "            "
         },
         {
           "kind": "span",
@@ -1239,13 +1239,13 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "identifier",
-          "text": "Number_Of_Unit_Cone_Hits",
+          "text": "Number_Of_Unit_Cylinder_Hits",
           "href": "docs/utilities___spec.html#L33C4"
         },
         {
           "kind": "span",
           "cssClass": "text",
-          "text": "              "
+          "text": "          "
         },
         {
           "kind": "span",
@@ -1302,7 +1302,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "identifier",
-          "text": "Number_Of_Unit_Cube_Hits",
+          "text": "Number_Of_Unit_Cone_Hits",
           "href": "docs/utilities___spec.html#L34C4"
         },
         {
@@ -1365,13 +1365,13 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "identifier",
-          "text": "Number_Of_CSG_Object_Evaluations",
+          "text": "Number_Of_Unit_Cube_Hits",
           "href": "docs/utilities___spec.html#L35C4"
         },
         {
           "kind": "span",
           "cssClass": "text",
-          "text": "      "
+          "text": "              "
         },
         {
           "kind": "span",
@@ -1428,8 +1428,134 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "identifier",
-          "text": "Max_Number_Of_Shadepoints",
+          "text": "Number_Of_CSG_Object_Evaluations",
           "href": "docs/utilities___spec.html#L36C4"
+        },
+        {
+          "kind": "span",
+          "cssClass": "text",
+          "text": "      "
+        },
+        {
+          "kind": "span",
+          "cssClass": "identifier",
+          "text": ":"
+        },
+        {
+          "kind": "span",
+          "cssClass": "text",
+          "text": " "
+        },
+        {
+          "kind": "span",
+          "cssClass": "identifier",
+          "text": "Huge_Integer",
+          "href": "docs/core_types___spec.html#L35C9"
+        },
+        {
+          "kind": "span",
+          "cssClass": "text",
+          "text": "  "
+        },
+        {
+          "kind": "span",
+          "cssClass": "identifier",
+          "text": ":="
+        },
+        {
+          "kind": "span",
+          "cssClass": "text",
+          "text": " "
+        },
+        {
+          "kind": "span",
+          "cssClass": "number",
+          "text": "0"
+        },
+        {
+          "kind": "span",
+          "cssClass": "identifier",
+          "text": ";"
+        }
+      ]
+    },
+    {
+      "kind": "line",
+      "number": 37,
+      "children": [
+        {
+          "kind": "span",
+          "cssClass": "text",
+          "text": "   "
+        },
+        {
+          "kind": "span",
+          "cssClass": "identifier",
+          "text": "Number_Of_Triangle_Hits",
+          "href": "docs/utilities___spec.html#L37C4"
+        },
+        {
+          "kind": "span",
+          "cssClass": "text",
+          "text": "               "
+        },
+        {
+          "kind": "span",
+          "cssClass": "identifier",
+          "text": ":"
+        },
+        {
+          "kind": "span",
+          "cssClass": "text",
+          "text": " "
+        },
+        {
+          "kind": "span",
+          "cssClass": "identifier",
+          "text": "Huge_Integer",
+          "href": "docs/core_types___spec.html#L35C9"
+        },
+        {
+          "kind": "span",
+          "cssClass": "text",
+          "text": "  "
+        },
+        {
+          "kind": "span",
+          "cssClass": "identifier",
+          "text": ":="
+        },
+        {
+          "kind": "span",
+          "cssClass": "text",
+          "text": " "
+        },
+        {
+          "kind": "span",
+          "cssClass": "number",
+          "text": "0"
+        },
+        {
+          "kind": "span",
+          "cssClass": "identifier",
+          "text": ";"
+        }
+      ]
+    },
+    {
+      "kind": "line",
+      "number": 38,
+      "children": [
+        {
+          "kind": "span",
+          "cssClass": "text",
+          "text": "   "
+        },
+        {
+          "kind": "span",
+          "cssClass": "identifier",
+          "text": "Max_Number_Of_Shadepoints",
+          "href": "docs/utilities___spec.html#L38C4"
         },
         {
           "kind": "span",
@@ -1481,7 +1607,7 @@ GNATdoc.SourceFile = {
     },
     {
       "kind": "line",
-      "number": 37,
+      "number": 39,
       "children": [
         {
           "kind": "span",
@@ -1492,7 +1618,7 @@ GNATdoc.SourceFile = {
           "kind": "span",
           "cssClass": "identifier",
           "text": "DEBUG_LEVEL",
-          "href": "docs/utilities___spec.html#L37C4"
+          "href": "docs/utilities___spec.html#L39C4"
         },
         {
           "kind": "span",
@@ -1543,7 +1669,7 @@ GNATdoc.SourceFile = {
     },
     {
       "kind": "line",
-      "number": 38,
+      "number": 40,
       "children": [
         {
           "kind": "span",

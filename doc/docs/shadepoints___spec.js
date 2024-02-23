@@ -1231,15 +1231,6 @@ GNATdoc.Documentation = {
                       "text": "The hitpoint of the ray\n"
                     }
                   ]
-                },
-                {
-                  "kind": "paragraph",
-                  "children": [
-                    {
-                      "kind": "span",
-                      "text": "The object being hit\n"
-                    }
-                  ]
                 }
               ]
             },
@@ -1252,9 +1243,22 @@ GNATdoc.Documentation = {
                 "docHref": "docs/objects___spec.html#L26C9"
               },
               "description": [
+                {
+                  "kind": "paragraph",
+                  "children": [
+                    {
+                      "kind": "span",
+                      "text": "The object being hit\n"
+                    }
+                  ]
+                }
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -1602,6 +1606,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -1776,6 +1784,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -1960,6 +1972,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -2144,6 +2160,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -2318,6 +2338,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -2492,6 +2516,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -2676,6 +2704,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -2963,6 +2995,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -3250,6 +3286,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {

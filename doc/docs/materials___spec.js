@@ -239,12 +239,12 @@ GNATdoc.Documentation = {
               "docHref": "docs/materials__reflective___spec.html#L9C9"
             },
             {
-              "label": "Transparent",
-              "docHref": "docs/materials__transparent___spec.html#L9C9"
-            },
-            {
               "label": "Phong",
               "docHref": "docs/materials__phong___spec.html#L10C9"
+            },
+            {
+              "label": "Transparent",
+              "docHref": "docs/materials__transparent___spec.html#L9C9"
             }
           ]
         }
@@ -537,6 +537,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -558,6 +562,15 @@ GNATdoc.Documentation = {
           "column": 14,
           "src": "srcs/materials.ads.html",
           "summary": [
+            {
+              "kind": "paragraph",
+              "children": [
+                {
+                  "kind": "span",
+                  "text": "Prints a Material's statistics\n"
+                }
+              ]
+            }
           ],
           "description": [
             {
@@ -730,15 +743,7 @@ GNATdoc.Documentation = {
               "children": [
                 {
                   "kind": "span",
-                  "text": "------------------------\n"
-                },
-                {
-                  "kind": "span",
-                  "text": "ADT Material Functions\n"
-                },
-                {
-                  "kind": "span",
-                  "text": "------------------------\n"
+                  "text": "Prints a Material's statistics\n"
                 }
               ]
             }
@@ -753,6 +758,15 @@ GNATdoc.Documentation = {
                 "docHref": "docs/materials___spec.html#L17C9"
               },
               "description": [
+                {
+                  "kind": "paragraph",
+                  "children": [
+                    {
+                      "kind": "span",
+                      "text": "A material of the Material Class Wide Type\n"
+                    }
+                  ]
+                }
               ]
             },
             {
@@ -765,7 +779,20 @@ GNATdoc.Documentation = {
               "description": [
               ]
             }
-          ]
+          ],
+          "exceptions": {
+            "description": [
+              {
+                "kind": "paragraph",
+                "children": [
+                  {
+                    "kind": "span",
+                    "text": "None at this moment\n"
+                  }
+                ]
+              }
+            ]
+          }
         }
       ],
       "label": "Subprograms"
@@ -1133,6 +1160,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -1508,6 +1539,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {

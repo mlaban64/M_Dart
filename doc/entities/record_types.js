@@ -30,20 +30,6 @@ GNATdoc.EntitiesCategory = {
       "srcHref": "srcs/spectra.ads.html#L123"
     },
     {
-      "label": "Gfx_Image",
-      "docHref": "docs/graphix___spec.html#L17C9",
-      "declared": "GraphiX",
-      "declared_qualifier": "",
-      "srcHref": "srcs/graphix.ads.html#L17"
-    },
-    {
-      "label": "Gfx_Pixel",
-      "docHref": "docs/graphix___spec.html#L14C9",
-      "declared": "GraphiX",
-      "declared_qualifier": "",
-      "srcHref": "srcs/graphix.ads.html#L14"
-    },
-    {
       "label": "GREEN_RGB_Spec",
       "docHref": "docs/spectra___spec.html#L116C4",
       "declared": "Spectra",
@@ -63,13 +49,6 @@ GNATdoc.EntitiesCategory = {
       "declared": "HitPoints",
       "declared_qualifier": "",
       "srcHref": "srcs/hitpoints.ads.html#L20"
-    },
-    {
-      "label": "Hp_Stack",
-      "docHref": "docs/hitpoints___spec.html#L130C4",
-      "declared": "HitPoints",
-      "declared_qualifier": "",
-      "srcHref": "srcs/hitpoints.ads.html#L130"
     },
     {
       "label": "LIGHT_GREY_RGB_Spec",
@@ -140,13 +119,6 @@ GNATdoc.EntitiesCategory = {
       "declared": "Cameras.Pinhole_Cameras",
       "declared_qualifier": "",
       "srcHref": "srcs/cameras-pinhole_cameras.ads.html#L10"
-    },
-    {
-      "label": "Pixel_Sample",
-      "docHref": "docs/cameras___spec.html#L194C9",
-      "declared": "Cameras",
-      "declared_qualifier": "",
-      "srcHref": "srcs/cameras.ads.html#L194"
     },
     {
       "label": "Point_2D",
@@ -226,25 +198,11 @@ GNATdoc.EntitiesCategory = {
       "srcHref": "srcs/shadepoints.ads.html#L23"
     },
     {
-      "label": "The_World",
-      "docHref": "docs/scenes___spec.html#L187C4",
-      "declared": "Scenes",
-      "declared_qualifier": "",
-      "srcHref": "srcs/scenes.ads.html#L187"
-    },
-    {
       "label": "Tone_Map",
       "docHref": "docs/tone_maps___spec.html#L12C9",
       "declared": "Tone_Maps",
       "declared_qualifier": "",
       "srcHref": "srcs/tone_maps.ads.html#L12"
-    },
-    {
-      "label": "Tone_Pixel",
-      "docHref": "docs/tone_maps___spec.html#L52C9",
-      "declared": "Tone_Maps",
-      "declared_qualifier": "",
-      "srcHref": "srcs/tone_maps.ads.html#L52"
     },
     {
       "label": "USRS_Generator",

@@ -290,6 +290,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -447,6 +451,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -700,6 +708,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -940,6 +952,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {

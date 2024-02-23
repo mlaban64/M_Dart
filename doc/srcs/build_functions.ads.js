@@ -105,7 +105,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "identifier",
-          "text": "Transparency_Test",
+          "text": "Triangle_Test",
           "href": "docs/build_functions___spec.html#L7C14"
         },
         {
@@ -143,7 +143,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "identifier",
-          "text": "Transparency_Test2",
+          "text": "Triangle_Test2",
           "href": "docs/build_functions___spec.html#L9C14"
         },
         {
@@ -181,7 +181,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "identifier",
-          "text": "Different_Phong_Spheres1",
+          "text": "Transparency_Test",
           "href": "docs/build_functions___spec.html#L11C14"
         },
         {
@@ -219,7 +219,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "identifier",
-          "text": "Different_Phong_Spheres2",
+          "text": "Transparency_Test2",
           "href": "docs/build_functions___spec.html#L13C14"
         },
         {
@@ -257,7 +257,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "identifier",
-          "text": "Different_Phong_Spheres3",
+          "text": "Different_Phong_Spheres1",
           "href": "docs/build_functions___spec.html#L15C14"
         },
         {
@@ -295,7 +295,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "identifier",
-          "text": "Different_Phong_Spheres4",
+          "text": "Different_Phong_Spheres2",
           "href": "docs/build_functions___spec.html#L17C14"
         },
         {
@@ -333,7 +333,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "identifier",
-          "text": "Sheared_Cubes",
+          "text": "Different_Phong_Spheres3",
           "href": "docs/build_functions___spec.html#L19C14"
         },
         {
@@ -371,7 +371,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "identifier",
-          "text": "Unclipped_Spheres",
+          "text": "Different_Phong_Spheres4",
           "href": "docs/build_functions___spec.html#L21C14"
         },
         {
@@ -409,7 +409,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "identifier",
-          "text": "Dull_Sphere",
+          "text": "Sheared_Cubes",
           "href": "docs/build_functions___spec.html#L23C14"
         },
         {
@@ -447,7 +447,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "identifier",
-          "text": "Generic_Test_World",
+          "text": "Unclipped_Spheres",
           "href": "docs/build_functions___spec.html#L25C14"
         },
         {
@@ -485,7 +485,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "identifier",
-          "text": "CSG_Test",
+          "text": "Dull_Sphere",
           "href": "docs/build_functions___spec.html#L27C14"
         },
         {
@@ -523,7 +523,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "identifier",
-          "text": "CSG_Test2",
+          "text": "Generic_Test_World",
           "href": "docs/build_functions___spec.html#L29C14"
         },
         {
@@ -561,7 +561,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "identifier",
-          "text": "Random_Spheres",
+          "text": "CSG_Test",
           "href": "docs/build_functions___spec.html#L31C14"
         },
         {
@@ -599,7 +599,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "identifier",
-          "text": "Cones_Comb",
+          "text": "CSG_Test2",
           "href": "docs/build_functions___spec.html#L33C14"
         },
         {
@@ -637,7 +637,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "identifier",
-          "text": "Coloured_Cones_Comb",
+          "text": "Random_Spheres",
           "href": "docs/build_functions___spec.html#L35C14"
         },
         {
@@ -656,6 +656,82 @@ GNATdoc.SourceFile = {
     {
       "kind": "line",
       "number": 37,
+      "children": [
+        {
+          "kind": "span",
+          "cssClass": "text",
+          "text": "   "
+        },
+        {
+          "kind": "span",
+          "cssClass": "keyword",
+          "text": "procedure"
+        },
+        {
+          "kind": "span",
+          "cssClass": "text",
+          "text": " "
+        },
+        {
+          "kind": "span",
+          "cssClass": "identifier",
+          "text": "Cones_Comb",
+          "href": "docs/build_functions___spec.html#L37C14"
+        },
+        {
+          "kind": "span",
+          "cssClass": "identifier",
+          "text": ";"
+        }
+      ]
+    },
+    {
+      "kind": "line",
+      "number": 38,
+      "children": [
+      ]
+    },
+    {
+      "kind": "line",
+      "number": 39,
+      "children": [
+        {
+          "kind": "span",
+          "cssClass": "text",
+          "text": "   "
+        },
+        {
+          "kind": "span",
+          "cssClass": "keyword",
+          "text": "procedure"
+        },
+        {
+          "kind": "span",
+          "cssClass": "text",
+          "text": " "
+        },
+        {
+          "kind": "span",
+          "cssClass": "identifier",
+          "text": "Coloured_Cones_Comb",
+          "href": "docs/build_functions___spec.html#L39C14"
+        },
+        {
+          "kind": "span",
+          "cssClass": "identifier",
+          "text": ";"
+        }
+      ]
+    },
+    {
+      "kind": "line",
+      "number": 40,
+      "children": [
+      ]
+    },
+    {
+      "kind": "line",
+      "number": 41,
       "children": [
         {
           "kind": "span",

@@ -106,128 +106,6 @@ GNATdoc.Documentation = {
               ]
             }
           ]
-        },
-        {
-          "label": "The_World",
-          "qualifier": "",
-          "line": 187,
-          "column": 4,
-          "src": "srcs/scenes.ads.html",
-          "summary": [
-          ],
-          "description": [
-            {
-              "kind": "code",
-              "children": [
-                {
-                  "kind": "line",
-                  "number": 187,
-                  "children": [
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": "   "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "comment",
-                      "text": "-----"
-                    }
-                  ]
-                },
-                {
-                  "kind": "line",
-                  "number": 188,
-                  "children": [
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": "   "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "comment",
-                      "text": "--  GLOBAL VARIABLES"
-                    }
-                  ]
-                },
-                {
-                  "kind": "line",
-                  "number": 189,
-                  "children": [
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": "   "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "comment",
-                      "text": "---"
-                    }
-                  ]
-                },
-                {
-                  "kind": "line",
-                  "number": 190,
-                  "children": [
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": "   "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": "The_World"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": ":"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": "Scene"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": ";"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "kind": "paragraph",
-              "children": [
-                {
-                  "kind": "span",
-                  "text": "---\n"
-                },
-                {
-                  "kind": "span",
-                  "text": "GLOBAL VARIABLES\n"
-                },
-                {
-                  "kind": "span",
-                  "text": "-\n"
-                }
-              ]
-            }
-          ]
         }
       ],
       "label": "Record types"
@@ -380,7 +258,11 @@ GNATdoc.Documentation = {
                 }
               ]
             }
-          ]
+          ],
+          "returns": {
+            "description": [
+            ]
+          }
         },
         {
           "label": "Get_Ambient_Light",
@@ -449,7 +331,11 @@ GNATdoc.Documentation = {
                 }
               ]
             }
-          ]
+          ],
+          "returns": {
+            "description": [
+            ]
+          }
         },
         {
           "label": "Get_Background_Color",
@@ -518,7 +404,11 @@ GNATdoc.Documentation = {
                 }
               ]
             }
-          ]
+          ],
+          "returns": {
+            "description": [
+            ]
+          }
         },
         {
           "label": "Get_Camera",
@@ -587,7 +477,11 @@ GNATdoc.Documentation = {
                 }
               ]
             }
-          ]
+          ],
+          "returns": {
+            "description": [
+            ]
+          }
         },
         {
           "label": "Get_CSG_Object_List",
@@ -656,7 +550,11 @@ GNATdoc.Documentation = {
                 }
               ]
             }
-          ]
+          ],
+          "returns": {
+            "description": [
+            ]
+          }
         },
         {
           "label": "Get_CSG_Tree",
@@ -725,7 +623,11 @@ GNATdoc.Documentation = {
                 }
               ]
             }
-          ]
+          ],
+          "returns": {
+            "description": [
+            ]
+          }
         },
         {
           "label": "Get_FileName",
@@ -793,7 +695,11 @@ GNATdoc.Documentation = {
                 }
               ]
             }
-          ]
+          ],
+          "returns": {
+            "description": [
+            ]
+          }
         },
         {
           "label": "Get_Light_List",
@@ -862,7 +768,11 @@ GNATdoc.Documentation = {
                 }
               ]
             }
-          ]
+          ],
+          "returns": {
+            "description": [
+            ]
+          }
         },
         {
           "label": "Get_Max_Recursion_Level",
@@ -949,6 +859,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -1049,6 +963,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -1129,7 +1047,11 @@ GNATdoc.Documentation = {
                 }
               ]
             }
-          ]
+          ],
+          "returns": {
+            "description": [
+            ]
+          }
         },
         {
           "label": "Get_Object_List",
@@ -1198,7 +1120,11 @@ GNATdoc.Documentation = {
                 }
               ]
             }
-          ]
+          ],
+          "returns": {
+            "description": [
+            ]
+          }
         },
         {
           "label": "Get_Recursion_Level",
@@ -1285,6 +1211,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -1384,6 +1314,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -2100,15 +2034,6 @@ GNATdoc.Documentation = {
                   "text": "Sets the CSG object list of The_World\n"
                 }
               ]
-            },
-            {
-              "kind": "paragraph",
-              "children": [
-                {
-                  "kind": "span",
-                  "text": "An object list\n"
-                }
-              ]
             }
           ],
           "parameters": [
@@ -2121,6 +2046,15 @@ GNATdoc.Documentation = {
                 "docHref": "docs/objects___spec.html#L17C9"
               },
               "description": [
+                {
+                  "kind": "paragraph",
+                  "children": [
+                    {
+                      "kind": "span",
+                      "text": "An object list\n"
+                    }
+                  ]
+                }
               ]
             }
           ],
@@ -3269,7 +3203,11 @@ GNATdoc.Documentation = {
                 }
               ]
             }
-          ]
+          ],
+          "returns": {
+            "description": [
+            ]
+          }
         },
         {
           "label": "Use_Ambient_Light",

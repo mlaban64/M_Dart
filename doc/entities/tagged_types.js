@@ -107,20 +107,6 @@ GNATdoc.EntitiesCategory = {
       "srcHref": "srcs/samplers.ads.html#L18"
     },
     {
-      "label": "Sampler_2D",
-      "docHref": "docs/samplers___spec.html#L83C9",
-      "declared": "Samplers",
-      "declared_qualifier": "",
-      "srcHref": "srcs/samplers.ads.html#L83"
-    },
-    {
-      "label": "Sampler_3D",
-      "docHref": "docs/samplers___spec.html#L88C9",
-      "declared": "Samplers",
-      "declared_qualifier": "",
-      "srcHref": "srcs/samplers.ads.html#L88"
-    },
-    {
       "label": "Transparent",
       "docHref": "docs/materials__transparent___spec.html#L9C9",
       "declared": "Materials.Transparent",
@@ -128,25 +114,11 @@ GNATdoc.EntitiesCategory = {
       "srcHref": "srcs/materials-transparent.ads.html#L9"
     },
     {
-      "label": "Unit_Cone",
-      "docHref": "docs/objects__unit_cones___spec.html#L13C9",
-      "declared": "Objects.Unit_Cones",
+      "label": "Triangle",
+      "docHref": "docs/objects__triangles___spec.html#L14C9",
+      "declared": "Objects.Triangles",
       "declared_qualifier": "",
-      "srcHref": "srcs/objects-unit_cones.ads.html#L13"
-    },
-    {
-      "label": "Unit_Cube",
-      "docHref": "docs/objects__unit_cubes___spec.html#L13C9",
-      "declared": "Objects.Unit_Cubes",
-      "declared_qualifier": "",
-      "srcHref": "srcs/objects-unit_cubes.ads.html#L13"
-    },
-    {
-      "label": "Unit_Cylinder",
-      "docHref": "docs/objects__unit_cylinders___spec.html#L13C9",
-      "declared": "Objects.Unit_Cylinders",
-      "declared_qualifier": "",
-      "srcHref": "srcs/objects-unit_cylinders.ads.html#L13"
+      "srcHref": "srcs/objects-triangles.ads.html#L14"
     },
     {
       "label": "Unit_Sphere",

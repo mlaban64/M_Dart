@@ -892,7 +892,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "comment",
-          "text": "--<summary>Large_Integer is a 128-bit signed integer</summary>"
+          "text": "--<summary>Huge_Integer is a 128-bit signed integer</summary>"
         }
       ]
     },
@@ -1836,7 +1836,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "text",
-          "text": "         "
+          "text": "      "
         },
         {
           "kind": "span",
@@ -1909,7 +1909,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "text",
-          "text": "        "
+          "text": "     "
         },
         {
           "kind": "span",
@@ -2002,7 +2002,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "text",
-          "text": "     "
+          "text": "  "
         },
         {
           "kind": "span",
@@ -2095,7 +2095,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "text",
-          "text": "    "
+          "text": " "
         },
         {
           "kind": "span",
@@ -2188,7 +2188,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "text",
-          "text": "    "
+          "text": " "
         },
         {
           "kind": "span",
@@ -2281,7 +2281,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "text",
-          "text": "    "
+          "text": " "
         },
         {
           "kind": "span",
@@ -2374,7 +2374,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "text",
-          "text": "    "
+          "text": " "
         },
         {
           "kind": "span",
@@ -2467,7 +2467,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "text",
-          "text": "    "
+          "text": " "
         },
         {
           "kind": "span",
@@ -2513,7 +2513,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "number",
-          "text": "0.000000001"
+          "text": "0.000_000_001"
         },
         {
           "kind": "span",

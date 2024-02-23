@@ -40,7 +40,7 @@ package ShadePoints is
    --<summary>Creates a new ShadePoint with the values passed in and return its pointer</summary>
    --<description>Creates a new ShadePoint with the values passed in and return its pointer</description>
    --<parameter name="Hp">The hitpoint of the ray</parameter>
-   --<parameter name="Obj">The object being hit</parameter>
+   --<parameter name="Obj_Ptr">The object being hit</parameter>
    --<exception>None at this moment</exception>
 
    procedure Put (Sp_Ptr : in ShadePoint_Ptr; Msg : in String := "ShadePoint ");

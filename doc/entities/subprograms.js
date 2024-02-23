@@ -213,10 +213,10 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "Coloured_Cones_Comb",
-      "docHref": "docs/build_functions___spec.html#L35C14",
+      "docHref": "docs/build_functions___spec.html#L39C14",
       "declared": "Build_Functions",
       "declared_qualifier": "",
-      "srcHref": "srcs/build_functions.ads.html#L35"
+      "srcHref": "srcs/build_functions.ads.html#L39"
     },
     {
       "label": "Compute_Hitpoint_World",
@@ -227,10 +227,10 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "Cones_Comb",
-      "docHref": "docs/build_functions___spec.html#L33C14",
+      "docHref": "docs/build_functions___spec.html#L37C14",
       "declared": "Build_Functions",
       "declared_qualifier": "",
-      "srcHref": "srcs/build_functions.ads.html#L33"
+      "srcHref": "srcs/build_functions.ads.html#L37"
     },
     {
       "label": "Construct_Arrow",
@@ -380,20 +380,6 @@ GNATdoc.EntitiesCategory = {
       "srcHref": "srcs/cameras.ads.html#L145"
     },
     {
-      "label": "Construct_Positioned_Cone",
-      "docHref": "docs/objects__unit_cones___spec.html#L22C13",
-      "declared": "Objects.Unit_Cones",
-      "declared_qualifier": "",
-      "srcHref": "srcs/objects-unit_cones.ads.html#L22"
-    },
-    {
-      "label": "Construct_Positioned_Cylinder",
-      "docHref": "docs/objects__unit_cylinders___spec.html#L22C13",
-      "declared": "Objects.Unit_Cylinders",
-      "declared_qualifier": "",
-      "srcHref": "srcs/objects-unit_cylinders.ads.html#L22"
-    },
-    {
       "label": "Construct_Positioned_Sphere",
       "docHref": "docs/objects__unit_spheres___spec.html#L22C13",
       "declared": "Objects.Unit_Spheres",
@@ -513,25 +499,11 @@ GNATdoc.EntitiesCategory = {
       "srcHref": "srcs/materials-transparent.ads.html#L14"
     },
     {
-      "label": "Construct_Unit_Cone",
-      "docHref": "docs/objects__unit_cones___spec.html#L16C13",
-      "declared": "Objects.Unit_Cones",
+      "label": "Construct_Triangle",
+      "docHref": "docs/objects__triangles___spec.html#L20C13",
+      "declared": "Objects.Triangles",
       "declared_qualifier": "",
-      "srcHref": "srcs/objects-unit_cones.ads.html#L16"
-    },
-    {
-      "label": "Construct_Unit_Cube",
-      "docHref": "docs/objects__unit_cubes___spec.html#L16C13",
-      "declared": "Objects.Unit_Cubes",
-      "declared_qualifier": "",
-      "srcHref": "srcs/objects-unit_cubes.ads.html#L16"
-    },
-    {
-      "label": "Construct_Unit_Cylinder",
-      "docHref": "docs/objects__unit_cylinders___spec.html#L16C13",
-      "declared": "Objects.Unit_Cylinders",
-      "declared_qualifier": "",
-      "srcHref": "srcs/objects-unit_cylinders.ads.html#L16"
+      "srcHref": "srcs/objects-triangles.ads.html#L20"
     },
     {
       "label": "Construct_Unit_Sphere",
@@ -598,17 +570,17 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "CSG_Test",
-      "docHref": "docs/build_functions___spec.html#L27C14",
+      "docHref": "docs/build_functions___spec.html#L31C14",
       "declared": "Build_Functions",
       "declared_qualifier": "",
-      "srcHref": "srcs/build_functions.ads.html#L27"
+      "srcHref": "srcs/build_functions.ads.html#L31"
     },
     {
       "label": "CSG_Test2",
-      "docHref": "docs/build_functions___spec.html#L29C14",
+      "docHref": "docs/build_functions___spec.html#L33C14",
       "declared": "Build_Functions",
       "declared_qualifier": "",
-      "srcHref": "srcs/build_functions.ads.html#L29"
+      "srcHref": "srcs/build_functions.ads.html#L33"
     },
     {
       "label": "CSG_Union",
@@ -640,31 +612,31 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "Different_Phong_Spheres1",
-      "docHref": "docs/build_functions___spec.html#L11C14",
-      "declared": "Build_Functions",
-      "declared_qualifier": "",
-      "srcHref": "srcs/build_functions.ads.html#L11"
-    },
-    {
-      "label": "Different_Phong_Spheres2",
-      "docHref": "docs/build_functions___spec.html#L13C14",
-      "declared": "Build_Functions",
-      "declared_qualifier": "",
-      "srcHref": "srcs/build_functions.ads.html#L13"
-    },
-    {
-      "label": "Different_Phong_Spheres3",
       "docHref": "docs/build_functions___spec.html#L15C14",
       "declared": "Build_Functions",
       "declared_qualifier": "",
       "srcHref": "srcs/build_functions.ads.html#L15"
     },
     {
-      "label": "Different_Phong_Spheres4",
+      "label": "Different_Phong_Spheres2",
       "docHref": "docs/build_functions___spec.html#L17C14",
       "declared": "Build_Functions",
       "declared_qualifier": "",
       "srcHref": "srcs/build_functions.ads.html#L17"
+    },
+    {
+      "label": "Different_Phong_Spheres3",
+      "docHref": "docs/build_functions___spec.html#L19C14",
+      "declared": "Build_Functions",
+      "declared_qualifier": "",
+      "srcHref": "srcs/build_functions.ads.html#L19"
+    },
+    {
+      "label": "Different_Phong_Spheres4",
+      "docHref": "docs/build_functions___spec.html#L21C14",
+      "declared": "Build_Functions",
+      "declared_qualifier": "",
+      "srcHref": "srcs/build_functions.ads.html#L21"
     },
     {
       "label": "Distance",
@@ -696,10 +668,10 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "Dull_Sphere",
-      "docHref": "docs/build_functions___spec.html#L23C14",
+      "docHref": "docs/build_functions___spec.html#L27C14",
       "declared": "Build_Functions",
       "declared_qualifier": "",
-      "srcHref": "srcs/build_functions.ads.html#L23"
+      "srcHref": "srcs/build_functions.ads.html#L27"
     },
     {
       "label": "Flip_Normals",
@@ -752,6 +724,13 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "Gallery_III_Chess_Board",
+      "docHref": "docs/illustrations___spec.html#L29C14",
+      "declared": "Illustrations",
+      "declared_qualifier": "",
+      "srcHref": "srcs/illustrations.ads.html#L29"
+    },
+    {
+      "label": "Gallery_III_Chess_Board_For_STS",
       "docHref": "docs/illustrations___spec.html#L27C14",
       "declared": "Illustrations",
       "declared_qualifier": "",
@@ -766,24 +745,24 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "Gallery_III_Transparency1",
-      "docHref": "docs/illustrations___spec.html#L29C14",
-      "declared": "Illustrations",
-      "declared_qualifier": "",
-      "srcHref": "srcs/illustrations.ads.html#L29"
-    },
-    {
-      "label": "Gallery_III_Transparency2",
       "docHref": "docs/illustrations___spec.html#L31C14",
       "declared": "Illustrations",
       "declared_qualifier": "",
       "srcHref": "srcs/illustrations.ads.html#L31"
     },
     {
+      "label": "Gallery_III_Transparency2",
+      "docHref": "docs/illustrations___spec.html#L33C14",
+      "declared": "Illustrations",
+      "declared_qualifier": "",
+      "srcHref": "srcs/illustrations.ads.html#L33"
+    },
+    {
       "label": "Generic_Test_World",
-      "docHref": "docs/build_functions___spec.html#L25C14",
+      "docHref": "docs/build_functions___spec.html#L29C14",
       "declared": "Build_Functions",
       "declared_qualifier": "",
-      "srcHref": "srcs/build_functions.ads.html#L25"
+      "srcHref": "srcs/build_functions.ads.html#L29"
     },
     {
       "label": "Get_Alarm_Color",
@@ -1003,13 +982,6 @@ GNATdoc.EntitiesCategory = {
       "srcHref": "srcs/shadepoints.ads.html#L78"
     },
     {
-      "label": "Get_Normal_For_Cube3D",
-      "docHref": "docs/objects__unit_cubes___spec.html#L22C13",
-      "declared": "Objects.Unit_Cubes",
-      "declared_qualifier": "",
-      "srcHref": "srcs/objects-unit_cubes.ads.html#L22"
-    },
-    {
       "label": "Get_Object",
       "docHref": "docs/shadepoints___spec.html#L65C13",
       "declared": "ShadePoints",
@@ -1206,69 +1178,6 @@ GNATdoc.EntitiesCategory = {
       "srcHref": "srcs/linear_math.ads.html#L341"
     },
     {
-      "label": "GfxLib_CheckEvent_Waiting",
-      "docHref": "docs/graphix___spec.html#L100C13",
-      "declared": "GraphiX",
-      "declared_qualifier": "",
-      "srcHref": "srcs/graphix.ads.html#L100"
-    },
-    {
-      "label": "GfxLib_ClearWindow",
-      "docHref": "docs/graphix___spec.html#L80C14",
-      "declared": "GraphiX",
-      "declared_qualifier": "",
-      "srcHref": "srcs/graphix.ads.html#L80"
-    },
-    {
-      "label": "GfxLib_CloseWindow",
-      "docHref": "docs/graphix___spec.html#L59C14",
-      "declared": "GraphiX",
-      "declared_qualifier": "",
-      "srcHref": "srcs/graphix.ads.html#L59"
-    },
-    {
-      "label": "GfxLib_FlushWindow",
-      "docHref": "docs/graphix___spec.html#L95C14",
-      "declared": "GraphiX",
-      "declared_qualifier": "",
-      "srcHref": "srcs/graphix.ads.html#L95"
-    },
-    {
-      "label": "GfxLib_OpenWindow",
-      "docHref": "docs/graphix___spec.html#L51C14",
-      "declared": "GraphiX",
-      "declared_qualifier": "",
-      "srcHref": "srcs/graphix.ads.html#L51"
-    },
-    {
-      "label": "GfxLib_SetClearWindow_Color",
-      "docHref": "docs/graphix___spec.html#L86C14",
-      "declared": "GraphiX",
-      "declared_qualifier": "",
-      "srcHref": "srcs/graphix.ads.html#L86"
-    },
-    {
-      "label": "GfxLib_SetColor",
-      "docHref": "docs/graphix___spec.html#L72C14",
-      "declared": "GraphiX",
-      "declared_qualifier": "",
-      "srcHref": "srcs/graphix.ads.html#L72"
-    },
-    {
-      "label": "GfxLib_SetPixel",
-      "docHref": "docs/graphix___spec.html#L64C14",
-      "declared": "GraphiX",
-      "declared_qualifier": "",
-      "srcHref": "srcs/graphix.ads.html#L64"
-    },
-    {
-      "label": "GfxLib_WaitForEvent",
-      "docHref": "docs/graphix___spec.html#L106C13",
-      "declared": "GraphiX",
-      "declared_qualifier": "",
-      "srcHref": "srcs/graphix.ads.html#L106"
-    },
-    {
       "label": "Hit_Objects_With_Ray",
       "docHref": "docs/shadepoints___spec.html#L116C13",
       "declared": "ShadePoints",
@@ -1367,6 +1276,20 @@ GNATdoc.EntitiesCategory = {
       "srcHref": "srcs/tone_maps.ads.html#L39"
     },
     {
+      "label": "Map_Tones_To_Image_Reinhard",
+      "docHref": "docs/tone_maps___spec.html#L45C14",
+      "declared": "Tone_Maps",
+      "declared_qualifier": "",
+      "srcHref": "srcs/tone_maps.ads.html#L45"
+    },
+    {
+      "label": "Map_Tones_To_Image_Reinhard_Extended",
+      "docHref": "docs/tone_maps___spec.html#L50C14",
+      "declared": "Tone_Maps",
+      "declared_qualifier": "",
+      "srcHref": "srcs/tone_maps.ads.html#L50"
+    },
+    {
       "label": "Math_Multiply_Perf_Test",
       "docHref": "docs/core_tests___spec.html#L14C14",
       "declared": "Core_Tests",
@@ -1407,13 +1330,6 @@ GNATdoc.EntitiesCategory = {
       "declared": "Core_Tests",
       "declared_qualifier": "",
       "srcHref": "srcs/core_tests.ads.html#L20"
-    },
-    {
-      "label": "Open_Image_Window",
-      "docHref": "docs/graphix___spec.html#L24C14",
-      "declared": "GraphiX",
-      "declared_qualifier": "",
-      "srcHref": "srcs/graphix.ads.html#L24"
     },
     {
       "label": "Opening_Message",
@@ -1613,10 +1529,10 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "Random_Spheres",
-      "docHref": "docs/build_functions___spec.html#L31C14",
+      "docHref": "docs/build_functions___spec.html#L35C14",
       "declared": "Build_Functions",
       "declared_qualifier": "",
-      "srcHref": "srcs/build_functions.ads.html#L31"
+      "srcHref": "srcs/build_functions.ads.html#L35"
     },
     {
       "label": "Refactor_Radiance",
@@ -1645,13 +1561,6 @@ GNATdoc.EntitiesCategory = {
       "declared": "Cameras",
       "declared_qualifier": "",
       "srcHref": "srcs/cameras.ads.html#L112"
-    },
-    {
-      "label": "Save_Image",
-      "docHref": "docs/graphix___spec.html#L32C14",
-      "declared": "GraphiX",
-      "declared_qualifier": "",
-      "srcHref": "srcs/graphix.ads.html#L32"
     },
     {
       "label": "Set_Ambient_Light",
@@ -1746,13 +1655,6 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "Set_Pixel",
-      "docHref": "docs/graphix___spec.html#L38C14",
-      "declared": "GraphiX",
-      "declared_qualifier": "",
-      "srcHref": "srcs/graphix.ads.html#L38"
-    },
-    {
-      "label": "Set_Pixel",
       "docHref": "docs/tone_maps___spec.html#L31C14",
       "declared": "Tone_Maps",
       "declared_qualifier": "",
@@ -1795,10 +1697,10 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "Sheared_Cubes",
-      "docHref": "docs/build_functions___spec.html#L19C14",
+      "docHref": "docs/build_functions___spec.html#L23C14",
       "declared": "Build_Functions",
       "declared_qualifier": "",
-      "srcHref": "srcs/build_functions.ads.html#L19"
+      "srcHref": "srcs/build_functions.ads.html#L23"
     },
     {
       "label": "Sine_Wave_Pattern",
@@ -1843,42 +1745,28 @@ GNATdoc.EntitiesCategory = {
       "srcHref": "srcs/linear_math.ads.html#L304"
     },
     {
-      "label": "Trace_Init_Ray",
-      "docHref": "docs/tracers___spec.html#L31C14",
-      "declared": "Tracers",
-      "declared_qualifier": "",
-      "srcHref": "srcs/tracers.ads.html#L31"
-    },
-    {
-      "label": "Trace_Ray",
-      "docHref": "docs/tracers___spec.html#L11C13",
-      "declared": "Tracers",
-      "declared_qualifier": "",
-      "srcHref": "srcs/tracers.ads.html#L11"
-    },
-    {
-      "label": "Trace_Shadow_Ray",
-      "docHref": "docs/tracers___spec.html#L25C13",
-      "declared": "Tracers",
-      "declared_qualifier": "",
-      "srcHref": "srcs/tracers.ads.html#L25"
-    },
-    {
-      "label": "Trace_Transmitted_Ray",
-      "docHref": "docs/tracers___spec.html#L18C13",
-      "declared": "Tracers",
-      "declared_qualifier": "",
-      "srcHref": "srcs/tracers.ads.html#L18"
-    },
-    {
       "label": "Transparency_Test",
+      "docHref": "docs/build_functions___spec.html#L11C14",
+      "declared": "Build_Functions",
+      "declared_qualifier": "",
+      "srcHref": "srcs/build_functions.ads.html#L11"
+    },
+    {
+      "label": "Transparency_Test2",
+      "docHref": "docs/build_functions___spec.html#L13C14",
+      "declared": "Build_Functions",
+      "declared_qualifier": "",
+      "srcHref": "srcs/build_functions.ads.html#L13"
+    },
+    {
+      "label": "Triangle_Test",
       "docHref": "docs/build_functions___spec.html#L7C14",
       "declared": "Build_Functions",
       "declared_qualifier": "",
       "srcHref": "srcs/build_functions.ads.html#L7"
     },
     {
-      "label": "Transparency_Test2",
+      "label": "Triangle_Test2",
       "docHref": "docs/build_functions___spec.html#L9C14",
       "declared": "Build_Functions",
       "declared_qualifier": "",
@@ -1886,10 +1774,10 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "Unclipped_Spheres",
-      "docHref": "docs/build_functions___spec.html#L21C14",
+      "docHref": "docs/build_functions___spec.html#L25C14",
       "declared": "Build_Functions",
       "declared_qualifier": "",
-      "srcHref": "srcs/build_functions.ads.html#L21"
+      "srcHref": "srcs/build_functions.ads.html#L25"
     },
     {
       "label": "Use_Ambient_Light",

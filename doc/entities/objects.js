@@ -2,32 +2,11 @@ GNATdoc.EntitiesCategory = {
   "label": "Constants & Variables",
   "entities": [
     {
-      "label": "BLUE_FACTOR",
-      "docHref": "docs/tone_maps___spec.html#L50C4",
-      "declared": "Tone_Maps",
-      "declared_qualifier": "",
-      "srcHref": "srcs/tone_maps.ads.html#L50"
-    },
-    {
       "label": "DEBUG_LEVEL",
-      "docHref": "docs/utilities___spec.html#L37C4",
+      "docHref": "docs/utilities___spec.html#L39C4",
       "declared": "Utilities",
       "declared_qualifier": "",
-      "srcHref": "srcs/utilities.ads.html#L37"
-    },
-    {
-      "label": "Gfx_Main_Image",
-      "docHref": "docs/graphix___spec.html#L21C4",
-      "declared": "GraphiX",
-      "declared_qualifier": "",
-      "srcHref": "srcs/graphix.ads.html#L21"
-    },
-    {
-      "label": "GREEN_FACTOR",
-      "docHref": "docs/tone_maps___spec.html#L49C4",
-      "declared": "Tone_Maps",
-      "declared_qualifier": "",
-      "srcHref": "srcs/tone_maps.ads.html#L49"
+      "srcHref": "srcs/utilities.ads.html#L39"
     },
     {
       "label": "M_Dart_Version",
@@ -44,13 +23,6 @@ GNATdoc.EntitiesCategory = {
       "srcHref": "srcs/tone_maps.ads.html#L15"
     },
     {
-      "label": "MAX_HP_STACK",
-      "docHref": "docs/hitpoints___spec.html#L119C4",
-      "declared": "HitPoints",
-      "declared_qualifier": "",
-      "srcHref": "srcs/hitpoints.ads.html#L119"
-    },
-    {
       "label": "MAX_NO_OF_SAMPLES",
       "docHref": "docs/samplers___spec.html#L15C4",
       "declared": "Samplers",
@@ -59,17 +31,17 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "Max_Number_Of_Shadepoints",
+      "docHref": "docs/utilities___spec.html#L38C4",
+      "declared": "Utilities",
+      "declared_qualifier": "",
+      "srcHref": "srcs/utilities.ads.html#L38"
+    },
+    {
+      "label": "Number_Of_CSG_Object_Evaluations",
       "docHref": "docs/utilities___spec.html#L36C4",
       "declared": "Utilities",
       "declared_qualifier": "",
       "srcHref": "srcs/utilities.ads.html#L36"
-    },
-    {
-      "label": "Number_Of_CSG_Object_Evaluations",
-      "docHref": "docs/utilities___spec.html#L35C4",
-      "declared": "Utilities",
-      "declared_qualifier": "",
-      "srcHref": "srcs/utilities.ads.html#L35"
     },
     {
       "label": "Number_Of_CSG_Object_Intersections",
@@ -94,10 +66,10 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "Number_Of_Shadow_Rays",
-      "docHref": "docs/utilities___spec.html#L30C4",
+      "docHref": "docs/utilities___spec.html#L31C4",
       "declared": "Utilities",
       "declared_qualifier": "",
-      "srcHref": "srcs/utilities.ads.html#L30"
+      "srcHref": "srcs/utilities.ads.html#L31"
     },
     {
       "label": "Number_Of_Transmitted_Rays",
@@ -107,11 +79,25 @@ GNATdoc.EntitiesCategory = {
       "srcHref": "srcs/utilities.ads.html#L24"
     },
     {
-      "label": "Number_Of_Unit_Cone_Hits",
-      "docHref": "docs/utilities___spec.html#L33C4",
+      "label": "Number_Of_Triangle_Hits",
+      "docHref": "docs/utilities___spec.html#L37C4",
       "declared": "Utilities",
       "declared_qualifier": "",
-      "srcHref": "srcs/utilities.ads.html#L33"
+      "srcHref": "srcs/utilities.ads.html#L37"
+    },
+    {
+      "label": "Number_Of_Triangle_Intersections",
+      "docHref": "docs/utilities___spec.html#L30C4",
+      "declared": "Utilities",
+      "declared_qualifier": "",
+      "srcHref": "srcs/utilities.ads.html#L30"
+    },
+    {
+      "label": "Number_Of_Unit_Cone_Hits",
+      "docHref": "docs/utilities___spec.html#L34C4",
+      "declared": "Utilities",
+      "declared_qualifier": "",
+      "srcHref": "srcs/utilities.ads.html#L34"
     },
     {
       "label": "Number_Of_Unit_Cone_Intersections",
@@ -122,10 +108,10 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "Number_Of_Unit_Cube_Hits",
-      "docHref": "docs/utilities___spec.html#L34C4",
+      "docHref": "docs/utilities___spec.html#L35C4",
       "declared": "Utilities",
       "declared_qualifier": "",
-      "srcHref": "srcs/utilities.ads.html#L34"
+      "srcHref": "srcs/utilities.ads.html#L35"
     },
     {
       "label": "Number_Of_Unit_Cube_Intersections",
@@ -136,10 +122,10 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "Number_Of_Unit_Cylinder_Hits",
-      "docHref": "docs/utilities___spec.html#L32C4",
+      "docHref": "docs/utilities___spec.html#L33C4",
       "declared": "Utilities",
       "declared_qualifier": "",
-      "srcHref": "srcs/utilities.ads.html#L32"
+      "srcHref": "srcs/utilities.ads.html#L33"
     },
     {
       "label": "Number_Of_Unit_Cylinder_Intersections",
@@ -150,10 +136,10 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "Number_Of_Unit_Sphere_Hits",
-      "docHref": "docs/utilities___spec.html#L31C4",
+      "docHref": "docs/utilities___spec.html#L32C4",
       "declared": "Utilities",
       "declared_qualifier": "",
-      "srcHref": "srcs/utilities.ads.html#L31"
+      "srcHref": "srcs/utilities.ads.html#L32"
     },
     {
       "label": "Number_Of_Unit_Sphere_Intersections",
@@ -217,13 +203,6 @@ GNATdoc.EntitiesCategory = {
       "declared": "Core_Types",
       "declared_qualifier": "",
       "srcHref": "srcs/core_types.ads.html#L76"
-    },
-    {
-      "label": "RED_FACTOR",
-      "docHref": "docs/tone_maps___spec.html#L48C4",
-      "declared": "Tone_Maps",
-      "declared_qualifier": "",
-      "srcHref": "srcs/tone_maps.ads.html#L48"
     }
   ]
 };

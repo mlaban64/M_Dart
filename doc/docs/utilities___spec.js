@@ -29,7 +29,7 @@ GNATdoc.Documentation = {
         {
           "label": "DEBUG_LEVEL",
           "qualifier": "",
-          "line": 37,
+          "line": 39,
           "column": 4,
           "src": "srcs/utilities.ads.html",
           "summary": [
@@ -40,7 +40,7 @@ GNATdoc.Documentation = {
               "children": [
                 {
                   "kind": "line",
-                  "number": 37,
+                  "number": 39,
                   "children": [
                     {
                       "kind": "span",
@@ -196,7 +196,7 @@ GNATdoc.Documentation = {
         {
           "label": "Max_Number_Of_Shadepoints",
           "qualifier": "",
-          "line": 36,
+          "line": 38,
           "column": 4,
           "src": "srcs/utilities.ads.html",
           "summary": [
@@ -207,7 +207,7 @@ GNATdoc.Documentation = {
               "children": [
                 {
                   "kind": "line",
-                  "number": 36,
+                  "number": 38,
                   "children": [
                     {
                       "kind": "span",
@@ -268,7 +268,7 @@ GNATdoc.Documentation = {
         {
           "label": "Number_Of_CSG_Object_Evaluations",
           "qualifier": "",
-          "line": 35,
+          "line": 36,
           "column": 4,
           "src": "srcs/utilities.ads.html",
           "summary": [
@@ -279,7 +279,7 @@ GNATdoc.Documentation = {
               "children": [
                 {
                   "kind": "line",
-                  "number": 35,
+                  "number": 36,
                   "children": [
                     {
                       "kind": "span",
@@ -565,7 +565,7 @@ GNATdoc.Documentation = {
         {
           "label": "Number_Of_Shadow_Rays",
           "qualifier": "",
-          "line": 30,
+          "line": 31,
           "column": 4,
           "src": "srcs/utilities.ads.html",
           "summary": [
@@ -576,7 +576,7 @@ GNATdoc.Documentation = {
               "children": [
                 {
                   "kind": "line",
-                  "number": 30,
+                  "number": 31,
                   "children": [
                     {
                       "kind": "span",
@@ -707,9 +707,9 @@ GNATdoc.Documentation = {
           ]
         },
         {
-          "label": "Number_Of_Unit_Cone_Hits",
+          "label": "Number_Of_Triangle_Hits",
           "qualifier": "",
-          "line": 33,
+          "line": 37,
           "column": 4,
           "src": "srcs/utilities.ads.html",
           "summary": [
@@ -720,7 +720,151 @@ GNATdoc.Documentation = {
               "children": [
                 {
                   "kind": "line",
-                  "number": 33,
+                  "number": 37,
+                  "children": [
+                    {
+                      "kind": "span",
+                      "cssClass": "identifier",
+                      "text": "Number_Of_Triangle_Hits"
+                    },
+                    {
+                      "kind": "span",
+                      "cssClass": "text",
+                      "text": "               "
+                    },
+                    {
+                      "kind": "span",
+                      "cssClass": "identifier",
+                      "text": ":"
+                    },
+                    {
+                      "kind": "span",
+                      "cssClass": "text",
+                      "text": " "
+                    },
+                    {
+                      "kind": "span",
+                      "cssClass": "identifier",
+                      "text": "Huge_Integer"
+                    },
+                    {
+                      "kind": "span",
+                      "cssClass": "text",
+                      "text": "  "
+                    },
+                    {
+                      "kind": "span",
+                      "cssClass": "identifier",
+                      "text": ":="
+                    },
+                    {
+                      "kind": "span",
+                      "cssClass": "text",
+                      "text": " "
+                    },
+                    {
+                      "kind": "span",
+                      "cssClass": "number",
+                      "text": "0"
+                    },
+                    {
+                      "kind": "span",
+                      "cssClass": "identifier",
+                      "text": ";"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Number_Of_Triangle_Intersections",
+          "qualifier": "",
+          "line": 30,
+          "column": 4,
+          "src": "srcs/utilities.ads.html",
+          "summary": [
+          ],
+          "description": [
+            {
+              "kind": "code",
+              "children": [
+                {
+                  "kind": "line",
+                  "number": 30,
+                  "children": [
+                    {
+                      "kind": "span",
+                      "cssClass": "identifier",
+                      "text": "Number_Of_Triangle_Intersections"
+                    },
+                    {
+                      "kind": "span",
+                      "cssClass": "text",
+                      "text": "      "
+                    },
+                    {
+                      "kind": "span",
+                      "cssClass": "identifier",
+                      "text": ":"
+                    },
+                    {
+                      "kind": "span",
+                      "cssClass": "text",
+                      "text": " "
+                    },
+                    {
+                      "kind": "span",
+                      "cssClass": "identifier",
+                      "text": "Huge_Integer"
+                    },
+                    {
+                      "kind": "span",
+                      "cssClass": "text",
+                      "text": "  "
+                    },
+                    {
+                      "kind": "span",
+                      "cssClass": "identifier",
+                      "text": ":="
+                    },
+                    {
+                      "kind": "span",
+                      "cssClass": "text",
+                      "text": " "
+                    },
+                    {
+                      "kind": "span",
+                      "cssClass": "number",
+                      "text": "0"
+                    },
+                    {
+                      "kind": "span",
+                      "cssClass": "identifier",
+                      "text": ";"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Number_Of_Unit_Cone_Hits",
+          "qualifier": "",
+          "line": 34,
+          "column": 4,
+          "src": "srcs/utilities.ads.html",
+          "summary": [
+          ],
+          "description": [
+            {
+              "kind": "code",
+              "children": [
+                {
+                  "kind": "line",
+                  "number": 34,
                   "children": [
                     {
                       "kind": "span",
@@ -853,7 +997,7 @@ GNATdoc.Documentation = {
         {
           "label": "Number_Of_Unit_Cube_Hits",
           "qualifier": "",
-          "line": 34,
+          "line": 35,
           "column": 4,
           "src": "srcs/utilities.ads.html",
           "summary": [
@@ -864,7 +1008,7 @@ GNATdoc.Documentation = {
               "children": [
                 {
                   "kind": "line",
-                  "number": 34,
+                  "number": 35,
                   "children": [
                     {
                       "kind": "span",
@@ -997,7 +1141,7 @@ GNATdoc.Documentation = {
         {
           "label": "Number_Of_Unit_Cylinder_Hits",
           "qualifier": "",
-          "line": 32,
+          "line": 33,
           "column": 4,
           "src": "srcs/utilities.ads.html",
           "summary": [
@@ -1008,7 +1152,7 @@ GNATdoc.Documentation = {
               "children": [
                 {
                   "kind": "line",
-                  "number": 32,
+                  "number": 33,
                   "children": [
                     {
                       "kind": "span",
@@ -1141,7 +1285,7 @@ GNATdoc.Documentation = {
         {
           "label": "Number_Of_Unit_Sphere_Hits",
           "qualifier": "",
-          "line": 31,
+          "line": 32,
           "column": 4,
           "src": "srcs/utilities.ads.html",
           "summary": [
@@ -1152,7 +1296,7 @@ GNATdoc.Documentation = {
               "children": [
                 {
                   "kind": "line",
-                  "number": 31,
+                  "number": 32,
                   "children": [
                     {
                       "kind": "span",

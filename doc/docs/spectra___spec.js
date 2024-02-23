@@ -27,109 +27,6 @@ GNATdoc.Documentation = {
     {
       "entities": [
         {
-          "label": "RGB_Value",
-          "qualifier": "",
-          "line": 131,
-          "column": 9,
-          "src": "srcs/spectra.ads.html",
-          "summary": [
-          ],
-          "description": [
-            {
-              "kind": "code",
-              "children": [
-                {
-                  "kind": "line",
-                  "number": 131,
-                  "children": [
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": "   "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "keyword",
-                      "text": "type"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": "RGB_Value",
-                      "href": "docs/spectra___spec.html#L131C9"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "keyword",
-                      "text": "is"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "keyword",
-                      "text": "range"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "number",
-                      "text": "0"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": ".."
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "number",
-                      "text": "255"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": ";"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "label": "Simple types"
-    },
-    {
-      "entities": [
-        {
           "label": "BLACK_RGB_Spec",
           "qualifier": "",
           "line": 113,
@@ -826,6 +723,15 @@ GNATdoc.Documentation = {
           "column": 9,
           "src": "srcs/spectra.ads.html",
           "summary": [
+            {
+              "kind": "paragraph",
+              "children": [
+                {
+                  "kind": "span",
+                  "text": "ADT of a pixel color with R, G and B values in the range 0..255\n"
+                }
+              ]
+            }
           ],
           "description": [
             {
@@ -884,23 +790,6 @@ GNATdoc.Documentation = {
                   ]
                 }
               ]
-            },
-            {
-              "kind": "paragraph",
-              "children": [
-                {
-                  "kind": "span",
-                  "text": "-------------------\n"
-                },
-                {
-                  "kind": "span",
-                  "text": "ADT RGB_PixelColor\n"
-                },
-                {
-                  "kind": "span",
-                  "text": "-------------------\n"
-                }
-              ]
             }
           ]
         },
@@ -911,6 +800,15 @@ GNATdoc.Documentation = {
           "column": 9,
           "src": "srcs/spectra.ads.html",
           "summary": [
+            {
+              "kind": "paragraph",
+              "children": [
+                {
+                  "kind": "span",
+                  "text": "ADT of a spectrum with floating point R, G and B values\n"
+                }
+              ]
+            }
           ],
           "description": [
             {
@@ -967,23 +865,6 @@ GNATdoc.Documentation = {
                       "text": ";"
                     }
                   ]
-                }
-              ]
-            },
-            {
-              "kind": "paragraph",
-              "children": [
-                {
-                  "kind": "span",
-                  "text": "-----------------\n"
-                },
-                {
-                  "kind": "span",
-                  "text": "ADT RGB_Spectrum\n"
-                },
-                {
-                  "kind": "span",
-                  "text": "-----------------\n"
                 }
               ]
             }
@@ -1358,6 +1239,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -1598,6 +1483,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -1838,6 +1727,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -2078,6 +1971,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -2324,6 +2221,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -2498,6 +2399,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -2901,6 +2806,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -3065,6 +2974,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -3230,6 +3143,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -3394,6 +3311,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -3559,6 +3480,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -3723,6 +3648,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {

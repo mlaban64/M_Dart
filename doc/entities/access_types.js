@@ -119,6 +119,13 @@ GNATdoc.EntitiesCategory = {
       "declared": "Materials.Transparent",
       "declared_qualifier": "",
       "srcHref": "srcs/materials-transparent.ads.html#L11"
+    },
+    {
+      "label": "Triangle_Ptr",
+      "docHref": "docs/objects__triangles___spec.html#L17C9",
+      "declared": "Objects.Triangles",
+      "declared_qualifier": "",
+      "srcHref": "srcs/objects-triangles.ads.html#L17"
     }
   ]
 };

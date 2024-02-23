@@ -55,7 +55,7 @@ package Scenes is
    procedure Set_CSG_Object_List (Obj_List : in Object_List);
    --<summary>Sets the CSG object list of The_World/summary>
    --<description>Sets the CSG object list of The_World</description>
-   --<parameter name="CSG_List">An object list</parameter>
+   --<parameter name="Obj_List">An object list</parameter>
    --<exception>None at this moment</exception>
 
    procedure Set_CSG_Tree (CSG_Tree : in Object_Ptr);

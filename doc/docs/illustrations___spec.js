@@ -317,6 +317,54 @@ GNATdoc.Documentation = {
         {
           "label": "Gallery_III_Chess_Board",
           "qualifier": "",
+          "line": 29,
+          "column": 14,
+          "src": "srcs/illustrations.ads.html",
+          "summary": [
+          ],
+          "description": [
+            {
+              "kind": "code",
+              "children": [
+                {
+                  "kind": "line",
+                  "number": 29,
+                  "children": [
+                    {
+                      "kind": "span",
+                      "cssClass": "text",
+                      "text": "   "
+                    },
+                    {
+                      "kind": "span",
+                      "cssClass": "keyword",
+                      "text": "procedure"
+                    },
+                    {
+                      "kind": "span",
+                      "cssClass": "text",
+                      "text": " "
+                    },
+                    {
+                      "kind": "span",
+                      "cssClass": "identifier",
+                      "text": "Gallery_III_Chess_Board",
+                      "href": "docs/illustrations___spec.html#L29C14"
+                    },
+                    {
+                      "kind": "span",
+                      "cssClass": "identifier",
+                      "text": ";"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Gallery_III_Chess_Board_For_STS",
+          "qualifier": "",
           "line": 27,
           "column": 14,
           "src": "srcs/illustrations.ads.html",
@@ -348,7 +396,7 @@ GNATdoc.Documentation = {
                     {
                       "kind": "span",
                       "cssClass": "identifier",
-                      "text": "Gallery_III_Chess_Board",
+                      "text": "Gallery_III_Chess_Board_For_STS",
                       "href": "docs/illustrations___spec.html#L27C14"
                     },
                     {
@@ -413,54 +461,6 @@ GNATdoc.Documentation = {
         {
           "label": "Gallery_III_Transparency1",
           "qualifier": "",
-          "line": 29,
-          "column": 14,
-          "src": "srcs/illustrations.ads.html",
-          "summary": [
-          ],
-          "description": [
-            {
-              "kind": "code",
-              "children": [
-                {
-                  "kind": "line",
-                  "number": 29,
-                  "children": [
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": "   "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "keyword",
-                      "text": "procedure"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": "Gallery_III_Transparency1",
-                      "href": "docs/illustrations___spec.html#L29C14"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": ";"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "label": "Gallery_III_Transparency2",
-          "qualifier": "",
           "line": 31,
           "column": 14,
           "src": "srcs/illustrations.ads.html",
@@ -492,8 +492,56 @@ GNATdoc.Documentation = {
                     {
                       "kind": "span",
                       "cssClass": "identifier",
-                      "text": "Gallery_III_Transparency2",
+                      "text": "Gallery_III_Transparency1",
                       "href": "docs/illustrations___spec.html#L31C14"
+                    },
+                    {
+                      "kind": "span",
+                      "cssClass": "identifier",
+                      "text": ";"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Gallery_III_Transparency2",
+          "qualifier": "",
+          "line": 33,
+          "column": 14,
+          "src": "srcs/illustrations.ads.html",
+          "summary": [
+          ],
+          "description": [
+            {
+              "kind": "code",
+              "children": [
+                {
+                  "kind": "line",
+                  "number": 33,
+                  "children": [
+                    {
+                      "kind": "span",
+                      "cssClass": "text",
+                      "text": "   "
+                    },
+                    {
+                      "kind": "span",
+                      "cssClass": "keyword",
+                      "text": "procedure"
+                    },
+                    {
+                      "kind": "span",
+                      "cssClass": "text",
+                      "text": " "
+                    },
+                    {
+                      "kind": "span",
+                      "cssClass": "identifier",
+                      "text": "Gallery_III_Transparency2",
+                      "href": "docs/illustrations___spec.html#L33C14"
                     },
                     {
                       "kind": "span",

@@ -485,7 +485,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "identifier",
-          "text": "Gallery_III_Chess_Board",
+          "text": "Gallery_III_Chess_Board_For_STS",
           "href": "docs/illustrations___spec.html#L27C14"
         },
         {
@@ -523,7 +523,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "identifier",
-          "text": "Gallery_III_Transparency1",
+          "text": "Gallery_III_Chess_Board",
           "href": "docs/illustrations___spec.html#L29C14"
         },
         {
@@ -561,7 +561,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "identifier",
-          "text": "Gallery_III_Transparency2",
+          "text": "Gallery_III_Transparency1",
           "href": "docs/illustrations___spec.html#L31C14"
         },
         {
@@ -580,6 +580,44 @@ GNATdoc.SourceFile = {
     {
       "kind": "line",
       "number": 33,
+      "children": [
+        {
+          "kind": "span",
+          "cssClass": "text",
+          "text": "   "
+        },
+        {
+          "kind": "span",
+          "cssClass": "keyword",
+          "text": "procedure"
+        },
+        {
+          "kind": "span",
+          "cssClass": "text",
+          "text": " "
+        },
+        {
+          "kind": "span",
+          "cssClass": "identifier",
+          "text": "Gallery_III_Transparency2",
+          "href": "docs/illustrations___spec.html#L33C14"
+        },
+        {
+          "kind": "span",
+          "cssClass": "identifier",
+          "text": ";"
+        }
+      ]
+    },
+    {
+      "kind": "line",
+      "number": 34,
+      "children": [
+      ]
+    },
+    {
+      "kind": "line",
+      "number": 35,
       "children": [
         {
           "kind": "span",

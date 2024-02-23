@@ -330,216 +330,6 @@ GNATdoc.Documentation = {
     {
       "entities": [
         {
-          "label": "Pixel_Sample",
-          "qualifier": "",
-          "line": 194,
-          "column": 9,
-          "src": "srcs/cameras.ads.html",
-          "summary": [
-          ],
-          "description": [
-            {
-              "kind": "code",
-              "children": [
-                {
-                  "kind": "line",
-                  "number": 194,
-                  "children": [
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": "   "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "keyword",
-                      "text": "type"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": "Pixel_Sample",
-                      "href": "docs/cameras___spec.html#L194C9"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "keyword",
-                      "text": "is"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "keyword",
-                      "text": "record"
-                    }
-                  ]
-                },
-                {
-                  "kind": "line",
-                  "number": 195,
-                  "children": [
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": "      "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": "Radiance",
-                      "href": "docs/cameras___spec.html#L195C7"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": ":"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": "RGB_Spectrum",
-                      "href": "docs/spectra___spec.html#L127C9"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": ";"
-                    }
-                  ]
-                },
-                {
-                  "kind": "line",
-                  "number": 196,
-                  "children": [
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": "      "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": "Position",
-                      "href": "docs/cameras___spec.html#L196C7"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": ":"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": "Point_2D",
-                      "href": "docs/linear_math___spec.html#L548C9"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": ";"
-                    }
-                  ]
-                },
-                {
-                  "kind": "line",
-                  "number": 197,
-                  "children": [
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": "   "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "keyword",
-                      "text": "end"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "keyword",
-                      "text": "record"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": ";",
-                      "href": "docs/cameras___spec.html#L194C9"
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "fields": [
-            {
-              "label": "Radiance",
-              "line": 195,
-              "column": 7,
-              "type": {
-                "label": "Spectra.RGB_Spectrum",
-                "docHref": "docs/spectra___spec.html#L11C9"
-              },
-              "description": [
-              ]
-            },
-            {
-              "label": "Position",
-              "line": 196,
-              "column": 7,
-              "type": {
-                "label": "Linear_Math.Point_2D",
-                "docHref": "docs/linear_math___spec.html#L12C9"
-              },
-              "description": [
-              ]
-            }
-          ]
-        }
-      ],
-      "label": "Record types"
-    },
-    {
-      "entities": [
-        {
           "label": "Box_Filter",
           "qualifier": "",
           "line": 130,
@@ -1581,6 +1371,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -1662,7 +1456,11 @@ GNATdoc.Documentation = {
                 }
               ]
             }
-          ]
+          ],
+          "returns": {
+            "description": [
+            ]
+          }
         },
         {
           "label": "Construct_MultiStage_Filter",
@@ -1731,7 +1529,11 @@ GNATdoc.Documentation = {
                 }
               ]
             }
-          ]
+          ],
+          "returns": {
+            "description": [
+            ]
+          }
         },
         {
           "label": "Construct_Poisson_Filter",
@@ -1800,7 +1602,11 @@ GNATdoc.Documentation = {
                 }
               ]
             }
-          ]
+          ],
+          "returns": {
+            "description": [
+            ]
+          }
         },
         {
           "label": "Put",
@@ -2529,6 +2335,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -3916,6 +3726,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -4202,6 +4016,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -4488,6 +4306,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -4774,6 +4596,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -4920,7 +4746,11 @@ GNATdoc.Documentation = {
               "description": [
               ]
             }
-          ]
+          ],
+          "returns": {
+            "description": [
+            ]
+          }
         },
         {
           "label": "Get_Delta_Y",
@@ -5054,7 +4884,11 @@ GNATdoc.Documentation = {
               "description": [
               ]
             }
-          ]
+          ],
+          "returns": {
+            "description": [
+            ]
+          }
         },
         {
           "label": "Get_Filter",
@@ -5216,6 +5050,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -5362,7 +5200,11 @@ GNATdoc.Documentation = {
               "description": [
               ]
             }
-          ]
+          ],
+          "returns": {
+            "description": [
+            ]
+          }
         },
         {
           "label": "Get_LL_Screen_Corner",
@@ -5496,7 +5338,11 @@ GNATdoc.Documentation = {
               "description": [
               ]
             }
-          ]
+          ],
+          "returns": {
+            "description": [
+            ]
+          }
         },
         {
           "label": "Get_Pixel_Sampler",
@@ -5668,6 +5514,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -5814,7 +5664,11 @@ GNATdoc.Documentation = {
               "description": [
               ]
             }
-          ]
+          ],
+          "returns": {
+            "description": [
+            ]
+          }
         },
         {
           "label": "Get_Ray_For_Next_Pixel_Sample",
@@ -6076,6 +5930,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -6222,7 +6080,11 @@ GNATdoc.Documentation = {
               "description": [
               ]
             }
-          ]
+          ],
+          "returns": {
+            "description": [
+            ]
+          }
         },
         {
           "label": "Get_X_Res",
@@ -6355,7 +6217,11 @@ GNATdoc.Documentation = {
               "description": [
               ]
             }
-          ]
+          ],
+          "returns": {
+            "description": [
+            ]
+          }
         },
         {
           "label": "Get_Y_Res",
@@ -6488,7 +6354,11 @@ GNATdoc.Documentation = {
               "description": [
               ]
             }
-          ]
+          ],
+          "returns": {
+            "description": [
+            ]
+          }
         },
         {
           "label": "Set_Filter",

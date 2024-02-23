@@ -283,31 +283,17 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "Hit",
-      "docHref": "docs/objects__unit_cones___spec.html#L38C13",
-      "declared": "Objects.Unit_Cones",
-      "declared_qualifier": "",
-      "srcHref": "srcs/objects-unit_cones.ads.html#L38"
-    },
-    {
-      "label": "Hit",
-      "docHref": "docs/objects__unit_cubes___spec.html#L33C13",
-      "declared": "Objects.Unit_Cubes",
-      "declared_qualifier": "",
-      "srcHref": "srcs/objects-unit_cubes.ads.html#L33"
-    },
-    {
-      "label": "Hit",
-      "docHref": "docs/objects__unit_cylinders___spec.html#L38C13",
-      "declared": "Objects.Unit_Cylinders",
-      "declared_qualifier": "",
-      "srcHref": "srcs/objects-unit_cylinders.ads.html#L38"
-    },
-    {
-      "label": "Hit",
       "docHref": "docs/objects__unit_spheres___spec.html#L37C13",
       "declared": "Objects.Unit_Spheres",
       "declared_qualifier": "",
       "srcHref": "srcs/objects-unit_spheres.ads.html#L37"
+    },
+    {
+      "label": "Hit",
+      "docHref": "docs/objects__triangles___spec.html#L36C13",
+      "declared": "Objects.Triangles",
+      "declared_qualifier": "",
+      "srcHref": "srcs/objects-triangles.ads.html#L36"
     },
     {
       "label": "Hit",
@@ -360,31 +346,17 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "Intersect",
-      "docHref": "docs/objects__unit_cones___spec.html#L31C13",
-      "declared": "Objects.Unit_Cones",
-      "declared_qualifier": "",
-      "srcHref": "srcs/objects-unit_cones.ads.html#L31"
-    },
-    {
-      "label": "Intersect",
-      "docHref": "docs/objects__unit_cubes___spec.html#L26C13",
-      "declared": "Objects.Unit_Cubes",
-      "declared_qualifier": "",
-      "srcHref": "srcs/objects-unit_cubes.ads.html#L26"
-    },
-    {
-      "label": "Intersect",
-      "docHref": "docs/objects__unit_cylinders___spec.html#L31C13",
-      "declared": "Objects.Unit_Cylinders",
-      "declared_qualifier": "",
-      "srcHref": "srcs/objects-unit_cylinders.ads.html#L31"
-    },
-    {
-      "label": "Intersect",
       "docHref": "docs/objects__unit_spheres___spec.html#L30C13",
       "declared": "Objects.Unit_Spheres",
       "declared_qualifier": "",
       "srcHref": "srcs/objects-unit_spheres.ads.html#L30"
+    },
+    {
+      "label": "Intersect",
+      "docHref": "docs/objects__triangles___spec.html#L29C13",
+      "declared": "Objects.Triangles",
+      "declared_qualifier": "",
+      "srcHref": "srcs/objects-triangles.ads.html#L29"
     },
     {
       "label": "Intersect",

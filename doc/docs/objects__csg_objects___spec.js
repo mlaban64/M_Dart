@@ -26,146 +26,6 @@ GNATdoc.Documentation = {
     {
       "entities": [
         {
-          "label": "CSG_Operation",
-          "qualifier": "",
-          "line": 93,
-          "column": 9,
-          "src": "srcs/objects-csg_objects.ads.html",
-          "summary": [
-          ],
-          "description": [
-            {
-              "kind": "code",
-              "children": [
-                {
-                  "kind": "line",
-                  "number": 93,
-                  "children": [
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": "   "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "keyword",
-                      "text": "type"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": "CSG_Operation",
-                      "href": "docs/objects__csg_objects___spec.html#L93C9"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "keyword",
-                      "text": "is"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": "("
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": "UNION",
-                      "href": "docs/objects__csg_objects___spec.html#L93C27"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": ","
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": "DIFFERENCE",
-                      "href": "docs/objects__csg_objects___spec.html#L93C34"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": ","
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "text",
-                      "text": " "
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": "INTERSECTION",
-                      "href": "docs/objects__csg_objects___spec.html#L93C46"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": ")"
-                    },
-                    {
-                      "kind": "span",
-                      "cssClass": "identifier",
-                      "text": ";",
-                      "href": "docs/objects__csg_objects___spec.html#L93C9"
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "literals": [
-            {
-              "label": "UNION",
-              "line": 93,
-              "column": 27,
-              "description": [
-              ]
-            },
-            {
-              "label": "DIFFERENCE",
-              "line": 93,
-              "column": 34,
-              "description": [
-              ]
-            },
-            {
-              "label": "INTERSECTION",
-              "line": 93,
-              "column": 46,
-              "description": [
-              ]
-            }
-          ]
-        }
-      ],
-      "label": "Simple types"
-    },
-    {
-      "entities": [
-        {
           "label": "CSG_Object_Ptr",
           "qualifier": "",
           "line": 14,
@@ -534,6 +394,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -831,6 +695,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -1128,6 +996,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -1425,6 +1297,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -1613,6 +1489,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -1787,6 +1667,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {

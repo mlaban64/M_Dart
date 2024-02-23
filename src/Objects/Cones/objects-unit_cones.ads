@@ -40,7 +40,7 @@ package Objects.Unit_Cones is
    --<description>Procedure to hit a unit sphere with a ray. It adds the hitpoints to the hitpoint list.
    --It is used to trace shadow rays, for which normals and hitpoint coordinates are less relevant.
    --Hence the code is a simplified version of Intersect.</description>
-   --<parameter name="Sphere">A Unit_Cone</parameter>
+   --<parameter name="Cone">A Unit_Cone</parameter>
    --<parameter name="R">A Ray that is intersected with the object</parameter>
    --<exception>None at this moment</exception>
 

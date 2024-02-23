@@ -1225,7 +1225,7 @@ package body Illustrations is
       Position := Construct_Point (3.0, 10.0, 40.0);
       Look_At  := Construct_Point (0.0, 10.0, 0.0);
       Up       := Construct_Vector (0.0, 1.0, 0.0);
-      Cam_Ptr  := Construct_Pinhole_Camera (Position, Look_At, Up, 512, 512, 15.0, 20.0);
+      Cam_Ptr  := Construct_Pinhole_Camera (Position, Look_At, Up, 1500, 1500, 15.0, 20.0);
 
       --  Set the scene by setting the materials
       Mat1 := Construct_Lambertian ("Dull White", WHITE_RGB_Spec, WHITE_RGB_Spec);
@@ -1397,7 +1397,7 @@ package body Illustrations is
       Position := Construct_Point (-20.0, 2.0, 20.0);
       Look_At  := Construct_Point (0.0, 0.0, 0.0);
       Up       := Construct_Vector (0.0, 1.0, 0.0);
-      Cam_Ptr  := Construct_Pinhole_Camera (Position, Look_At, Up, 512, 512, 20.0, 20.0);
+      Cam_Ptr  := Construct_Pinhole_Camera (Position, Look_At, Up, 1500, 1500, 20.0, 20.0);
 
       --  Set the scene
       Phi         := 0.0;
@@ -1449,7 +1449,7 @@ package body Illustrations is
       Set_Name ("Gallery 2 Swirly Sphere");
       Set_FileName ("/home/mlaban/Dev/M_Dart/Images/gallery_ii_swirly_sphere.ppm");
       Set_Camera (Cam_Ptr);
-      Smp_Ptr := Construct_UnitSquare_Regular_Sampler (1, "My Sampler");
+      Smp_Ptr := Construct_UnitSquare_Random_Sampler (9, 0.2, "My Sampler");
       Smp_Ptr.Initialize;
       Set_Pixel_Sampler (Cam_Ptr.all, Smp_Ptr);
       Set_Filter (Cam_Ptr.all, Construct_Box_Filter);

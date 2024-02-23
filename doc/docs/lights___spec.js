@@ -466,12 +466,12 @@ GNATdoc.Documentation = {
           ],
           "inherited": [
             {
-              "label": "Directional_Light",
-              "docHref": "docs/lights__directionals___spec.html#L11C9"
-            },
-            {
               "label": "Point_Light",
               "docHref": "docs/lights__points___spec.html#L11C9"
+            },
+            {
+              "label": "Directional_Light",
+              "docHref": "docs/lights__directionals___spec.html#L11C9"
             }
           ]
         }
@@ -880,6 +880,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -1063,6 +1067,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -1240,13 +1248,17 @@ GNATdoc.Documentation = {
                   "children": [
                     {
                       "kind": "span",
-                      "text": "The list to return the next light from\n"
+                      "text": "The list to returArrow_Ptr4n the next light from\n"
                     }
                   ]
                 }
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -1421,6 +1433,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -2087,6 +2103,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -2328,6 +2348,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
@@ -2626,6 +2650,10 @@ GNATdoc.Documentation = {
               ]
             }
           ],
+          "returns": {
+            "description": [
+            ]
+          },
           "exceptions": {
             "description": [
               {
