@@ -3,3 +3,8 @@
 
 # Ada Library Information
 *.ali
+
+# personal stuff
+Archive/**
+Book/**
+
