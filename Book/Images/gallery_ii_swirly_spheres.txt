@@ -1,8 +1,0 @@
-Rendering runtime: 00:01:26.58 (hh:mm:ss.hs)
-
-Number of primary rays traced:               262144
-Number of unit sphere intersections:            419432000
-Number of unit cylinder intersections:                    0
-Number of unit cone intersections:                    0
-Number of unit cube intersections:                    0
-Maximum number of shadepoints per ray:                   82
