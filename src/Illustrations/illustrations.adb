@@ -1397,7 +1397,7 @@ package body Illustrations is
       Position := Construct_Point (-20.0, 2.0, 20.0);
       Look_At  := Construct_Point (0.0, 0.0, 0.0);
       Up       := Construct_Vector (0.0, 1.0, 0.0);
-      Cam_Ptr  := Construct_Pinhole_Camera (Position, Look_At, Up, 1500, 1500, 20.0, 20.0);
+      Cam_Ptr  := Construct_Pinhole_Camera (Position, Look_At, Up, 1024, 1024, 20.0, 20.0);
 
       --  Set the scene
       Phi         := 0.0;
@@ -1437,9 +1437,9 @@ package body Illustrations is
       end loop;
 
       --  Set the lights
-      Dir_Lt1 := Construct_Directional_Light ("My Direct Light 1", 0.7, WHITE_RGB_Spec, Construct_Vector (0.0, 0.0, -1.0), False);
+      Dir_Lt1 := Construct_Directional_Light ("My Direct Light 1", 0.7, WHITE_RGB_Spec, Construct_Vector (0.0, 0.0, -1.0), True);
       Add_Light (Dir_Lt1, Lt_List);
-      Dir_Lt2 := Construct_Directional_Light ("My Direct Light 2", 0.7, WHITE_RGB_Spec, Construct_Vector (1.0, 0.0, -1.0), False);
+      Dir_Lt2 := Construct_Directional_Light ("My Direct Light 2", 0.7, WHITE_RGB_Spec, Construct_Vector (1.0, 0.0, -1.0), True);
       Add_Light (Dir_Lt2, Lt_List);
 
       --  Build The_World
@@ -1449,7 +1449,7 @@ package body Illustrations is
       Set_Name ("Gallery 2 Swirly Sphere");
       Set_FileName ("/home/mlaban/Dev/M_Dart/Images/gallery_ii_swirly_sphere.ppm");
       Set_Camera (Cam_Ptr);
-      Smp_Ptr := Construct_UnitSquare_Random_Sampler (9, 0.2, "My Sampler");
+      Smp_Ptr := Construct_UnitSquare_Random_Sampler (1, 0.2, "My Sampler");
       Smp_Ptr.Initialize;
       Set_Pixel_Sampler (Cam_Ptr.all, Smp_Ptr);
       Set_Filter (Cam_Ptr.all, Construct_Box_Filter);

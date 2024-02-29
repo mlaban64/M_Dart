@@ -22,14 +22,14 @@ begin
    -- Coloured_Cones_Comb;
    -- Cones_Comb;
    -- Gallery_II_Nautilus;
-   Gallery_II_Swirly_Spheres;
+   -- Gallery_II_Swirly_Spheres;
    -- Gallery_II_Baseline_Scene1;
    -- Gallery_II_Chess_Board;
    -- Gallery_III_Baseline_Scene1;
    -- Gallery_III_Chess_Board_For_STS;
    -- Gallery_III_Chess_Board;
    -- Gallery_II_Swirly_Spheres;
-   -- Gallery_III_Swirly_Spheres;
+   Gallery_III_Swirly_Spheres;
    -- Gallery_III_Transparency1;
    -- Gallery_III_Transparency2;
    -- Triangle_Test;

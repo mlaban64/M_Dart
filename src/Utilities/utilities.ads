@@ -5,7 +5,7 @@ with Core_Types; use Core_Types;
 --<group>Utilities</group>
 package Utilities is
 
-   M_Dart_Version : constant String := "01.02.00.00";
+   M_Dart_Version : constant String := "01.02.01.00";
    --<summary>M_Dart_Version contains the version number of M-Dart.
    --it should be replaced by some VCS parameter in the future</summary>
 
@@ -36,5 +36,5 @@ package Utilities is
    Number_Of_CSG_Object_Evaluations      : Huge_Integer  := 0;
    Number_Of_Triangle_Hits               : Huge_Integer  := 0;
    Max_Number_Of_Shadepoints             : Large_Integer := 0;
-   DEBUG_LEVEL                           : Integer       := 2;
+   DEBUG_LEVEL                           : Integer       := 1;
 end Utilities;

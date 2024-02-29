@@ -144,6 +144,7 @@ package body Tone_Maps is
       Put_Line ("Computing Reinhard Extended Tone Mapping");
 
       L_max := Main_Tone_Map.Imax;
+      Put_Line ("Max Luminance Factor = " & L_max'Image);
 
       --  Loop through all pixels
       for Y in 0 .. Main_Tone_Map.YRes - 1 loop
