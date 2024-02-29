@@ -88,6 +88,8 @@ package body Tone_Maps is
          Factor := Main_Tone_Map.Bmax;
       end if;
 
+      Factor := Main_Tone_Map.Imax;
+
       Put_Line ("Tone Mapping Factor = " & Factor'Image);
 
       if Factor > 0.0 then
@@ -121,9 +123,14 @@ package body Tone_Maps is
       --  Loop through all pixels
       for Y in 0 .. Main_Tone_Map.YRes - 1 loop
          for X in 0 .. Main_Tone_Map.XRes - 1 loop
-            L_in   := Main_Tone_Map.ToneBuffer (X, Y).Luminance;
-            L_out  := L_in / (L_in + 1.0);
-            Factor := L_out / L_in;
+            L_in := Main_Tone_Map.ToneBuffer (X, Y).Luminance;
+
+            if L_in > 0.0 then
+               L_out  := L_in / (L_in + 1.0);
+               Factor := L_out / L_in;
+            else
+               Factor := 0.0;
+            end if;
             --  Now set the various pixels in the screen and image map
             Col := Convert_RGB_Spectrum (Factor * Main_Tone_Map.ToneBuffer (X, Y).Radiance);
             Set_Pixel_With_Buffer (X, Y, Get_R (Col), Get_G (Col), Get_B (Col));

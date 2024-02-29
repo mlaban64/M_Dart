@@ -129,7 +129,6 @@ package body Scenes is
    procedure Render_Scene is
       X_Res, Y_Res : Natural;
       Prim_Ray     : Ray;
-      Col          : RGB_PixelColor;
       Ext_Rad      : RGB_Spectrum;
       Cam_Ptr      : Camera_Ptr;
    begin
@@ -162,11 +161,8 @@ package body Scenes is
             Debug_Message ("=== END SAMPLING NEW PIXEL AT (" & X'Image & "," & Y'Image & ")===", 5);
             --  Regenerate samples for the next pixel; must be done smarter !!!
             Cam_Ptr.all.Get_Pixel_Sampler.Initialize;
-
-            --  Now set the various pixels in the various maps Convert the radiance into a screen color
-            Col := Convert_RGB_Spectrum (Ext_Rad);
-            --  Set the pixel on the screen
-            Set_Pixel_With_Buffer (X, Y, Get_R (Col), Get_G (Col), Get_B (Col));
+            --  Convert the radiance into a screen color
+            Set_Pixel_With_Buffer_Radiance (X, Y, Float (Get_R (Ext_Rad)), Float (Get_G (Ext_Rad)), Float (Get_B (Ext_Rad)));
             --  Set the pixel in the tone map
             Set_Pixel (X, Y, Ext_Rad);
 
@@ -183,9 +179,12 @@ package body Scenes is
       --  Tone Mapping, close screen and save image
       Closing_Message;
 
+      Put_Line ("Press any key to start the Tone Mapping process");
+      Put (GfxLib_WaitForEvent);
+
       -- Map_Tones_To_Image_Linear;
-      -- Map_Tones_To_Image_Reinhard;
-      Map_Tones_To_Image_Reinhard_Extended;
+      Map_Tones_To_Image_Reinhard;
+      -- Map_Tones_To_Image_Reinhard_Extended;
       Put_Line ("Press any key to save the image and quit");
       Put (GfxLib_WaitForEvent);
       Save_Image (Get_FileName);

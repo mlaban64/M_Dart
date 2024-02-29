@@ -114,6 +114,9 @@ package body Spectra is
          Temp_Col := 0;
       elsif Temp_Col > 255 then
          Debug_Message ("CLIPPED RED TO 255: " & Temp_Col'Image, 2);
+         Debug_Message ("RED RAD   : " & Spectrum.R'Image, 2);
+         Debug_Message ("GREEN RAD : " & Spectrum.G'Image, 2);
+         Debug_Message ("BLUE RAD  : " & Spectrum.B'Image, 2);
          Temp_Col := 255;
       end if;
       PixCol.R := RGB_Value (Temp_Col);
@@ -125,6 +128,9 @@ package body Spectra is
          Temp_Col := 0;
       elsif Temp_Col > 255 then
          Debug_Message ("CLIPPED GREEN TO 255: " & Temp_Col'Image, 2);
+         Debug_Message ("RED RAD   : " & Spectrum.R'Image, 2);
+         Debug_Message ("GREEN RAD : " & Spectrum.G'Image, 2);
+         Debug_Message ("BLUE RAD  : " & Spectrum.B'Image, 2);
          Temp_Col := 255;
       end if;
       PixCol.G := RGB_Value (Temp_Col);
@@ -136,6 +142,9 @@ package body Spectra is
          Temp_Col := 0;
       elsif Temp_Col > 255 then
          Debug_Message ("CLIPPED BLUE TO 255: " & Temp_Col'Image, 2);
+         Debug_Message ("RED RAD   : " & Spectrum.R'Image, 2);
+         Debug_Message ("GREEN RAD : " & Spectrum.G'Image, 2);
+         Debug_Message ("BLUE RAD  : " & Spectrum.B'Image, 2);
          Temp_Col := 255;
       end if;
       PixCol.B := RGB_Value (Temp_Col);

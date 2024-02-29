@@ -1480,7 +1480,7 @@ package body Illustrations is
       Position := Construct_Point (-20.0, 2.0, 20.0);
       Look_At  := Construct_Point (0.0, 0.0, 0.0);
       Up       := Construct_Vector (0.0, 1.0, 0.0);
-      Cam_Ptr  := Construct_Pinhole_Camera (Position, Look_At, Up, 512, 512, 20.0, 20.0);
+      Cam_Ptr  := Construct_Pinhole_Camera (Position, Look_At, Up, 100, 100, 20.0, 20.0);
 
       --  Set the scene
       Phi         := 0.0;

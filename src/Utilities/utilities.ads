@@ -36,5 +36,5 @@ package Utilities is
    Number_Of_CSG_Object_Evaluations      : Huge_Integer  := 0;
    Number_Of_Triangle_Hits               : Huge_Integer  := 0;
    Max_Number_Of_Shadepoints             : Large_Integer := 0;
-   DEBUG_LEVEL                           : Integer       := 1;
+   DEBUG_LEVEL                           : Integer       := 2;
 end Utilities;

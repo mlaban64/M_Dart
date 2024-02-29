@@ -800,8 +800,8 @@ package body Build_Functions is
       --  Build The_World
       Set_Object_List (Obj_List);
       Set_Light_List (Lt_List);
-      Set_Background_Color (Construct_RGB_Spectrum (0.2, 0.2, 1.0));
-      Set_Name ("Sheared Cubes");
+      Set_Background_Color (Construct_RGB_Spectrum (0.0, 0.0, 0.0));
+      Set_Name ("Unclipped Spheres");
       Set_FileName ("/home/mlaban/Dev/M_Dart/Images/unclipped_spheres.ppm");
       Set_Camera (Cam_Ptr);
       Set_Pixel_Sampler (Cam_Ptr.all, Smp_Ptr);
