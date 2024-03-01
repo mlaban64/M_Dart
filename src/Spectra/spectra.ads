@@ -11,6 +11,12 @@ package Spectra is
    type RGB_Spectrum is private;
    --<summary>ADT of a spectrum with floating point R, G and B values</summary>
 
+   type XYZ_Spectrum is private;
+   --<summary>ADT of a spectrum with floating point X, Y and Z values, to support the CIE XYZ space</summary>
+
+   type xyY_Spectrum is private;
+   --<summary>ADT of a spectrum with floating point x, y and Y values, to support the xyY space</summary>
+
    function Construct_RGB_Spectrum (R, G, B : in Small_Float) return RGB_Spectrum;
    --<summary>Initializes an RGB_Spectrum with the RGB values passed in</summary>
    --<description>Initializes an RGB_Spectrum with the RGB values passed in</description>
@@ -76,6 +82,40 @@ package Spectra is
    --<description>Gets the B value of an RGB_Spectrum</description>
    --<exception>None at this moment</exception>
 
+   function Get_X (Spc : in XYZ_Spectrum) return Small_Float;
+   --<summary>Gets the X value of an XYZ_Spectrum</summary>
+   --<description>Gets the X value of an XYZ_Spectrum</description>
+   --<exception>None at this moment</exception>
+
+   function Get_Y (Spc : in XYZ_Spectrum) return Small_Float;
+   --<summary>Gets the Y value of an XYZ_Spectrum</summary>
+   --<description>Gets the Y value of an XYZ_Spectrum</description>
+   --<exception>None at this moment</exception>
+
+   function Get_Z (Spc : in XYZ_Spectrum) return Small_Float;
+   --<summary>Gets the Z value of an XYZ_Spectrum</summary>
+   --<description>Gets the Z value of an XYZ_Spectrum</description>
+   --<exception>None at this moment</exception>
+
+   function Get_x (Spc : in xyY_Spectrum) return Small_Float;
+   --<summary>Gets the x value of an xyY_Spectrum</summary>
+   --<description>Gets the x value of an xyY_Spectrum</description>
+   --<exception>None at this moment</exception>
+
+   function Get_y (Spc : in xyY_Spectrum) return Small_Float;
+   --<summary>Gets the y value of an xyY_Spectrum</summary>
+   --<description>Gets the y value of an xyY_Spectrum</description>
+   --<exception>None at this moment</exception>
+
+   function Get_Lum (Spc : in xyY_Spectrum) return Small_Float;
+   --<summary>Gets the Y (Lum) value of an xyY_Spectrum</summary>
+   --<description>Gets the Y (Lum) value of an xyY_Spectrum</description>
+   --<exception>None at this moment</exception>
+
+   procedure Set_Lum (Spc : in out xyY_Spectrum; Lum : Small_Float);
+   --<summary>Sets the Y (Lum) value of an xyY_Spectrum</summary>
+   --<description>Sets the Y (Lum) value of an xyY_Spectrum</description>
+   --<exception>None at this moment</exception>
    ---------------------
    -- ADT RGB_PixelColor
    ---------------------
@@ -110,22 +150,54 @@ package Spectra is
    --<parameter name="Spectrum">The RGB_Spectrum to convert</parameter>
    --<exception>None at this moment</exception>
 
-   BLACK_RGB_Spec : constant RGB_Spectrum;
-   WHITE_RGB_Spec : constant RGB_Spectrum;
-   RED_RGB_Spec : constant RGB_Spectrum;
-   GREEN_RGB_Spec : constant RGB_Spectrum;
-   BLUE_RGB_Spec : constant RGB_Spectrum;
-   YELLOW_RGB_Spec : constant RGB_Spectrum;
-   PURPLE_RGB_Spec : constant RGB_Spectrum;
-   CYAN_RGB_Spec : constant RGB_Spectrum;
+   function Convert_RGB_Spectrum (Spectrum : in RGB_Spectrum) return XYZ_Spectrum;
+   --<summary>Converts an RGB_Spectrum to an XYZ_Spectrum</summary>
+   --<description>Converts an RGB_Spectrum to an XYZ_Spectrum</description>
+   --<parameter name="Spectrum">The RGB_Spectrum to convert</parameter>
+   --<exception>None at this moment</exception>
+
+   function Convert_XYZ_Spectrum (Spectrum : in XYZ_Spectrum) return xyY_Spectrum;
+   --<summary>Converts an XYZ_Spectrum to an xyY_Spectrum</summary>
+   --<description>Converts an XYZ_Spectrum to an xyY_Spectrum</description>
+   --<parameter name="Spectrum">The XYZ_Spectrum to convert</parameter>
+   --<exception>None at this moment</exception>
+
+   function Convert_XYZ_Spectrum (Spectrum : in XYZ_Spectrum) return RGB_Spectrum;
+   --<summary>Converts an XYZ_Spectrum to an RGB_Spectrum</summary>
+   --<description>Converts an XYZ_Spectrum to an RGB_Spectrum</description>
+   --<parameter name="Spectrum">The XYZ_Spectrum to convert</parameter>
+   --<exception>None at this moment</exception>
+
+   function Convert_xyY_Spectrum (Spectrum : in xyY_Spectrum) return XYZ_Spectrum;
+   --<summary>Converts an xyY_Spectrum to an XYZ_Spectrum</summary>
+   --<description>Converts an xyY_Spectrum to an XYZ_Spectrum</description>
+   --<parameter name="Spectrum">The xyY_Spectrum to convert</parameter>
+   --<exception>None at this moment</exception>
+
+   BLACK_RGB_Spec      : constant RGB_Spectrum;
+   WHITE_RGB_Spec      : constant RGB_Spectrum;
+   RED_RGB_Spec        : constant RGB_Spectrum;
+   GREEN_RGB_Spec      : constant RGB_Spectrum;
+   BLUE_RGB_Spec       : constant RGB_Spectrum;
+   YELLOW_RGB_Spec     : constant RGB_Spectrum;
+   PURPLE_RGB_Spec     : constant RGB_Spectrum;
+   CYAN_RGB_Spec       : constant RGB_Spectrum;
    LIGHT_GREY_RGB_Spec : constant RGB_Spectrum;
-   MID_GREY_RGB_Spec : constant RGB_Spectrum;
-   DARK_GREY_RGB_Spec : constant RGB_Spectrum;
+   MID_GREY_RGB_Spec   : constant RGB_Spectrum;
+   DARK_GREY_RGB_Spec  : constant RGB_Spectrum;
 
 private
 
    type RGB_Spectrum is record
       R, G, B : Small_Float := 0.0;
+   end record;
+
+   type XYZ_Spectrum is record
+      X, Y, Z : Small_Float := 0.0;
+   end record;
+
+   type xyY_Spectrum is record
+      x, y, Lum : Small_Float := 0.0;
    end record;
 
    type RGB_Value is range 0 .. 255;

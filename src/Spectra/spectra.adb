@@ -86,6 +86,23 @@ package body Spectra is
 
    function Get_B (Spc : in RGB_Spectrum) return Small_Float is (Spc.B);
 
+   function Get_X (Spc : in XYZ_Spectrum) return Small_Float is (Spc.X);
+
+   function Get_Y (Spc : in XYZ_Spectrum) return Small_Float is (Spc.Y);
+
+   function Get_Z (Spc : in XYZ_Spectrum) return Small_Float is (Spc.Z);
+
+   function Get_x (Spc : in xyY_Spectrum) return Small_Float is (Spc.x);
+
+   function Get_y (Spc : in xyY_Spectrum) return Small_Float is (Spc.y);
+
+   function Get_Lum (Spc : in xyY_Spectrum) return Small_Float is (Spc.Lum);
+
+   procedure Set_Lum (Spc : in out xyY_Spectrum; Lum : Small_Float) is
+   begin
+      Spc.Lum := Lum;
+   end Set_Lum;
+
    ---------------------
    -- ADT RGB_PixelColor
    ---------------------
@@ -114,9 +131,6 @@ package body Spectra is
          Temp_Col := 0;
       elsif Temp_Col > 255 then
          Debug_Message ("CLIPPED RED TO 255: " & Temp_Col'Image, 2);
-         Debug_Message ("RED RAD   : " & Spectrum.R'Image, 2);
-         Debug_Message ("GREEN RAD : " & Spectrum.G'Image, 2);
-         Debug_Message ("BLUE RAD  : " & Spectrum.B'Image, 2);
          Temp_Col := 255;
       end if;
       PixCol.R := RGB_Value (Temp_Col);
@@ -128,9 +142,6 @@ package body Spectra is
          Temp_Col := 0;
       elsif Temp_Col > 255 then
          Debug_Message ("CLIPPED GREEN TO 255: " & Temp_Col'Image, 2);
-         Debug_Message ("RED RAD   : " & Spectrum.R'Image, 2);
-         Debug_Message ("GREEN RAD : " & Spectrum.G'Image, 2);
-         Debug_Message ("BLUE RAD  : " & Spectrum.B'Image, 2);
          Temp_Col := 255;
       end if;
       PixCol.G := RGB_Value (Temp_Col);
@@ -142,15 +153,63 @@ package body Spectra is
          Temp_Col := 0;
       elsif Temp_Col > 255 then
          Debug_Message ("CLIPPED BLUE TO 255: " & Temp_Col'Image, 2);
-         Debug_Message ("RED RAD   : " & Spectrum.R'Image, 2);
-         Debug_Message ("GREEN RAD : " & Spectrum.G'Image, 2);
-         Debug_Message ("BLUE RAD  : " & Spectrum.B'Image, 2);
          Temp_Col := 255;
       end if;
       PixCol.B := RGB_Value (Temp_Col);
 
       return PixCol;
    end Convert_RGB_Spectrum;
+
+   function Convert_RGB_Spectrum (Spectrum : in RGB_Spectrum) return XYZ_Spectrum is
+      XYZ : XYZ_Spectrum;
+   begin
+      -- Assuming RGB in is already linear to energy, else see http://www.brucelindbloom.com/index.html?Eqn_RGB_to_XYZ.html
+      -- Usng CIE RGB matrix from same URL
+
+      XYZ.X := 0.488_718_0 * Spectrum.R + 0.310_680_3 * Spectrum.G + 0.200_601_7 * Spectrum.B;
+      XYZ.Y := 0.176_204_4 * Spectrum.R + 0.812_984_7 * Spectrum.G + 0.010_810_9 * Spectrum.B;
+      XYZ.Z := 0.000_000_0 * Spectrum.R + 0.010_204_8 * Spectrum.G + 0.989_795_2 * Spectrum.B;
+      return XYZ;
+   end Convert_RGB_Spectrum;
+
+   function Convert_XYZ_Spectrum (Spectrum : in XYZ_Spectrum) return xyY_Spectrum is
+      xyY : xyY_Spectrum;
+      XYZ : Small_Float;
+   begin
+      XYZ     := Spectrum.X + Spectrum.Y + Spectrum.Z;
+      xyY.x   := Spectrum.X / XYZ;
+      xyY.y   := Spectrum.Y / XYZ;
+      xyY.Lum := Spectrum.Y;
+      return xyY;
+   end Convert_XYZ_Spectrum;
+
+   function Convert_XYZ_Spectrum (Spectrum : in XYZ_Spectrum) return RGB_Spectrum is
+      RGB : RGB_Spectrum;
+   begin
+      -- See http://www.brucelindbloom.com/index.html?Eqn_RGB_to_XYZ.html
+      -- Usng CIE RGB matrix M-1 from same URL
+
+      RGB.R := 2.370_674_3 * Spectrum.X - 0.900_040_5 * Spectrum.Y - 0.470_633_8 * Spectrum.Z;
+      RGB.G := -0.513_885_0 * Spectrum.X + 1.425_303_6 * Spectrum.Y + 0.088_581_4 * Spectrum.Z;
+      RGB.B := 0.005_298_2 * Spectrum.X - 0.014_694_9 * Spectrum.Y + 1.009_396_8 * Spectrum.Z;
+      return RGB;
+   end Convert_XYZ_Spectrum;
+
+   function Convert_xyY_Spectrum (Spectrum : in xyY_Spectrum) return XYZ_Spectrum is
+      XYZ : XYZ_Spectrum;
+   begin
+      if Spectrum.y > 0.0 then
+         XYZ.X := Spectrum.x * Spectrum.Lum / Spectrum.y;
+         XYZ.Y := Spectrum.Lum;
+         XYZ.Z := (1.0 - Spectrum.x - Spectrum.y) * Spectrum.Lum / Spectrum.y;
+      else
+         XYZ.X := 0.0;
+         XYZ.Y := 0.0;
+         XYZ.Z := 0.0;
+      end if;
+
+      return XYZ;
+   end Convert_xyY_Spectrum;
 
    function Get_R (PixCol : in RGB_PixelColor) return Integer is (Integer (PixCol.R));
 
