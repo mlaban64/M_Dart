@@ -85,6 +85,43 @@ package body Tone_Maps is
    end Set_Pixel;
 
    procedure Map_Tones_To_Image_Linear is
+      Col         : RGB_PixelColor;
+      RGB         : RGB_Spectrum;
+      XYZ         : XYZ_Spectrum;
+      xyY         : xyY_Spectrum;
+      L_in, L_out : Small_Float;
+   begin
+      New_Line;
+      Put_Line ("Computing Linear Tone Mapping");
+
+      --  Loop through all pixels
+      for Y in 0 .. Main_Tone_Map.YRes - 1 loop
+         for X in 0 .. Main_Tone_Map.XRes - 1 loop
+
+            -- RGB to XYZ to xyY
+            XYZ := Convert_RGB_Spectrum (Main_Tone_Map.ToneBuffer (X, Y).Radiance);
+            xyY := Convert_XYZ_Spectrum (XYZ);
+
+            -- Subtract the minimum Luminance, then divide by the maximum Luminance
+            -- so we map
+            L_in  := Get_Lum (xyY);
+            L_out := (L_in - Main_Tone_Map.Imin) / Main_Tone_Map.Imax;
+            Set_Lum (xyY, L_out);
+
+            XYZ := Convert_xyY_Spectrum (xyY);
+            RGB := Convert_XYZ_Spectrum (XYZ);
+            RGB := Gamma_Correct (RGB, 1.8);
+            Col := Convert_RGB_Spectrum (RGB);
+            Set_Pixel_With_Buffer (X, Y, Get_R (Col), Get_G (Col), Get_B (Col));
+         end loop;
+      end loop;
+
+      Put_Line ("DONE Computing Linear Tone Mapping");
+      New_Line;
+
+   end Map_Tones_To_Image_Linear;
+
+   procedure Map_Tones_To_Image_Reinhard is
       Col                  : RGB_PixelColor;
       RGB                  : RGB_Spectrum;
       XYZ                  : XYZ_Spectrum;
@@ -93,7 +130,7 @@ package body Tone_Maps is
       avg_Lum, L_in, L_out : Small_Float;
    begin
       New_Line;
-      Put_Line ("Computing Linear Tone Mapping");
+      Put_Line ("Computing Reinhard Tone Mapping");
 
       -- Compute total and average luminance
       Put_Line ("Computing average luminance");
@@ -123,37 +160,8 @@ package body Tone_Maps is
 
             XYZ := Convert_xyY_Spectrum (xyY);
             RGB := Convert_XYZ_Spectrum (XYZ);
+            RGB := Gamma_Correct (RGB, 1.8);
             Col := Convert_RGB_Spectrum (RGB);
-            Set_Pixel_With_Buffer (X, Y, Get_R (Col), Get_G (Col), Get_B (Col));
-         end loop;
-      end loop;
-
-      Put_Line ("DONE Computing Linear Tone Mapping");
-      New_Line;
-
-   end Map_Tones_To_Image_Linear;
-
-   procedure Map_Tones_To_Image_Reinhard is
-      Col         : RGB_PixelColor;
-      Factor      : Small_Float;
-      L_in, L_out : Small_Float;
-   begin
-      New_Line;
-      Put_Line ("Computing Reinhard Tone Mapping");
-
-      --  Loop through all pixels
-      for Y in 0 .. Main_Tone_Map.YRes - 1 loop
-         for X in 0 .. Main_Tone_Map.XRes - 1 loop
-            L_in := Main_Tone_Map.ToneBuffer (X, Y).Luminance;
-
-            if L_in > 0.0 then
-               L_out  := L_in / (L_in + 1.0);
-               Factor := L_out / L_in;
-            else
-               Factor := 0.0;
-            end if;
-            --  Now set the various pixels in the screen and image map
-            Col := Convert_RGB_Spectrum (Factor * Main_Tone_Map.ToneBuffer (X, Y).Radiance);
             Set_Pixel_With_Buffer (X, Y, Get_R (Col), Get_G (Col), Get_B (Col));
          end loop;
       end loop;
@@ -164,24 +172,49 @@ package body Tone_Maps is
    end Map_Tones_To_Image_Reinhard;
 
    procedure Map_Tones_To_Image_Reinhard_Extended is
-      Col                : RGB_PixelColor;
-      Factor             : Small_Float;
-      L_in, L_out, L_max : Small_Float;
+      Col                  : RGB_PixelColor;
+      RGB                  : RGB_Spectrum;
+      XYZ                  : XYZ_Spectrum;
+      xyY                  : xyY_Spectrum;
+      total_Lum            : Large_Float;
+      avg_Lum, L_in, L_out : Small_Float;
+      L_white              : Small_Float;
    begin
       New_Line;
       Put_Line ("Computing Reinhard Extended Tone Mapping");
 
-      L_max := Main_Tone_Map.Imax;
-      Put_Line ("Max Luminance Factor = " & L_max'Image);
+      -- Compute total and average luminance
+      Put_Line ("Computing average luminance");
+      total_Lum := 0.0;
+      for Y in 0 .. Main_Tone_Map.YRes - 1 loop
+         for X in 0 .. Main_Tone_Map.XRes - 1 loop
+            total_Lum := total_Lum + Large_Float (Main_Tone_Map.ToneBuffer (X, Y).Luminance);
+         end loop;
+      end loop;
+      avg_Lum := Small_Float (total_Lum / Large_Float ((Main_Tone_Map.XRes * Main_Tone_Map.YRes)));
+      Put_Line ("Average Luminance = " & avg_Lum'Image);
+
+      L_white := Main_Tone_Map.Imax;
 
       --  Loop through all pixels
       for Y in 0 .. Main_Tone_Map.YRes - 1 loop
          for X in 0 .. Main_Tone_Map.XRes - 1 loop
-            L_in   := Main_Tone_Map.ToneBuffer (X, Y).Luminance;
-            L_out  := (L_in * (1.0 + (L_in / (L_max * L_max)))) / (1.0 + L_in);
-            Factor := L_out / L_in;
-            --  Now set the various pixels in the screen and image map
-            Col := Convert_RGB_Spectrum (Factor * Main_Tone_Map.ToneBuffer (X, Y).Radiance);
+
+            -- RGB to XYZ to xyY
+            XYZ := Convert_RGB_Spectrum (Main_Tone_Map.ToneBuffer (X, Y).Radiance);
+            xyY := Convert_XYZ_Spectrum (XYZ);
+
+            -- See https://bruop.github.io/tonemapping/
+            -- See http://www.brucelindbloom.com/index.html?Math.html
+            L_in  := Get_Lum (xyY);
+            L_out := L_in / (9.6 * avg_Lum + 0.000_1);
+            L_out := L_out * (1.0 + (L_out / (L_white * L_white))) / (1.0 + L_out);
+            Set_Lum (xyY, L_out);
+
+            XYZ := Convert_xyY_Spectrum (xyY);
+            RGB := Convert_XYZ_Spectrum (XYZ);
+            RGB := Gamma_Correct (RGB, 1.8);
+            Col := Convert_RGB_Spectrum (RGB);
             Set_Pixel_With_Buffer (X, Y, Get_R (Col), Get_G (Col), Get_B (Col));
          end loop;
       end loop;

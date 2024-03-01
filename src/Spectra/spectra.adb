@@ -1,9 +1,11 @@
-with Utilities;           use Utilities;
-with Scenes;              use Scenes;
-with Ada.Text_IO;         use Ada.Text_IO;
-with Ada.Integer_Text_IO; use Ada.Integer_Text_IO;
---  with Small_Float_Functions; use Small_Float_Functions; with Normal_Float_Functions; use Normal_Float_Functions; with
---  Large_Float_Functions; use Large_Float_Functions;
+with Utilities;             use Utilities;
+with Scenes;                use Scenes;
+with Ada.Text_IO;           use Ada.Text_IO;
+with Ada.Integer_Text_IO;   use Ada.Integer_Text_IO;
+with Ada.Numerics.Generic_Elementary_Functions;
+with Small_Float_Functions; use Small_Float_Functions;
+-- with Normal_Float_Functions; use Normal_Float_Functions;
+-- with Large_Float_Functions;  use Large_Float_Functions;
 
 package body Spectra is
 
@@ -79,6 +81,27 @@ package body Spectra is
          New_Spc.B := Spc.B * S;
       end return;
    end "*";
+
+   function Gamma_Correct (Spc : in RGB_Spectrum; G : in Small_Float) return RGB_Spectrum is
+      Pow     : Small_Float;
+      New_Spc : RGB_Spectrum;
+   begin
+      Pow := 1.0 / G;
+
+      -- Test for RGB > 0, as sometimes it is 0 or very small negative. This raises an ARG error with the ** operator
+      -- As New_Spc is initialized to 0.0, we only correct positive values to ensure no negative final RGB spectrum
+      if Spc.R > 0.0 then
+         New_Spc.R := Spc.R**Pow;
+      end if;
+      if Spc.G > 0.0 then
+         New_Spc.G := Spc.G**Pow;
+      end if;
+      if Spc.B > 0.0 then
+         New_Spc.B := Spc.B**Pow;
+      end if;
+
+      return New_Spc;
+   end Gamma_Correct;
 
    function Get_R (Spc : in RGB_Spectrum) return Small_Float is (Spc.R);
 

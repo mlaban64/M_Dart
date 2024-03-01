@@ -59,9 +59,11 @@ private
    -- RED_FACTOR   : constant Small_Float := 0.299;
    -- GREEN_FACTOR : constant Small_Float := 0.587;
    -- BLUE_FACTOR  : constant Small_Float := 0.114;
-   RED_FACTOR   : constant Small_Float := 0.212_6;
-   GREEN_FACTOR : constant Small_Float := 0.715_2;
-   BLUE_FACTOR  : constant Small_Float := 0.072_2;
+
+   -- CIE RGB factors: 0.1762044  0.8129847  0.0108109
+   RED_FACTOR   : constant Small_Float := 0.176_204_4;
+   GREEN_FACTOR : constant Small_Float := 0.812_984_7;
+   BLUE_FACTOR  : constant Small_Float := 0.010_810_9;
 
    type Tone_Pixel is record
       Radiance  : RGB_Spectrum;

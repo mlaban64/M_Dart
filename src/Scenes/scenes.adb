@@ -182,9 +182,9 @@ package body Scenes is
       Put_Line ("Press any key to start the Tone Mapping process");
       Put (GfxLib_WaitForEvent);
 
-      Map_Tones_To_Image_Linear;
-      ---Map_Tones_To_Image_Reinhard;
-      -- Map_Tones_To_Image_Reinhard_Extended;
+      -- Map_Tones_To_Image_Linear;
+      -- Map_Tones_To_Image_Reinhard;
+      Map_Tones_To_Image_Reinhard_Extended;
       Put_Line ("Press any key to save the image and quit");
       Put (GfxLib_WaitForEvent);
       Save_Image (Get_FileName);

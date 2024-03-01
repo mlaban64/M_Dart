@@ -55,16 +55,23 @@ package Spectra is
 
    function "*" (Spc : in RGB_Spectrum; S : in Small_Float) return RGB_Spectrum;
    --<summary>Multiplies an RGB_Spectrum with a scalar</summary>
-   --<description>function to multiply two RGB_Spectra</description>
+   --<description>Multiplies an RGB_Spectrum with a scalar/description>
    --<parameter name="Spc">The first spectrum</parameter>
    --<parameter name="S">The scalar</parameter>
    --<exception>None at this moment</exception>
 
    function "*" (S : in Small_Float; Spc : in RGB_Spectrum) return RGB_Spectrum;
    --<summary>Multiplies an RGB_Spectrum with a scalar</summary>
-   --<description>function to multiply two RGB_Spectra</description>
+   --<description>fMultiplies an RGB_Spectrum with a scalar</description>
    --<parameter name="S">The second spectrum</parameter>
    --<parameter name="Spc">The first spectrum</parameter>
+   --<exception>None at this moment</exception>
+
+   function Gamma_Correct (Spc : in RGB_Spectrum; G : in Small_Float) return RGB_Spectrum;
+   --<summary>Gamma-corrects an RGB_Spectrum with a scalar</summary>
+   --<description>Gamma-corrects an RGB_Spectrum with a scalar</description>
+   --<parameter name="Spc">The first spectrum</parameter>
+   --<parameter name="G">The scalar</parameter>
    --<exception>None at this moment</exception>
 
    function Get_R (Spc : in RGB_Spectrum) return Small_Float;

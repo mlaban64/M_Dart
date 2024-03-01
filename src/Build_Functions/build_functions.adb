@@ -743,7 +743,7 @@ package body Build_Functions is
       Position := Construct_Point (15.0, 15.0, 20.0);
       Look_At  := Construct_Point (0.0, 1.0, 0.0);
       Up       := Construct_Vector (0.0, 1.0, 0.0);
-      Cam_Ptr  := Construct_Pinhole_Camera (Position, Look_At, Up, 512, 512, 5.0, 25.0);
+      Cam_Ptr  := Construct_Pinhole_Camera (Position, Look_At, Up, 800, 800, 5.0, 25.0);
       Smp_Ptr  := Construct_UnitSquare_Regular_Sampler (1, "My Sampler");
       Smp_Ptr.Initialize;
 
