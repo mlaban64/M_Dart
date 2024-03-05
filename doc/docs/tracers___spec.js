@@ -141,15 +141,6 @@ GNATdoc.Documentation = {
                   "text": "Traces an initialization ray through The_World, so the CSG Tree is set correctly\n"
                 }
               ]
-            },
-            {
-              "kind": "paragraph",
-              "children": [
-                {
-                  "kind": "span",
-                  "text": "The ray to cast\n"
-                }
-              ]
             }
           ],
           "parameters": [
@@ -162,6 +153,15 @@ GNATdoc.Documentation = {
                 "docHref": "docs/linear_math___spec.html#L35C9"
               },
               "description": [
+                {
+                  "kind": "paragraph",
+                  "children": [
+                    {
+                      "kind": "span",
+                      "text": "The ray to cast\n"
+                    }
+                  ]
+                }
               ]
             }
           ],
@@ -363,7 +363,7 @@ GNATdoc.Documentation = {
                       "kind": "span",
                       "cssClass": "identifier",
                       "text": "RGB_Spectrum",
-                      "href": "docs/spectra___spec.html#L127C9"
+                      "href": "docs/spectra___spec.html#L252C9"
                     },
                     {
                       "kind": "span",
@@ -382,15 +382,6 @@ GNATdoc.Documentation = {
                   "text": "Traces a ray through the scene and returns the radiance spectrum\n"
                 }
               ]
-            },
-            {
-              "kind": "paragraph",
-              "children": [
-                {
-                  "kind": "span",
-                  "text": "The ray to cast\n"
-                }
-              ]
             }
           ],
           "parameters": [
@@ -403,6 +394,15 @@ GNATdoc.Documentation = {
                 "docHref": "docs/linear_math___spec.html#L35C9"
               },
               "description": [
+                {
+                  "kind": "paragraph",
+                  "children": [
+                    {
+                      "kind": "span",
+                      "text": "The ray to cast\n"
+                    }
+                  ]
+                }
               ]
             },
             {
@@ -580,15 +580,6 @@ GNATdoc.Documentation = {
                   "text": "Traces a shadow ray through The_World and returns a Lambda > 0.0 if something is hit\n"
                 }
               ]
-            },
-            {
-              "kind": "paragraph",
-              "children": [
-                {
-                  "kind": "span",
-                  "text": "The ray to cast\n"
-                }
-              ]
             }
           ],
           "parameters": [
@@ -601,6 +592,15 @@ GNATdoc.Documentation = {
                 "docHref": "docs/linear_math___spec.html#L35C9"
               },
               "description": [
+                {
+                  "kind": "paragraph",
+                  "children": [
+                    {
+                      "kind": "span",
+                      "text": "The ray to cast\n"
+                    }
+                  ]
+                }
               ]
             }
           ],
@@ -806,7 +806,7 @@ GNATdoc.Documentation = {
                       "kind": "span",
                       "cssClass": "identifier",
                       "text": "RGB_Spectrum",
-                      "href": "docs/spectra___spec.html#L127C9"
+                      "href": "docs/spectra___spec.html#L252C9"
                     },
                     {
                       "kind": "span",
@@ -825,15 +825,6 @@ GNATdoc.Documentation = {
                   "text": "Traces a ray through the scene and returns the radiance spectrum\n"
                 }
               ]
-            },
-            {
-              "kind": "paragraph",
-              "children": [
-                {
-                  "kind": "span",
-                  "text": "The ray to cast\n"
-                }
-              ]
             }
           ],
           "parameters": [
@@ -846,6 +837,15 @@ GNATdoc.Documentation = {
                 "docHref": "docs/linear_math___spec.html#L35C9"
               },
               "description": [
+                {
+                  "kind": "paragraph",
+                  "children": [
+                    {
+                      "kind": "span",
+                      "text": "The ray to cast\n"
+                    }
+                  ]
+                }
               ]
             },
             {

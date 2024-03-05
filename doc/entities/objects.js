@@ -2,11 +2,25 @@ GNATdoc.EntitiesCategory = {
   "label": "Constants & Variables",
   "entities": [
     {
+      "label": "BLUE_FACTOR",
+      "docHref": "docs/spectra___spec.html#L248C4",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L248"
+    },
+    {
       "label": "DEBUG_LEVEL",
       "docHref": "docs/utilities___spec.html#L39C4",
       "declared": "Utilities",
       "declared_qualifier": "",
       "srcHref": "srcs/utilities.ads.html#L39"
+    },
+    {
+      "label": "GREEN_FACTOR",
+      "docHref": "docs/spectra___spec.html#L247C4",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L247"
     },
     {
       "label": "M_Dart_Version",
@@ -203,6 +217,139 @@ GNATdoc.EntitiesCategory = {
       "declared": "Core_Types",
       "declared_qualifier": "",
       "srcHref": "srcs/core_types.ads.html#L76"
+    },
+    {
+      "label": "RED_FACTOR",
+      "docHref": "docs/spectra___spec.html#L246C4",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L246"
+    },
+    {
+      "label": "RGB2XYZ_M11",
+      "docHref": "docs/spectra___spec.html#L218C4",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L218"
+    },
+    {
+      "label": "RGB2XYZ_M12",
+      "docHref": "docs/spectra___spec.html#L219C4",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L219"
+    },
+    {
+      "label": "RGB2XYZ_M13",
+      "docHref": "docs/spectra___spec.html#L220C4",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L220"
+    },
+    {
+      "label": "RGB2XYZ_M21",
+      "docHref": "docs/spectra___spec.html#L221C4",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L221"
+    },
+    {
+      "label": "RGB2XYZ_M22",
+      "docHref": "docs/spectra___spec.html#L222C4",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L222"
+    },
+    {
+      "label": "RGB2XYZ_M23",
+      "docHref": "docs/spectra___spec.html#L223C4",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L223"
+    },
+    {
+      "label": "RGB2XYZ_M31",
+      "docHref": "docs/spectra___spec.html#L224C4",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L224"
+    },
+    {
+      "label": "RGB2XYZ_M32",
+      "docHref": "docs/spectra___spec.html#L225C4",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L225"
+    },
+    {
+      "label": "RGB2XYZ_M33",
+      "docHref": "docs/spectra___spec.html#L226C4",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L226"
+    },
+    {
+      "label": "XYZ2RGB_M11",
+      "docHref": "docs/spectra___spec.html#L230C4",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L230"
+    },
+    {
+      "label": "XYZ2RGB_M12",
+      "docHref": "docs/spectra___spec.html#L231C4",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L231"
+    },
+    {
+      "label": "XYZ2RGB_M13",
+      "docHref": "docs/spectra___spec.html#L232C4",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L232"
+    },
+    {
+      "label": "XYZ2RGB_M21",
+      "docHref": "docs/spectra___spec.html#L233C4",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L233"
+    },
+    {
+      "label": "XYZ2RGB_M22",
+      "docHref": "docs/spectra___spec.html#L234C4",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L234"
+    },
+    {
+      "label": "XYZ2RGB_M23",
+      "docHref": "docs/spectra___spec.html#L235C4",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L235"
+    },
+    {
+      "label": "XYZ2RGB_M31",
+      "docHref": "docs/spectra___spec.html#L236C4",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L236"
+    },
+    {
+      "label": "XYZ2RGB_M32",
+      "docHref": "docs/spectra___spec.html#L237C4",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L237"
+    },
+    {
+      "label": "XYZ2RGB_M33",
+      "docHref": "docs/spectra___spec.html#L238C4",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L238"
     }
   ]
 };

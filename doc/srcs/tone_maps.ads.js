@@ -428,7 +428,7 @@ GNATdoc.SourceFile = {
           "kind": "span",
           "cssClass": "identifier",
           "text": "Tone_Map",
-          "href": "docs/tone_maps___spec.html#L74C9"
+          "href": "docs/tone_maps___spec.html#L68C9"
         },
         {
           "kind": "span",
@@ -714,7 +714,7 @@ GNATdoc.SourceFile = {
           "kind": "span",
           "cssClass": "identifier",
           "text": "RGB_Spectrum",
-          "href": "docs/spectra___spec.html#L127C9"
+          "href": "docs/spectra___spec.html#L252C9"
         },
         {
           "kind": "span",
@@ -740,7 +740,7 @@ GNATdoc.SourceFile = {
           "kind": "span",
           "cssClass": "identifier",
           "text": "RGB_Spectrum",
-          "href": "docs/spectra___spec.html#L127C9"
+          "href": "docs/spectra___spec.html#L252C9"
         },
         {
           "kind": "span",
@@ -951,7 +951,7 @@ GNATdoc.SourceFile = {
           "kind": "span",
           "cssClass": "identifier",
           "text": "RGB_Spectrum",
-          "href": "docs/spectra___spec.html#L127C9"
+          "href": "docs/spectra___spec.html#L252C9"
         },
         {
           "kind": "span",
@@ -1376,71 +1376,7 @@ GNATdoc.SourceFile = {
     },
     {
       "kind": "line",
-      "number": 58,
-      "children": [
-        {
-          "kind": "span",
-          "cssClass": "text",
-          "text": "   "
-        },
-        {
-          "kind": "span",
-          "cssClass": "comment",
-          "text": "--  factors used to compute luminance from RGB values. When all added, should equal 1"
-        }
-      ]
-    },
-    {
-      "kind": "line",
-      "number": 59,
-      "children": [
-        {
-          "kind": "span",
-          "cssClass": "text",
-          "text": "   "
-        },
-        {
-          "kind": "span",
-          "cssClass": "comment",
-          "text": "-- RED_FACTOR   : constant Small_Float := 0.299;"
-        }
-      ]
-    },
-    {
-      "kind": "line",
-      "number": 60,
-      "children": [
-        {
-          "kind": "span",
-          "cssClass": "text",
-          "text": "   "
-        },
-        {
-          "kind": "span",
-          "cssClass": "comment",
-          "text": "-- GREEN_FACTOR : constant Small_Float := 0.587;"
-        }
-      ]
-    },
-    {
-      "kind": "line",
-      "number": 61,
-      "children": [
-        {
-          "kind": "span",
-          "cssClass": "text",
-          "text": "   "
-        },
-        {
-          "kind": "span",
-          "cssClass": "comment",
-          "text": "-- BLUE_FACTOR  : constant Small_Float := 0.114;"
-        }
-      ]
-    },
-    {
-      "kind": "line",
-      "number": 89,
+      "number": 86,
       "children": [
         {
           "kind": "span",

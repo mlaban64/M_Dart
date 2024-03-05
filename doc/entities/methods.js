@@ -283,6 +283,27 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "Hit",
+      "docHref": "docs/objects__unit_cones___spec.html#L38C13",
+      "declared": "Objects.Unit_Cones",
+      "declared_qualifier": "",
+      "srcHref": "srcs/objects-unit_cones.ads.html#L38"
+    },
+    {
+      "label": "Hit",
+      "docHref": "docs/objects__unit_cubes___spec.html#L33C13",
+      "declared": "Objects.Unit_Cubes",
+      "declared_qualifier": "",
+      "srcHref": "srcs/objects-unit_cubes.ads.html#L33"
+    },
+    {
+      "label": "Hit",
+      "docHref": "docs/objects__unit_cylinders___spec.html#L38C13",
+      "declared": "Objects.Unit_Cylinders",
+      "declared_qualifier": "",
+      "srcHref": "srcs/objects-unit_cylinders.ads.html#L38"
+    },
+    {
+      "label": "Hit",
       "docHref": "docs/objects__unit_spheres___spec.html#L37C13",
       "declared": "Objects.Unit_Spheres",
       "declared_qualifier": "",
@@ -343,6 +364,27 @@ GNATdoc.EntitiesCategory = {
       "declared": "Samplers",
       "declared_qualifier": "",
       "srcHref": "srcs/samplers.ads.html#L30"
+    },
+    {
+      "label": "Intersect",
+      "docHref": "docs/objects__unit_cones___spec.html#L31C13",
+      "declared": "Objects.Unit_Cones",
+      "declared_qualifier": "",
+      "srcHref": "srcs/objects-unit_cones.ads.html#L31"
+    },
+    {
+      "label": "Intersect",
+      "docHref": "docs/objects__unit_cubes___spec.html#L26C13",
+      "declared": "Objects.Unit_Cubes",
+      "declared_qualifier": "",
+      "srcHref": "srcs/objects-unit_cubes.ads.html#L26"
+    },
+    {
+      "label": "Intersect",
+      "docHref": "docs/objects__unit_cylinders___spec.html#L31C13",
+      "declared": "Objects.Unit_Cylinders",
+      "declared_qualifier": "",
+      "srcHref": "srcs/objects-unit_cylinders.ads.html#L31"
     },
     {
       "label": "Intersect",

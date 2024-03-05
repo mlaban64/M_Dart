@@ -1013,7 +1013,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "comment",
-          "text": "--<parameter name=\"Sphere\">A Unit_Cube</parameter>"
+          "text": "--<parameter name=\"Cube\">A Unit_Cube</parameter>"
         }
       ]
     },

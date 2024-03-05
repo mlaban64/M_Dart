@@ -445,7 +445,7 @@ GNATdoc.SourceFile = {
           "kind": "span",
           "cssClass": "identifier",
           "text": "RGB_Spectrum",
-          "href": "docs/spectra___spec.html#L127C9"
+          "href": "docs/spectra___spec.html#L252C9"
         },
         {
           "kind": "span",
@@ -498,7 +498,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "comment",
-          "text": "--<parameter name=\"Ray\">The ray to cast</parameter>"
+          "text": "--<parameter name=\"R\">The ray to cast</parameter>"
         }
       ]
     },
@@ -703,7 +703,7 @@ GNATdoc.SourceFile = {
           "kind": "span",
           "cssClass": "identifier",
           "text": "RGB_Spectrum",
-          "href": "docs/spectra___spec.html#L127C9"
+          "href": "docs/spectra___spec.html#L252C9"
         },
         {
           "kind": "span",
@@ -756,7 +756,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "comment",
-          "text": "--<parameter name=\"Ray\">The ray to cast</parameter>"
+          "text": "--<parameter name=\"R\">The ray to cast</parameter>"
         }
       ]
     },
@@ -947,7 +947,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "comment",
-          "text": "--<parameter name=\"Ray\">The ray to cast</parameter>"
+          "text": "--<parameter name=\"R\">The ray to cast</parameter>"
         }
       ]
     },
@@ -1101,7 +1101,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "comment",
-          "text": "--<parameter name=\"Ray\">The ray to cast</parameter>"
+          "text": "--<parameter name=\"Init_Ray\">The ray to cast</parameter>"
         }
       ]
     },

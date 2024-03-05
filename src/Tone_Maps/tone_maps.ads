@@ -22,12 +22,6 @@ package Tone_Maps is
    --<parameter name="YRes">The height of the window to be created</parameter>
    --<exception>None at this moment</exception>
 
-   function Refactor_Radiance (Radiance : in RGB_Spectrum) return RGB_Spectrum;
-   --<summary>Divides a Spectrum by the Luminance Factors per color</summary>
-   --<description>Divides a Spectrum by the Luminance Factors per color</description>
-   --<parameter name="Radiance">The spectrum to divide</parameter>
-   --<exception>None at this moment</exception>
-
    procedure Set_Pixel (X, Y : in Integer; Radiance : in RGB_Spectrum);
    --<summary>Sets a pixel to a radiance, and compute the luminance and store it as well</summary>
    --<description>Sets a pixel to a radiance, and compute the luminance and store it as well</description>
@@ -55,15 +49,7 @@ package Tone_Maps is
 
 private
 
-   --  factors used to compute luminance from RGB values. When all added, should equal 1
-   -- RED_FACTOR   : constant Small_Float := 0.299;
-   -- GREEN_FACTOR : constant Small_Float := 0.587;
-   -- BLUE_FACTOR  : constant Small_Float := 0.114;
-
-   -- CIE RGB factors: 0.1762044  0.8129847  0.0108109
-   RED_FACTOR   : constant Small_Float := 0.176_204_4;
-   GREEN_FACTOR : constant Small_Float := 0.812_984_7;
-   BLUE_FACTOR  : constant Small_Float := 0.010_810_9;
+   GAMMA_CORRECTION : constant Small_Float := 2.2;
 
    type Tone_Pixel is record
       Radiance  : RGB_Spectrum;
@@ -74,18 +60,27 @@ private
    --  <summary>Tone_Buffer is a generic array to instantiate a tone buffer</summary>
 
    type Tone_Map (X_Max, Y_Max : Integer) is record
+      -- ToneBuffer holds the radiance for each traced pixel
       ToneBuffer : Tone_Buffer (0 .. X_Max, 0 .. Y_Max);
-      XRes, YRes : Integer;
-      Imin, Imax : Small_Float;
-      --  Min & Max luminance values for the image
-      Xmin, Ymin : Integer;
-      --  Coordinate belonging to the min luminance
-      Xmax, Ymax : Integer;
-      --  Coordinate belonging to the max luminance
-      Rmax, Gmax, Bmax : Small_Float;
-      --  Overall max R, G and B value
-      Rmin, Gmin, Bmin : Small_Float;
-      --  Overall min R, G and B value
+      -- ToneBuffer_Norm holds the normalized radiance for each traced pixel
+      ToneBuffer_Norm : Tone_Buffer (0 .. X_Max, 0 .. Y_Max);
+      XRes, YRes      : Integer;
+      Imin, Imax      : Small_Float := 0.0;
+      --  Min & Max luminance values for the image of the Tone Map
+      Xmin, Ymin : Integer := 0;
+      --  Coordinate belonging to the min luminance of the Tone Map
+      Xmax, Ymax : Integer := 0;
+      --  Coordinate belonging to the max luminance of the Tone Map
+      INmin, INmax : Small_Float := 0.0;
+      --  Min & Max luminance values for the image of the Normalized Tone Map
+      XNmin, YNmin : Integer := 0;
+      --  Coordinate belonging to the min luminance of the NormalizedTone Map
+      XNmax, YNmax : Integer := 0;
+      --  Coordinate belonging to the max luminance of the Normalized Tone Map
+      Rmax, Gmax, Bmax : Small_Float := 0.0;
+      --  Overall max R, G and B value of the Tone Map
+      Rmin, Gmin, Bmin : Small_Float := 0.0;
+      --  Overall min R, G and B value of the Tone Map
    end record;
 
 end Tone_Maps;

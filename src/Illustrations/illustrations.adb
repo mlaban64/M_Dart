@@ -1529,7 +1529,7 @@ package body Illustrations is
       --  Build The_World
       Set_Object_List (Obj_List);
       Set_Light_List (Lt_List);
-      Set_Background_Color (Construct_RGB_Spectrum (0.2, 0.3, 1.0));
+      Set_Background_Color (Construct_RGB_Spectrum (0.0, 0.0, 1.0));
       Set_Name ("Gallery 3 Swirly Sphere");
       Set_FileName ("/home/mlaban/Dev/M_Dart/Images/gallery_iii_swirly_sphere.ppm");
       Set_Camera (Cam_Ptr);

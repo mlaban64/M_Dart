@@ -1,5 +1,6 @@
 with M_GraphiX;           use M_GraphiX;
 with Utilities;           use Utilities;
+with Spectra;             use Spectra;
 with Ada.Text_IO;         use Ada.Text_IO;
 with Ada.Integer_Text_IO; use Ada.Integer_Text_IO;
 
@@ -11,14 +12,6 @@ package body Tone_Maps is
       Main_Tone_Map.XRes := XRes;
       Main_Tone_Map.YRes := YRes;
    end Create_Tone_Map;
-
-   function Refactor_Radiance (Radiance : in RGB_Spectrum) return RGB_Spectrum is
-      new_Rad : RGB_Spectrum;
-   begin
-      new_Rad :=
-        Construct_RGB_Spectrum (Get_R (Radiance) * RED_FACTOR, Get_G (Radiance) * GREEN_FACTOR, Get_B (Radiance) * BLUE_FACTOR);
-      return new_Rad;
-   end Refactor_Radiance;
 
    procedure Set_Pixel (X, Y : in Integer; Radiance : in RGB_Spectrum) is
       Lum, R, G, B : Small_Float;
@@ -39,7 +32,7 @@ package body Tone_Maps is
          Debug_Message ("Set_Pixel: BLUE < 0.0", 2);
       end if;
 
-      Lum := RED_FACTOR * R + GREEN_FACTOR * G + BLUE_FACTOR * B;
+      Lum := Luminance (Radiance);
 
       --  Set the pixel & luminance, min & max luminance, min & max RGB values
       Main_Tone_Map.ToneBuffer (X, Y).Luminance := Lum;
@@ -85,32 +78,80 @@ package body Tone_Maps is
    end Set_Pixel;
 
    procedure Map_Tones_To_Image_Linear is
-      Col         : RGB_PixelColor;
-      RGB         : RGB_Spectrum;
-      XYZ         : XYZ_Spectrum;
-      xyY         : xyY_Spectrum;
-      L_in, L_out : Small_Float;
+      Col                  : RGB_PixelColor;
+      RGB                  : RGB_Spectrum;
+      XYZ                  : XYZ_Spectrum;
+      xyY                  : xyY_Spectrum;
+      L_in, L_out, L_range : Small_Float;
+      max_RGB              : Small_Float;
    begin
       New_Line;
       Put_Line ("Computing Linear Tone Mapping");
+
+      -- First, map all Tone Map radiances into the 0..1 range
+      -- This is done by dividing all RGB values by the maximum RGB value found
+      -- The ToneBuffer_Norm is used to store the normalized Radiance spectra, so we do not destroy the rendering values
+      max_RGB := Main_Tone_Map.Rmax;
+      if max_RGB < Main_Tone_Map.Gmax then
+         max_RGB := Main_Tone_Map.Gmax;
+      end if;
+      if max_RGB < Main_Tone_Map.Bmax then
+         max_RGB := Main_Tone_Map.Bmax;
+      end if;
+      Put_Line ("Max RGB = " & max_RGB'Image);
+
+      Put_Line ("Computing Normalized Tone Map");
+      Main_Tone_Map.INmin := 999.999;
+      Main_Tone_Map.INmax := 0.0;
+      -- Compute the normalized values
+      for Y in 0 .. Main_Tone_Map.YRes - 1 loop
+         for X in 0 .. Main_Tone_Map.XRes - 1 loop
+            Main_Tone_Map.ToneBuffer_Norm (X, Y).Radiance  := Main_Tone_Map.ToneBuffer (X, Y).Radiance / max_RGB;
+            Main_Tone_Map.ToneBuffer_Norm (X, Y).Luminance := Luminance (Main_Tone_Map.ToneBuffer_Norm (X, Y).Radiance);
+            -- Set Max & Min Normalized Luminance
+            if Main_Tone_Map.ToneBuffer_Norm (X, Y).Luminance > Main_Tone_Map.INmax then
+               Main_Tone_Map.INmax := Main_Tone_Map.ToneBuffer_Norm (X, Y).Luminance;
+               Main_Tone_Map.XNmax := X;
+               Main_Tone_Map.YNmax := Y;
+            end if;
+            if Main_Tone_Map.ToneBuffer_Norm (X, Y).Luminance < Main_Tone_Map.INmin then
+               Main_Tone_Map.INmin := Main_Tone_Map.ToneBuffer_Norm (X, Y).Luminance;
+               Main_Tone_Map.XNmin := X;
+               Main_Tone_Map.YNmin := Y;
+            end if;
+
+         end loop;
+      end loop;
+
+      -- Compute the luminance range
+      L_range := Main_Tone_Map.INmax - Main_Tone_Map.INmin;
+      Put_Line ("Luminance range  = " & L_range'Image);
 
       --  Loop through all pixels
       for Y in 0 .. Main_Tone_Map.YRes - 1 loop
          for X in 0 .. Main_Tone_Map.XRes - 1 loop
 
+            -- Normalize the RGB spectrum
+            RGB := Main_Tone_Map.ToneBuffer_Norm (X, Y).Radiance;
+
             -- RGB to XYZ to xyY
-            XYZ := Convert_RGB_Spectrum (Main_Tone_Map.ToneBuffer (X, Y).Radiance);
+            XYZ := Convert_RGB_Spectrum (RGB);
             xyY := Convert_XYZ_Spectrum (XYZ);
 
-            -- Subtract the minimum Luminance, then divide by the maximum Luminance
-            -- so we map
+            -- Subtract the minimum Luminance, then divide by the Luminance range
+            -- so we map the Lmin-Lmax band to 0..1
             L_in  := Get_Lum (xyY);
-            L_out := (L_in - Main_Tone_Map.Imin) / Main_Tone_Map.Imax;
+            L_out := (L_in - Main_Tone_Map.INmin) / L_range;
             Set_Lum (xyY, L_out);
+
+            if L_out > 1.0 then
+               Put_Line ("L_out > 0 : " & L_out'Image);
+               Put_Line ("L_in was : " & L_in'Image);
+            end if;
 
             XYZ := Convert_xyY_Spectrum (xyY);
             RGB := Convert_XYZ_Spectrum (XYZ);
-            RGB := Gamma_Correct (RGB, 1.8);
+            RGB := Gamma_Correct (RGB, GAMMA_CORRECTION);
             Col := Convert_RGB_Spectrum (RGB);
             Set_Pixel_With_Buffer (X, Y, Get_R (Col), Get_G (Col), Get_B (Col));
          end loop;
@@ -147,20 +188,28 @@ package body Tone_Maps is
       for Y in 0 .. Main_Tone_Map.YRes - 1 loop
          for X in 0 .. Main_Tone_Map.XRes - 1 loop
 
+            -- Normalize the RGB spectrum
+            RGB := Normalize (Main_Tone_Map.ToneBuffer (X, Y).Radiance);
+
             -- RGB to XYZ to xyY
             XYZ := Convert_RGB_Spectrum (Main_Tone_Map.ToneBuffer (X, Y).Radiance);
             xyY := Convert_XYZ_Spectrum (XYZ);
 
             -- See https://bruop.github.io/tonemapping/
             -- See http://www.brucelindbloom.com/index.html?Math.html
-            L_in  := Get_Lum (xyY);
-            L_out := L_in / (9.6 * avg_Lum + 0.000_1);
+            L_in := Get_Lum (xyY);
+
+            -- Exposure correction or not?
+            -- L_out := L_in / (9.6 * avg_Lum + 0.000_1);
+            L_out := L_in;
             L_out := L_out / (1.0 + L_out);
+
+            -- Change the luminance
             Set_Lum (xyY, L_out);
 
             XYZ := Convert_xyY_Spectrum (xyY);
             RGB := Convert_XYZ_Spectrum (XYZ);
-            RGB := Gamma_Correct (RGB, 1.8);
+            RGB := Gamma_Correct (RGB, GAMMA_CORRECTION);
             Col := Convert_RGB_Spectrum (RGB);
             Set_Pixel_With_Buffer (X, Y, Get_R (Col), Get_G (Col), Get_B (Col));
          end loop;
@@ -201,19 +250,24 @@ package body Tone_Maps is
          for X in 0 .. Main_Tone_Map.XRes - 1 loop
 
             -- RGB to XYZ to xyY
+            Debug_Spectrum (Main_Tone_Map.ToneBuffer (X, Y).Radiance);
             XYZ := Convert_RGB_Spectrum (Main_Tone_Map.ToneBuffer (X, Y).Radiance);
+            Debug_Spectrum (XYZ);
             xyY := Convert_XYZ_Spectrum (XYZ);
+            Debug_Spectrum (xyY);
 
             -- See https://bruop.github.io/tonemapping/
             -- See http://www.brucelindbloom.com/index.html?Math.html
-            L_in  := Get_Lum (xyY);
-            L_out := L_in / (9.6 * avg_Lum + 0.000_1);
+            L_in := Get_Lum (xyY);
+            -- Exposure correction or not?
+            -- L_out := L_in / (9.6 * avg_Lum + 0.000_1);
+            L_out := L_in;
             L_out := L_out * (1.0 + (L_out / (L_white * L_white))) / (1.0 + L_out);
             Set_Lum (xyY, L_out);
 
             XYZ := Convert_xyY_Spectrum (xyY);
             RGB := Convert_XYZ_Spectrum (XYZ);
-            RGB := Gamma_Correct (RGB, 1.8);
+            RGB := Gamma_Correct (RGB, GAMMA_CORRECTION);
             Col := Convert_RGB_Spectrum (RGB);
             Set_Pixel_With_Buffer (X, Y, Get_R (Col), Get_G (Col), Get_B (Col));
          end loop;

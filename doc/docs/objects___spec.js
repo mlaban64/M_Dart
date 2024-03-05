@@ -498,6 +498,18 @@ GNATdoc.Documentation = {
             {
               "label": "CSG_Object",
               "docHref": "docs/objects__csg_objects___spec.html#L11C9"
+            },
+            {
+              "label": "Unit_Cone",
+              "docHref": "docs/objects__unit_cones___spec.html#L13C9"
+            },
+            {
+              "label": "Unit_Cube",
+              "docHref": "docs/objects__unit_cubes___spec.html#L13C9"
+            },
+            {
+              "label": "Unit_Cylinder",
+              "docHref": "docs/objects__unit_cylinders___spec.html#L13C9"
             }
           ]
         }

@@ -66,24 +66,24 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "*",
-      "docHref": "docs/spectra___spec.html#L43C14",
+      "docHref": "docs/spectra___spec.html#L63C14",
       "declared": "Spectra",
       "declared_qualifier": "",
-      "srcHref": "srcs/spectra.ads.html#L43"
+      "srcHref": "srcs/spectra.ads.html#L63"
     },
     {
       "label": "*",
-      "docHref": "docs/spectra___spec.html#L50C14",
+      "docHref": "docs/spectra___spec.html#L70C14",
       "declared": "Spectra",
       "declared_qualifier": "",
-      "srcHref": "srcs/spectra.ads.html#L50"
+      "srcHref": "srcs/spectra.ads.html#L70"
     },
     {
       "label": "*",
-      "docHref": "docs/spectra___spec.html#L57C14",
+      "docHref": "docs/spectra___spec.html#L77C14",
       "declared": "Spectra",
       "declared_qualifier": "",
-      "srcHref": "srcs/spectra.ads.html#L57"
+      "srcHref": "srcs/spectra.ads.html#L77"
     },
     {
       "label": "**",
@@ -122,10 +122,10 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "+",
-      "docHref": "docs/spectra___spec.html#L36C14",
+      "docHref": "docs/spectra___spec.html#L56C14",
       "declared": "Spectra",
       "declared_qualifier": "",
-      "srcHref": "srcs/spectra.ads.html#L36"
+      "srcHref": "srcs/spectra.ads.html#L56"
     },
     {
       "label": "-",
@@ -380,6 +380,20 @@ GNATdoc.EntitiesCategory = {
       "srcHref": "srcs/cameras.ads.html#L145"
     },
     {
+      "label": "Construct_Positioned_Cone",
+      "docHref": "docs/objects__unit_cones___spec.html#L22C13",
+      "declared": "Objects.Unit_Cones",
+      "declared_qualifier": "",
+      "srcHref": "srcs/objects-unit_cones.ads.html#L22"
+    },
+    {
+      "label": "Construct_Positioned_Cylinder",
+      "docHref": "docs/objects__unit_cylinders___spec.html#L22C13",
+      "declared": "Objects.Unit_Cylinders",
+      "declared_qualifier": "",
+      "srcHref": "srcs/objects-unit_cylinders.ads.html#L22"
+    },
+    {
       "label": "Construct_Positioned_Sphere",
       "docHref": "docs/objects__unit_spheres___spec.html#L22C13",
       "declared": "Objects.Unit_Spheres",
@@ -409,10 +423,10 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "Construct_RGB_Spectrum",
-      "docHref": "docs/spectra___spec.html#L14C13",
+      "docHref": "docs/spectra___spec.html#L20C13",
       "declared": "Spectra",
       "declared_qualifier": "",
-      "srcHref": "srcs/spectra.ads.html#L14"
+      "srcHref": "srcs/spectra.ads.html#L20"
     },
     {
       "label": "Construct_Rook",
@@ -506,6 +520,27 @@ GNATdoc.EntitiesCategory = {
       "srcHref": "srcs/objects-triangles.ads.html#L20"
     },
     {
+      "label": "Construct_Unit_Cone",
+      "docHref": "docs/objects__unit_cones___spec.html#L16C13",
+      "declared": "Objects.Unit_Cones",
+      "declared_qualifier": "",
+      "srcHref": "srcs/objects-unit_cones.ads.html#L16"
+    },
+    {
+      "label": "Construct_Unit_Cube",
+      "docHref": "docs/objects__unit_cubes___spec.html#L16C13",
+      "declared": "Objects.Unit_Cubes",
+      "declared_qualifier": "",
+      "srcHref": "srcs/objects-unit_cubes.ads.html#L16"
+    },
+    {
+      "label": "Construct_Unit_Cylinder",
+      "docHref": "docs/objects__unit_cylinders___spec.html#L16C13",
+      "declared": "Objects.Unit_Cylinders",
+      "declared_qualifier": "",
+      "srcHref": "srcs/objects-unit_cylinders.ads.html#L16"
+    },
+    {
       "label": "Construct_Unit_Sphere",
       "docHref": "docs/objects__unit_spheres___spec.html#L16C13",
       "declared": "Objects.Unit_Spheres",
@@ -535,10 +570,38 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "Convert_RGB_Spectrum",
-      "docHref": "docs/spectra___spec.html#L107C13",
+      "docHref": "docs/spectra___spec.html#L174C13",
       "declared": "Spectra",
       "declared_qualifier": "",
-      "srcHref": "srcs/spectra.ads.html#L107"
+      "srcHref": "srcs/spectra.ads.html#L174"
+    },
+    {
+      "label": "Convert_RGB_Spectrum",
+      "docHref": "docs/spectra___spec.html#L180C13",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L180"
+    },
+    {
+      "label": "Convert_xyY_Spectrum",
+      "docHref": "docs/spectra___spec.html#L198C13",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L198"
+    },
+    {
+      "label": "Convert_XYZ_Spectrum",
+      "docHref": "docs/spectra___spec.html#L186C13",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L186"
+    },
+    {
+      "label": "Convert_XYZ_Spectrum",
+      "docHref": "docs/spectra___spec.html#L192C13",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L192"
     },
     {
       "label": "Core_Type_Facts",
@@ -598,10 +661,24 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "Debug_Spectrum",
-      "docHref": "docs/spectra___spec.html#L29C14",
+      "docHref": "docs/spectra___spec.html#L35C14",
       "declared": "Spectra",
       "declared_qualifier": "",
-      "srcHref": "srcs/spectra.ads.html#L29"
+      "srcHref": "srcs/spectra.ads.html#L35"
+    },
+    {
+      "label": "Debug_Spectrum",
+      "docHref": "docs/spectra___spec.html#L42C14",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L42"
+    },
+    {
+      "label": "Debug_Spectrum",
+      "docHref": "docs/spectra___spec.html#L49C14",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L49"
     },
     {
       "label": "Decrease_Recursion_Level",
@@ -758,6 +835,13 @@ GNATdoc.EntitiesCategory = {
       "srcHref": "srcs/illustrations.ads.html#L33"
     },
     {
+      "label": "Gamma_Correct",
+      "docHref": "docs/spectra___spec.html#L84C13",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L84"
+    },
+    {
       "label": "Generic_Test_World",
       "docHref": "docs/build_functions___spec.html#L29C14",
       "declared": "Build_Functions",
@@ -780,17 +864,17 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "Get_B",
-      "docHref": "docs/spectra___spec.html#L74C13",
+      "docHref": "docs/spectra___spec.html#L107C13",
       "declared": "Spectra",
       "declared_qualifier": "",
-      "srcHref": "srcs/spectra.ads.html#L74"
+      "srcHref": "srcs/spectra.ads.html#L107"
     },
     {
       "label": "Get_B",
-      "docHref": "docs/spectra___spec.html#L102C13",
+      "docHref": "docs/spectra___spec.html#L169C13",
       "declared": "Spectra",
       "declared_qualifier": "",
-      "srcHref": "srcs/spectra.ads.html#L102"
+      "srcHref": "srcs/spectra.ads.html#L169"
     },
     {
       "label": "Get_Background_Color",
@@ -864,17 +948,17 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "Get_G",
-      "docHref": "docs/spectra___spec.html#L69C13",
+      "docHref": "docs/spectra___spec.html#L102C13",
       "declared": "Spectra",
       "declared_qualifier": "",
-      "srcHref": "srcs/spectra.ads.html#L69"
+      "srcHref": "srcs/spectra.ads.html#L102"
     },
     {
       "label": "Get_G",
-      "docHref": "docs/spectra___spec.html#L97C13",
+      "docHref": "docs/spectra___spec.html#L164C13",
       "declared": "Spectra",
       "declared_qualifier": "",
-      "srcHref": "srcs/spectra.ads.html#L97"
+      "srcHref": "srcs/spectra.ads.html#L164"
     },
     {
       "label": "Get_HitPoint",
@@ -917,6 +1001,13 @@ GNATdoc.EntitiesCategory = {
       "declared": "Lights",
       "declared_qualifier": "",
       "srcHref": "srcs/lights.ads.html#L71"
+    },
+    {
+      "label": "Get_Lum",
+      "docHref": "docs/spectra___spec.html#L137C13",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L137"
     },
     {
       "label": "Get_Max_Recursion_Level",
@@ -980,6 +1071,13 @@ GNATdoc.EntitiesCategory = {
       "declared": "ShadePoints",
       "declared_qualifier": "",
       "srcHref": "srcs/shadepoints.ads.html#L78"
+    },
+    {
+      "label": "Get_Normal_For_Cube3D",
+      "docHref": "docs/objects__unit_cubes___spec.html#L22C13",
+      "declared": "Objects.Unit_Cubes",
+      "declared_qualifier": "",
+      "srcHref": "srcs/objects-unit_cubes.ads.html#L22"
     },
     {
       "label": "Get_Object",
@@ -1046,17 +1144,17 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "Get_R",
-      "docHref": "docs/spectra___spec.html#L64C13",
+      "docHref": "docs/spectra___spec.html#L97C13",
       "declared": "Spectra",
       "declared_qualifier": "",
-      "srcHref": "srcs/spectra.ads.html#L64"
+      "srcHref": "srcs/spectra.ads.html#L97"
     },
     {
       "label": "Get_R",
-      "docHref": "docs/spectra___spec.html#L92C13",
+      "docHref": "docs/spectra___spec.html#L159C13",
       "declared": "Spectra",
       "declared_qualifier": "",
-      "srcHref": "srcs/spectra.ads.html#L92"
+      "srcHref": "srcs/spectra.ads.html#L159"
     },
     {
       "label": "Get_Ray",
@@ -1129,6 +1227,20 @@ GNATdoc.EntitiesCategory = {
       "srcHref": "srcs/linear_math.ads.html#L329"
     },
     {
+      "label": "Get_X",
+      "docHref": "docs/spectra___spec.html#L112C13",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L112"
+    },
+    {
+      "label": "Get_x",
+      "docHref": "docs/spectra___spec.html#L127C13",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L127"
+    },
+    {
       "label": "Get_Y",
       "docHref": "docs/linear_math___spec.html#L65C13",
       "declared": "Linear_Math",
@@ -1157,6 +1269,20 @@ GNATdoc.EntitiesCategory = {
       "srcHref": "srcs/linear_math.ads.html#L335"
     },
     {
+      "label": "Get_Y",
+      "docHref": "docs/spectra___spec.html#L117C13",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L117"
+    },
+    {
+      "label": "Get_y",
+      "docHref": "docs/spectra___spec.html#L132C13",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L132"
+    },
+    {
       "label": "Get_Z",
       "docHref": "docs/linear_math___spec.html#L106C13",
       "declared": "Linear_Math",
@@ -1176,6 +1302,13 @@ GNATdoc.EntitiesCategory = {
       "declared": "Linear_Math",
       "declared_qualifier": "",
       "srcHref": "srcs/linear_math.ads.html#L341"
+    },
+    {
+      "label": "Get_Z",
+      "docHref": "docs/spectra___spec.html#L122C13",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L122"
     },
     {
       "label": "Hit_Objects_With_Ray",
@@ -1323,6 +1456,13 @@ GNATdoc.EntitiesCategory = {
       "declared": "Linear_Math",
       "declared_qualifier": "",
       "srcHref": "srcs/linear_math.ads.html#L390"
+    },
+    {
+      "label": "Normalize",
+      "docHref": "docs/spectra___spec.html#L91C13",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L91"
     },
     {
       "label": "Objects_Test",
@@ -1515,17 +1655,17 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "Put",
-      "docHref": "docs/spectra___spec.html#L22C14",
+      "docHref": "docs/spectra___spec.html#L28C14",
       "declared": "Spectra",
       "declared_qualifier": "",
-      "srcHref": "srcs/spectra.ads.html#L22"
+      "srcHref": "srcs/spectra.ads.html#L28"
     },
     {
       "label": "Put",
-      "docHref": "docs/spectra___spec.html#L85C14",
+      "docHref": "docs/spectra___spec.html#L152C14",
       "declared": "Spectra",
       "declared_qualifier": "",
-      "srcHref": "srcs/spectra.ads.html#L85"
+      "srcHref": "srcs/spectra.ads.html#L152"
     },
     {
       "label": "Random_Spheres",
@@ -1617,6 +1757,13 @@ GNATdoc.EntitiesCategory = {
       "declared": "Lights",
       "declared_qualifier": "",
       "srcHref": "srcs/lights.ads.html#L77"
+    },
+    {
+      "label": "Set_Lum",
+      "docHref": "docs/spectra___spec.html#L142C14",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L142"
     },
     {
       "label": "Set_Max_Recursion_Level",
@@ -1743,6 +1890,34 @@ GNATdoc.EntitiesCategory = {
       "declared": "Linear_Math",
       "declared_qualifier": "",
       "srcHref": "srcs/linear_math.ads.html#L304"
+    },
+    {
+      "label": "Trace_Init_Ray",
+      "docHref": "docs/tracers___spec.html#L31C14",
+      "declared": "Tracers",
+      "declared_qualifier": "",
+      "srcHref": "srcs/tracers.ads.html#L31"
+    },
+    {
+      "label": "Trace_Ray",
+      "docHref": "docs/tracers___spec.html#L11C13",
+      "declared": "Tracers",
+      "declared_qualifier": "",
+      "srcHref": "srcs/tracers.ads.html#L11"
+    },
+    {
+      "label": "Trace_Shadow_Ray",
+      "docHref": "docs/tracers___spec.html#L25C13",
+      "declared": "Tracers",
+      "declared_qualifier": "",
+      "srcHref": "srcs/tracers.ads.html#L25"
+    },
+    {
+      "label": "Trace_Transmitted_Ray",
+      "docHref": "docs/tracers___spec.html#L18C13",
+      "declared": "Tracers",
+      "declared_qualifier": "",
+      "srcHref": "srcs/tracers.ads.html#L18"
     },
     {
       "label": "Transparency_Test",

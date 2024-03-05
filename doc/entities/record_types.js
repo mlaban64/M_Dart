@@ -3,38 +3,38 @@ GNATdoc.EntitiesCategory = {
   "entities": [
     {
       "label": "BLACK_RGB_Spec",
-      "docHref": "docs/spectra___spec.html#L113C4",
+      "docHref": "docs/spectra___spec.html#L204C4",
       "declared": "Spectra",
       "declared_qualifier": "",
-      "srcHref": "srcs/spectra.ads.html#L113"
+      "srcHref": "srcs/spectra.ads.html#L204"
     },
     {
       "label": "BLUE_RGB_Spec",
-      "docHref": "docs/spectra___spec.html#L117C4",
+      "docHref": "docs/spectra___spec.html#L208C4",
       "declared": "Spectra",
       "declared_qualifier": "",
-      "srcHref": "srcs/spectra.ads.html#L117"
+      "srcHref": "srcs/spectra.ads.html#L208"
     },
     {
       "label": "CYAN_RGB_Spec",
-      "docHref": "docs/spectra___spec.html#L120C4",
+      "docHref": "docs/spectra___spec.html#L211C4",
       "declared": "Spectra",
       "declared_qualifier": "",
-      "srcHref": "srcs/spectra.ads.html#L120"
+      "srcHref": "srcs/spectra.ads.html#L211"
     },
     {
       "label": "DARK_GREY_RGB_Spec",
-      "docHref": "docs/spectra___spec.html#L123C4",
+      "docHref": "docs/spectra___spec.html#L214C4",
       "declared": "Spectra",
       "declared_qualifier": "",
-      "srcHref": "srcs/spectra.ads.html#L123"
+      "srcHref": "srcs/spectra.ads.html#L214"
     },
     {
       "label": "GREEN_RGB_Spec",
-      "docHref": "docs/spectra___spec.html#L116C4",
+      "docHref": "docs/spectra___spec.html#L207C4",
       "declared": "Spectra",
       "declared_qualifier": "",
-      "srcHref": "srcs/spectra.ads.html#L116"
+      "srcHref": "srcs/spectra.ads.html#L207"
     },
     {
       "label": "HitPoint",
@@ -52,10 +52,10 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "LIGHT_GREY_RGB_Spec",
-      "docHref": "docs/spectra___spec.html#L121C4",
+      "docHref": "docs/spectra___spec.html#L212C4",
       "declared": "Spectra",
       "declared_qualifier": "",
-      "srcHref": "srcs/spectra.ads.html#L121"
+      "srcHref": "srcs/spectra.ads.html#L212"
     },
     {
       "label": "Light_List",
@@ -80,10 +80,10 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "MID_GREY_RGB_Spec",
-      "docHref": "docs/spectra___spec.html#L122C4",
+      "docHref": "docs/spectra___spec.html#L213C4",
       "declared": "Spectra",
       "declared_qualifier": "",
-      "srcHref": "srcs/spectra.ads.html#L122"
+      "srcHref": "srcs/spectra.ads.html#L213"
     },
     {
       "label": "Normal_3D",
@@ -136,10 +136,10 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "PURPLE_RGB_Spec",
-      "docHref": "docs/spectra___spec.html#L119C4",
+      "docHref": "docs/spectra___spec.html#L210C4",
       "declared": "Spectra",
       "declared_qualifier": "",
-      "srcHref": "srcs/spectra.ads.html#L119"
+      "srcHref": "srcs/spectra.ads.html#L210"
     },
     {
       "label": "Ray",
@@ -150,17 +150,17 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "RED_RGB_Spec",
-      "docHref": "docs/spectra___spec.html#L115C4",
+      "docHref": "docs/spectra___spec.html#L206C4",
       "declared": "Spectra",
       "declared_qualifier": "",
-      "srcHref": "srcs/spectra.ads.html#L115"
+      "srcHref": "srcs/spectra.ads.html#L206"
     },
     {
       "label": "RGB_PixelColor",
-      "docHref": "docs/spectra___spec.html#L82C9",
+      "docHref": "docs/spectra___spec.html#L149C9",
       "declared": "Spectra",
       "declared_qualifier": "",
-      "srcHref": "srcs/spectra.ads.html#L82"
+      "srcHref": "srcs/spectra.ads.html#L149"
     },
     {
       "label": "RGB_Spectrum",
@@ -220,10 +220,10 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "WHITE_RGB_Spec",
-      "docHref": "docs/spectra___spec.html#L114C4",
+      "docHref": "docs/spectra___spec.html#L205C4",
       "declared": "Spectra",
       "declared_qualifier": "",
-      "srcHref": "srcs/spectra.ads.html#L114"
+      "srcHref": "srcs/spectra.ads.html#L205"
     },
     {
       "label": "X_AXIS_3D",
@@ -238,6 +238,20 @@ GNATdoc.EntitiesCategory = {
       "declared": "Linear_Math",
       "declared_qualifier": "",
       "srcHref": "srcs/linear_math.ads.html#L542"
+    },
+    {
+      "label": "xyY_Spectrum",
+      "docHref": "docs/spectra___spec.html#L17C9",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L17"
+    },
+    {
+      "label": "XYZ_Spectrum",
+      "docHref": "docs/spectra___spec.html#L14C9",
+      "declared": "Spectra",
+      "declared_qualifier": "",
+      "srcHref": "srcs/spectra.ads.html#L14"
     },
     {
       "label": "Y_AXIS_3D",
@@ -255,10 +269,10 @@ GNATdoc.EntitiesCategory = {
     },
     {
       "label": "YELLOW_RGB_Spec",
-      "docHref": "docs/spectra___spec.html#L118C4",
+      "docHref": "docs/spectra___spec.html#L209C4",
       "declared": "Spectra",
       "declared_qualifier": "",
-      "srcHref": "srcs/spectra.ads.html#L118"
+      "srcHref": "srcs/spectra.ads.html#L209"
     },
     {
       "label": "Z_AXIS_3D",

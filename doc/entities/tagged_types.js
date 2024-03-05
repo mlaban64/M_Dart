@@ -121,6 +121,27 @@ GNATdoc.EntitiesCategory = {
       "srcHref": "srcs/objects-triangles.ads.html#L14"
     },
     {
+      "label": "Unit_Cone",
+      "docHref": "docs/objects__unit_cones___spec.html#L13C9",
+      "declared": "Objects.Unit_Cones",
+      "declared_qualifier": "",
+      "srcHref": "srcs/objects-unit_cones.ads.html#L13"
+    },
+    {
+      "label": "Unit_Cube",
+      "docHref": "docs/objects__unit_cubes___spec.html#L13C9",
+      "declared": "Objects.Unit_Cubes",
+      "declared_qualifier": "",
+      "srcHref": "srcs/objects-unit_cubes.ads.html#L13"
+    },
+    {
+      "label": "Unit_Cylinder",
+      "docHref": "docs/objects__unit_cylinders___spec.html#L13C9",
+      "declared": "Objects.Unit_Cylinders",
+      "declared_qualifier": "",
+      "srcHref": "srcs/objects-unit_cylinders.ads.html#L13"
+    },
+    {
       "label": "Unit_Sphere",
       "docHref": "docs/objects__unit_spheres___spec.html#L13C9",
       "declared": "Objects.Unit_Spheres",

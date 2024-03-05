@@ -1,7 +1,7 @@
-with Utilities;             use Utilities;
-with Scenes;                use Scenes;
-with Ada.Text_IO;           use Ada.Text_IO;
-with Ada.Integer_Text_IO;   use Ada.Integer_Text_IO;
+with Utilities; use Utilities;
+with Scenes; use Scenes;
+with Ada.Text_IO; use Ada.Text_IO;
+with Ada.Integer_Text_IO; use Ada.Integer_Text_IO;
 with Ada.Numerics.Generic_Elementary_Functions;
 with Small_Float_Functions; use Small_Float_Functions;
 -- with Normal_Float_Functions; use Normal_Float_Functions;
@@ -35,13 +35,63 @@ package body Spectra is
       New_Line;
    end Put;
 
+   procedure Put (Spectrum : in XYZ_Spectrum; Msg : in String := "XYZ_Spectrum = ") is
+   begin
+      Put (Msg);
+      New_Line;
+      Put ("   {");
+      Put (Spectrum.X);
+      Put (" ,");
+      Put (Spectrum.Y);
+      Put (" ,");
+      Put (Spectrum.Z);
+      Put (" }");
+      New_Line;
+   end Put;
+
+   procedure Put (Spectrum : in xyY_Spectrum; Msg : in String := "xyY_Spectrum = ") is
+   begin
+      Put (Msg);
+      New_Line;
+      Put ("   {");
+      Put (Spectrum.x);
+      Put (" ,");
+      Put (Spectrum.y);
+      Put (" ,");
+      Put (Spectrum.Lum);
+      Put (" }");
+      New_Line;
+   end Put;
+
    procedure Debug_Spectrum (Spectrum : in RGB_Spectrum; Level : in Integer := 0) is
       Rec : Natural;
    begin
       if Level <= DEBUG_LEVEL then
          Rec := Get_Recursion_Level;
          Put_Line ("RECUSRION_DEPTH = " & Rec'Image);
-         Put_Line ("The following spectrum is returned:");
+         Put_Line ("The following RGB spectrum is returned:");
+         Put (Spectrum);
+      end if;
+   end Debug_Spectrum;
+
+   procedure Debug_Spectrum (Spectrum : in XYZ_Spectrum; Level : in Integer := 0) is
+      Rec : Natural;
+   begin
+      if Level <= DEBUG_LEVEL then
+         Rec := Get_Recursion_Level;
+         Put_Line ("RECUSRION_DEPTH = " & Rec'Image);
+         Put_Line ("The following XYZ spectrum is returned:");
+         Put (Spectrum);
+      end if;
+   end Debug_Spectrum;
+
+   procedure Debug_Spectrum (Spectrum : in xyY_Spectrum; Level : in Integer := 0) is
+      Rec : Natural;
+   begin
+      if Level <= DEBUG_LEVEL then
+         Rec := Get_Recursion_Level;
+         Put_Line ("RECUSRION_DEPTH = " & Rec'Image);
+         Put_Line ("The following xyY spectrum is returned:");
          Put (Spectrum);
       end if;
    end Debug_Spectrum;
@@ -82,8 +132,26 @@ package body Spectra is
       end return;
    end "*";
 
+   function "/" (Spc : in RGB_Spectrum; S : in Small_Float) return RGB_Spectrum is
+   begin
+      return New_Spc : RGB_Spectrum do
+         New_Spc.R := Spc.R / S;
+         New_Spc.G := Spc.G / S;
+         New_Spc.B := Spc.B / S;
+      end return;
+   end "/";
+
+   function "/" (S : in Small_Float; Spc : in RGB_Spectrum) return RGB_Spectrum is
+   begin
+      return New_Spc : RGB_Spectrum do
+         New_Spc.R := Spc.R / S;
+         New_Spc.G := Spc.G / S;
+         New_Spc.B := Spc.B / S;
+      end return;
+   end "/";
+
    function Gamma_Correct (Spc : in RGB_Spectrum; G : in Small_Float) return RGB_Spectrum is
-      Pow     : Small_Float;
+      Pow : Small_Float;
       New_Spc : RGB_Spectrum;
    begin
       Pow := 1.0 / G;
@@ -102,6 +170,23 @@ package body Spectra is
 
       return New_Spc;
    end Gamma_Correct;
+
+   function Normalize (Spc : in RGB_Spectrum) return RGB_Spectrum is
+      Len : Small_Float;
+      New_Spc : RGB_Spectrum;
+   begin
+      Len := Sqrt (Spc.R * Spc.R + Spc.G * Spc.G + Spc.B * Spc.B);
+      New_Spc.R := Spc.R / Len;
+      New_Spc.G := Spc.G / Len;
+      New_Spc.B := Spc.B / Len;
+
+      return New_Spc;
+   end Normalize;
+
+   function Luminance (Spc : in RGB_Spectrum) return Small_Float is
+   begin
+      return (RED_FACTOR * Spc.R + GREEN_FACTOR * Spc.G + BLUE_FACTOR * Spc.B);
+   end Luminance;
 
    function Get_R (Spc : in RGB_Spectrum) return Small_Float is (Spc.R);
 
@@ -144,16 +229,16 @@ package body Spectra is
    end Put;
 
    function Convert_RGB_Spectrum (Spectrum : in RGB_Spectrum) return RGB_PixelColor is
-      PixCol   : RGB_PixelColor;
+      PixCol : RGB_PixelColor;
       Temp_Col : Integer;
    begin
       --  Compute R and clip in 0..255 range
       Temp_Col := Integer (Small_Float'Floor (0.5 + Spectrum.R * 255.0));
       if Temp_Col < 0 then
-         Debug_Message ("CLIPPED RED TO 0: " & Temp_Col'Image, 2);
+         Debug_Message ("CLIPPED RED TO 0: " & Spectrum.R'Image, 2);
          Temp_Col := 0;
       elsif Temp_Col > 255 then
-         Debug_Message ("CLIPPED RED TO 255: " & Temp_Col'Image, 2);
+         Debug_Message ("CLIPPED RED TO 255: " & Spectrum.R'Image, 2);
          Temp_Col := 255;
       end if;
       PixCol.R := RGB_Value (Temp_Col);
@@ -161,10 +246,10 @@ package body Spectra is
       --  Compute G and clip in 0..255 range
       Temp_Col := Integer (Small_Float'Floor (0.5 + Spectrum.G * 255.0));
       if Temp_Col < 0 then
-         Debug_Message ("CLIPPED GREEN TO 0: " & Temp_Col'Image, 2);
+         Debug_Message ("CLIPPED GREEN TO 0: " & Spectrum.G'Image, 2);
          Temp_Col := 0;
       elsif Temp_Col > 255 then
-         Debug_Message ("CLIPPED GREEN TO 255: " & Temp_Col'Image, 2);
+         Debug_Message ("CLIPPED GREEN TO 255: " & Spectrum.G'Image, 2);
          Temp_Col := 255;
       end if;
       PixCol.G := RGB_Value (Temp_Col);
@@ -172,10 +257,10 @@ package body Spectra is
       --  Compute B and clip in 0..255 range
       Temp_Col := Integer (Small_Float'Floor (0.5 + Spectrum.B * 255.0));
       if Temp_Col < 0 then
-         Debug_Message ("CLIPPED BLUE TO 0: " & Temp_Col'Image, 2);
+         Debug_Message ("CLIPPED BLUE TO 0: " & Spectrum.B'Image, 2);
          Temp_Col := 0;
       elsif Temp_Col > 255 then
-         Debug_Message ("CLIPPED BLUE TO 255: " & Temp_Col'Image, 2);
+         Debug_Message ("CLIPPED BLUE TO 255: " & Spectrum.B'Image, 2);
          Temp_Col := 255;
       end if;
       PixCol.B := RGB_Value (Temp_Col);
@@ -188,10 +273,10 @@ package body Spectra is
    begin
       -- Assuming RGB in is already linear to energy, else see http://www.brucelindbloom.com/index.html?Eqn_RGB_to_XYZ.html
       -- Usng CIE RGB matrix from same URL
+      XYZ.X := RGB2XYZ_M11 * Spectrum.R + RGB2XYZ_M12 * Spectrum.G + RGB2XYZ_M13 * Spectrum.B;
+      XYZ.Y := RGB2XYZ_M21 * Spectrum.R + RGB2XYZ_M22 * Spectrum.G + RGB2XYZ_M23 * Spectrum.B;
+      XYZ.Z := RGB2XYZ_M31 * Spectrum.R + RGB2XYZ_M32 * Spectrum.G + RGB2XYZ_M33 * Spectrum.B;
 
-      XYZ.X := 0.488_718_0 * Spectrum.R + 0.310_680_3 * Spectrum.G + 0.200_601_7 * Spectrum.B;
-      XYZ.Y := 0.176_204_4 * Spectrum.R + 0.812_984_7 * Spectrum.G + 0.010_810_9 * Spectrum.B;
-      XYZ.Z := 0.000_000_0 * Spectrum.R + 0.010_204_8 * Spectrum.G + 0.989_795_2 * Spectrum.B;
       return XYZ;
    end Convert_RGB_Spectrum;
 
@@ -199,9 +284,9 @@ package body Spectra is
       xyY : xyY_Spectrum;
       XYZ : Small_Float;
    begin
-      XYZ     := Spectrum.X + Spectrum.Y + Spectrum.Z;
-      xyY.x   := Spectrum.X / XYZ;
-      xyY.y   := Spectrum.Y / XYZ;
+      XYZ := Spectrum.X + Spectrum.Y + Spectrum.Z;
+      xyY.x := Spectrum.X / XYZ;
+      xyY.y := Spectrum.Y / XYZ;
       xyY.Lum := Spectrum.Y;
       return xyY;
    end Convert_XYZ_Spectrum;
@@ -211,10 +296,10 @@ package body Spectra is
    begin
       -- See http://www.brucelindbloom.com/index.html?Eqn_RGB_to_XYZ.html
       -- Usng CIE RGB matrix M-1 from same URL
+      RGB.R := XYZ2RGB_M11 * Spectrum.X + XYZ2RGB_M12 * Spectrum.Y + XYZ2RGB_M13 * Spectrum.Z;
+      RGB.G := XYZ2RGB_M21 * Spectrum.X + XYZ2RGB_M22 * Spectrum.Y + XYZ2RGB_M23 * Spectrum.Z;
+      RGB.B := XYZ2RGB_M31 * Spectrum.X + XYZ2RGB_M32 * Spectrum.Y + XYZ2RGB_M33 * Spectrum.Z;
 
-      RGB.R := 2.370_674_3 * Spectrum.X - 0.900_040_5 * Spectrum.Y - 0.470_633_8 * Spectrum.Z;
-      RGB.G := -0.513_885_0 * Spectrum.X + 1.425_303_6 * Spectrum.Y + 0.088_581_4 * Spectrum.Z;
-      RGB.B := 0.005_298_2 * Spectrum.X - 0.014_694_9 * Spectrum.Y + 1.009_396_8 * Spectrum.Z;
       return RGB;
    end Convert_XYZ_Spectrum;
 

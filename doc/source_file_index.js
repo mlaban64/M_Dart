@@ -84,6 +84,18 @@ GNATdoc.SourceFileIndex = [
     "srcHref": "srcs/objects-triangles.ads.html"
   },
   {
+    "label": "objects-unit_cones.ads",
+    "srcHref": "srcs/objects-unit_cones.ads.html"
+  },
+  {
+    "label": "objects-unit_cubes.ads",
+    "srcHref": "srcs/objects-unit_cubes.ads.html"
+  },
+  {
+    "label": "objects-unit_cylinders.ads",
+    "srcHref": "srcs/objects-unit_cylinders.ads.html"
+  },
+  {
     "label": "objects-unit_spheres.ads",
     "srcHref": "srcs/objects-unit_spheres.ads.html"
   },
@@ -118,6 +130,10 @@ GNATdoc.SourceFileIndex = [
   {
     "label": "tone_maps.ads",
     "srcHref": "srcs/tone_maps.ads.html"
+  },
+  {
+    "label": "tracers.ads",
+    "srcHref": "srcs/tracers.ads.html"
   },
   {
     "label": "utilities.ads",

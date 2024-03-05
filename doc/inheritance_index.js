@@ -76,6 +76,18 @@ GNATdoc.InheritanceIndex = [
         "docHref": "docs/objects__triangles___spec.html#L14C9"
       },
       {
+        "label": "Unit_Cone",
+        "docHref": "docs/objects__unit_cones___spec.html#L13C9"
+      },
+      {
+        "label": "Unit_Cube",
+        "docHref": "docs/objects__unit_cubes___spec.html#L13C9"
+      },
+      {
+        "label": "Unit_Cylinder",
+        "docHref": "docs/objects__unit_cylinders___spec.html#L13C9"
+      },
+      {
         "label": "Unit_Sphere",
         "docHref": "docs/objects__unit_spheres___spec.html#L13C9"
       }

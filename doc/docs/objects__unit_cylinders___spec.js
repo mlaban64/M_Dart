@@ -839,15 +839,6 @@ GNATdoc.Documentation = {
                   "text": "Hence the code is a simplified version of Intersect.\n"
                 }
               ]
-            },
-            {
-              "kind": "paragraph",
-              "children": [
-                {
-                  "kind": "span",
-                  "text": "A Unit_Cylinder\n"
-                }
-              ]
             }
           ],
           "parameters": [
@@ -860,6 +851,15 @@ GNATdoc.Documentation = {
                 "docHref": "docs/objects__unit_cylinders___spec.html#L13C9"
               },
               "description": [
+                {
+                  "kind": "paragraph",
+                  "children": [
+                    {
+                      "kind": "span",
+                      "text": "A Unit_Cylinder\n"
+                    }
+                  ]
+                }
               ]
             },
             {

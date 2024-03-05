@@ -1203,7 +1203,7 @@ GNATdoc.SourceFile = {
         {
           "kind": "span",
           "cssClass": "comment",
-          "text": "--<parameter name=\"Sphere\">A Unit_Cylinder</parameter>"
+          "text": "--<parameter name=\"Cylinder\">A Unit_Cylinder</parameter>"
         }
       ]
     },

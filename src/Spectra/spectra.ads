@@ -39,6 +39,20 @@ package Spectra is
    --<parameter name="Level">The Level to compare with the DEBUG_LEVEL</parameter>
    --<exception>None at this moment</exception>
 
+   procedure Debug_Spectrum (Spectrum : in XYZ_Spectrum; Level : in Integer := 0);
+   --<summary>Prints some debugging info of a Spectrum</summary>
+   --<description>Prints the value of a Spectrum with the Recursion Level</description>
+   --<parameter name="Spectrum">The spectrum to be printed</parameter>
+   --<parameter name="Level">The Level to compare with the DEBUG_LEVEL</parameter>
+   --<exception>None at this moment</exception>
+
+   procedure Debug_Spectrum (Spectrum : in xyY_Spectrum; Level : in Integer := 0);
+   --<summary>Prints some debugging info of a Spectrum</summary>
+   --<description>Prints the value of a Spectrum with the Recursion Level</description>
+   --<parameter name="Spectrum">The spectrum to be printed</parameter>
+   --<parameter name="Level">The Level to compare with the DEBUG_LEVEL</parameter>
+   --<exception>None at this moment</exception>
+
    function "+" (S1 : in RGB_Spectrum; S2 : in RGB_Spectrum) return RGB_Spectrum;
    --<summary>Adds two RGB_Spectra</summary>
    --<description>function to add two RGB_Spectra</description>
@@ -67,11 +81,36 @@ package Spectra is
    --<parameter name="Spc">The first spectrum</parameter>
    --<exception>None at this moment</exception>
 
+   function "/" (Spc : in RGB_Spectrum; S : in Small_Float) return RGB_Spectrum;
+   --<summary>Divides an RGB_Spectrum with a scalar</summary>
+   --<description>Divides an RGB_Spectrum with a scalar/description>
+   --<parameter name="Spc">The spectrum</parameter>
+   --<parameter name="S">The scalar</parameter>
+   --<exception>None at this moment</exception>
+
+   function "/" (S : in Small_Float; Spc : in RGB_Spectrum) return RGB_Spectrum;
+   --<summary>Divides an RGB_Spectrum with a scalar</summary>
+   --<description>Divides an RGB_Spectrum with a scalar</description>
+   --<parameter name="S">The spectrum</parameter>
+   --<parameter name="Spc">The first spectrum</parameter>
+   --<exception>None at this moment</exception>
+
    function Gamma_Correct (Spc : in RGB_Spectrum; G : in Small_Float) return RGB_Spectrum;
    --<summary>Gamma-corrects an RGB_Spectrum with a scalar</summary>
    --<description>Gamma-corrects an RGB_Spectrum with a scalar</description>
    --<parameter name="Spc">The first spectrum</parameter>
    --<parameter name="G">The scalar</parameter>
+   --<exception>None at this moment</exception>
+
+   function Normalize (Spc : in RGB_Spectrum) return RGB_Spectrum;
+   --<summary>Normalizes an RGB_Spectrum</summary>
+   --<description>Normalizes an RGB_Spectrum</description>
+   --<parameter name="Spc">The first spectrum</parameter>
+   --<exception>None at this moment</exception>
+
+   function Luminance (Spc : in RGB_Spectrum) return Small_Float;
+   --<summary>Computes the luminance of an RGB_Spectrum</summary>
+   --<description>Computes the luminance of an RGB_Spectrum</description>
    --<exception>None at this moment</exception>
 
    function Get_R (Spc : in RGB_Spectrum) return Small_Float;
@@ -192,6 +231,40 @@ package Spectra is
    LIGHT_GREY_RGB_Spec : constant RGB_Spectrum;
    MID_GREY_RGB_Spec   : constant RGB_Spectrum;
    DARK_GREY_RGB_Spec  : constant RGB_Spectrum;
+
+   -- CIE Matrix values to convert RGB to XYZ
+   -- See http://www.brucelindbloom.com/index.html?Eqn_RGB_to_XYZ.html
+   RGB2XYZ_M11 : constant Small_Float := 0.488_718_0;
+   RGB2XYZ_M12 : constant Small_Float := 0.310_680_3;
+   RGB2XYZ_M13 : constant Small_Float := 0.200_601_7;
+   RGB2XYZ_M21 : constant Small_Float := 0.176_204_4;
+   RGB2XYZ_M22 : constant Small_Float := 0.812_984_7;
+   RGB2XYZ_M23 : constant Small_Float := 0.010_810_9;
+   RGB2XYZ_M31 : constant Small_Float := 0.000_000_0;
+   RGB2XYZ_M32 : constant Small_Float := 0.010_204_8;
+   RGB2XYZ_M33 : constant Small_Float := 0.989_795_2;
+
+   -- CIE Matrix values to convert XYZ to RGB (Inverse of the above
+   -- See http://www.brucelindbloom.com/index.html?Eqn_RGB_to_XYZ.html
+   XYZ2RGB_M11 : constant Small_Float := 2.370_674_3;
+   XYZ2RGB_M12 : constant Small_Float := -0.900_040_5;
+   XYZ2RGB_M13 : constant Small_Float := -0.470_633_8;
+   XYZ2RGB_M21 : constant Small_Float := -0.513_885_0;
+   XYZ2RGB_M22 : constant Small_Float := 1.425_303_6;
+   XYZ2RGB_M23 : constant Small_Float := 0.088_581_4;
+   XYZ2RGB_M31 : constant Small_Float := 0.005_298_2;
+   XYZ2RGB_M32 : constant Small_Float := -0.014_694_9;
+   XYZ2RGB_M33 : constant Small_Float := 1.009_396_8;
+
+   -- factors used to compute luminance from RGB values. When all added, should equal 1
+   -- RED_FACTOR   : constant Small_Float := 0.299;
+   -- GREEN_FACTOR : constant Small_Float := 0.587;
+   -- BLUE_FACTOR  : constant Small_Float := 0.114;
+
+   -- CIE RGB factors: 0.1762044  0.8129847  0.0108109
+   RED_FACTOR   : constant Small_Float := 0.176_204_4;
+   GREEN_FACTOR : constant Small_Float := 0.812_984_7;
+   BLUE_FACTOR  : constant Small_Float := 0.010_810_9;
 
 private
 

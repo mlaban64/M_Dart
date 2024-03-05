@@ -475,7 +475,7 @@ GNATdoc.SourceFile = {
           "kind": "span",
           "cssClass": "identifier",
           "text": "RGB_Spectrum",
-          "href": "docs/spectra___spec.html#L127C9"
+          "href": "docs/spectra___spec.html#L252C9"
         },
         {
           "kind": "span",
@@ -1106,7 +1106,7 @@ GNATdoc.SourceFile = {
           "kind": "span",
           "cssClass": "identifier",
           "text": "RGB_Spectrum",
-          "href": "docs/spectra___spec.html#L127C9"
+          "href": "docs/spectra___spec.html#L252C9"
         },
         {
           "kind": "span",
